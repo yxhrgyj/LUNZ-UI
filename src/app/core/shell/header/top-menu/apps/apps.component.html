@@ -1,0 +1,40 @@
+<a href="#" class="m-menu__link m-menu__toggle">
+  <i class="m-menu__link-icon flaticon-app"></i>
+  <span class="m-menu__link-title">
+    <span class="m-menu__link-wrap">
+      <span class="m-menu__link-text">
+        产品与服务
+      </span>
+    </span>
+  </span>
+  <i class="m-menu__hor-arrow la la-angle-down"></i>
+  <i class="m-menu__ver-arrow la la-angle-right"></i>
+</a>
+<div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left" [ngStyle]="{'width.px': width}">
+  <span class="m-menu__arrow m-menu__arrow--adjust"></span>
+  <div class="m-menu__subnav">
+    <ul class="m-menu__content">
+      <li *ngFor="let category of categories" class="m-menu__item">
+        <h3 class="m-menu__heading m-menu__toggle">
+          <span class="m-menu__link-text">
+            {{category.name}}
+          </span>
+          <i class="m-menu__hor-arrow la la-angle-right"></i>
+        </h3>
+        <ul class="m-menu__inner">
+          <li *ngFor="let item of category.applications" class="m-menu__item " data-redirect="true" aria-haspopup="true">
+            <a [href]="item.Website" target="_blank" class="m-menu__link ">
+              <i *ngIf="!hasIcon(item.appIconUrl)" class="m-menu__link-icon flaticon-network"></i>
+              <i *ngIf="hasIcon(item.appIconUrl)" class="m-menu__link-icon">
+                <img [src]="getIconUrl(item.appIconUrl)" width="24px" />
+              </i>
+              <span class="m-menu__link-text">
+                {{item.Name}}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

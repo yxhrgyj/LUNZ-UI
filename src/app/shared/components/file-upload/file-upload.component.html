@@ -1,0 +1,16 @@
+<label ng2File2Drop ondragover="return false;"
+       [uploader]="uploader"
+       (fileAccepted)="setFiles($event)">
+    
+    <img imgPreview 
+        [image]="_lastFile$ | async"
+        [class.loaded]="fileLoaded"/>
+   
+    <input *ngIf="multiple" ng2File2Select type="file" name="file" multiple
+        [uploader]="uploader"
+        (fileAccepted)="setFiles($event)"/>
+     
+      <input *ngIf="!multiple" ng2File2Select type="file" name="file" 
+        [uploader]="uploader"
+        (fileAccepted)="setFiles($event)"/>
+</label>

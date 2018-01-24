@@ -1,0 +1,82 @@
+<div class="m-portlet">
+  <div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <span class="m-portlet__head-icon">
+          <i class="flaticon-interface-2"></i>
+        </span>
+        <h3 class="m-portlet__head-text">
+          {{title}}
+        </h3>
+      </div>
+    </div>
+    <div class="m-portlet__head-tools">
+      <ul class="m-portlet__nav">
+        <li class="m-portlet__nav-item">
+          <a [routerLink]="['../', order.id,'edit']" class="btn btn-sm btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--pill">
+            <span>
+              <i class="la la-edit"></i>
+              <span>编辑</span>
+            </span>
+          </a>
+        </li>
+        <li class="m-portlet__nav-item">
+          <button class="btn btn-sm btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--pill" type="button" (click)="location.back()">
+            <span>
+              <i class="la la-rotate-left"></i>
+              <span>返回列表</span>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="m-portlet__body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>订单摘要</label>
+              <span class="form-control">{{order.subject}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>日期</label>
+              <span class="form-control">{{order.date | amDateFormat: 'YYYY-MM-DD'}}</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>从何处了解本站？</label>
+              <span class="form-control">{{order.hearFromLabel}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>单价</label>
+              <span class="form-control">{{order.price | rmb}}</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>数量</label>
+              <span class="form-control">{{order.amount | number: '1.0'}}</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>金额</label>
+              <span class="form-control">{{order.price * order.amount | rmb}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.m-login__content {
+  background-image: url('../../assets/media/app/img/bg/bg-4.jpg');
+}
+
+.m-login.m-form__group .form-control {
+  border-radius: 0;
+  border: 0;
+  padding: 0 1rem;
+  margin-top: 0.1rem;
+}
+
+.m-login__form .m-form__group .form-control {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid #ebedf2;
+  padding: 0;
+  margin-top: 0.1rem;
+  height: 46px;
+}
+
+.m-login__form-input-first {
+  border-bottom: 1px solid #ebedf2;
+}
+
+.m-login .m-login__forget-password {
+  display: block;
+}
+
+.m-login.m-login--1 .m-login__wrapper {
+  padding: 35% 2rem 0;
+}

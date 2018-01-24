@@ -1,0 +1,50 @@
+<div class="m-portlet">
+  <div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <span class="m-portlet__head-icon">
+          <i class="la la-envelope-o"></i>
+        </span>
+        <h3 class="m-portlet__head-text">
+          我的消息
+        </h3>
+      </div>
+    </div>
+
+  </div>
+  <div class="m-portlet__body">
+    <div class="m-widget2">
+      <div *ngFor="let msg of webmessages" 
+        [ngClass]="{'m-widget2__item--success': msg.read, 'm-widget2__item--brand': !msg.read, 'animated': msg.id==currentMsgId, 'bounce': msg.id==currentMsgId}"
+        class="m-widget2__item">
+        <div class="m-widget2__checkbox">
+          <button *ngIf="!msg.read" (click)="setMessageRead(msg)" title="标记已读" class="btn btn-sm m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill">
+            <i class="la la-check"></i>
+          </button>
+        </div>
+        <div class="m-widget2__desc">
+          <span class="m-widget2__text">
+            {{msg.message}}
+          </span>
+          <br/>
+          <span class="m-widget2__user-name">
+            <a href="javascrpt:;" class="m-widget2__link" title="{{msg.sentAt|amCalendar:{sameDay:'h:mm A'} }}">
+              {{msg.sentAt | amTimeAgo}}
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isShowDivMore" class="text-center">
+      <a (click)="getMoreMessages()" class="btn btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--pill">
+        查看更多
+        <i class="fa fa-arrow-circle-down"></i>
+      </a>
+    </div>
+    <div *ngIf="webmessages.length===0">
+      <p>
+        还没有收到消息通知。
+      </p>
+    </div>
+  </div>
+</div>

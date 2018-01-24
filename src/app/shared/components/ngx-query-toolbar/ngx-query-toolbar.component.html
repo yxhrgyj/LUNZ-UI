@@ -1,0 +1,25 @@
+<button *ngIf="!visible" (click)="showNgxQuery()" type="button" class="btn btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill">
+  <i class="la la-filter"></i>
+</button>
+<div *ngIf="visible" class="m-btn-group m-btn-group--pill btn-group">
+  <button (click)="hideNgxQuery()" type="button" class="btn btn-brand m-btn m-btn--icon m-btn--icon-only">
+    <i class="la la-filter"></i>
+  </button>
+  <button *ngIf="ngxQuery.showModeButtons" (click)="setPlainMode()" type="button" class="btn m-btn m-btn--icon m-btn--icon-only"
+    title="快速" [ngClass]="{'btn-brand': isPlainMode(), 'btn-secondary': !isPlainMode(), 'm-btn--hover-brand': !isPlainMode()}">
+    <i class="la la-location-arrow"></i>
+  </button>
+  <button *ngIf="ngxQuery.showModeButtons" (click)="setAdvancedMode()" type="button" class="btn m-btn m-btn--icon m-btn--icon-only"
+    title="高级" [ngClass]="{'btn-brand': isAdvancedMode(), 'btn-secondary': !isAdvancedMode(), 'm-btn--hover-brand': !isAdvancedMode()}">
+    <i class="la la-fire"></i>
+  </button>
+  <button (click)="reset()" type="button" class="btn btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only" title="重置">
+    <i class="la la-rotate-right"></i>
+  </button>
+  <button (click)="search()" type="button" class="btn btn-secondary btn-sm m-btn m-btn--hover-brand m-btn--icon-only" title="查询">
+    <span>
+      <i class="la la-search"></i>
+      <span>查询</span>
+    </span>
+  </button>
+</div>

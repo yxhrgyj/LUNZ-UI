@@ -1,0 +1,75 @@
+<div class="modal-header">
+  <h5 class="modal-title">编辑订单</h5>
+  <button type="button" class="close" (click)="activeModal.hide()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="m-t" role="form" [formGroup]="form" novalidate>
+    <div class="form-body">
+      <div class="form-group">
+        <label>订单摘要
+          <span class="text-danger">*</span>
+        </label>
+        <input type="text" formControlName="subject" placeholder="订单摘要" class="form-control" [(ngModel)]="data.subject" />
+        <app-validation-message [control]="form.controls['subject']" label="订单摘要"></app-validation-message>
+      </div>
+      <div class="form-group">
+        <label>日期
+          <span class="text-danger">*</span>
+        </label>
+        <div class="input-group">
+          <input type="text" class="form-control" formControlName="date" placeholder="yyyy-mm-dd" bsDatepicker [(bsDateValue)]="data.date"
+            #d="bsDatepicker" />
+          <span class="input-group-btn">
+            <button class="btn btn-default" (click)="d.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+            </button>
+          </span>
+        </div>
+        <app-validation-message [formGroup]="form" for="date" label="日期"></app-validation-message>
+      </div>
+      <div class="form-group">
+        <label>单价
+          <span class="text-danger">*</span>
+        </label>
+        <input type="number" formControlName="price" placeholder="单价" class="form-control" [(ngModel)]="data.price" />
+        <app-validation-message [control]="form.controls['price']" label="单价"></app-validation-message>
+      </div>
+      <div class="form-group">
+        <label>从何处了解本站？
+          <span class="text-danger">*</span>
+        </label>
+        <select formControlName="hearFrom" [(ngModel)]="data.hearFrom" class="form-control">
+          <option *ngFor="let item of hearFromItems" [ngValue]="item.key">{{item.text}}</option>
+        </select>
+        <app-validation-message [control]="form.controls['hearFrom']" label="从何处了解本站"></app-validation-message>
+      </div>
+      <div class="form-group">
+        <label>数量
+          <span class="text-danger">*</span>
+        </label>
+        <input type="number" formControlName="amount" placeholder="数量" class="form-control" [(ngModel)]="data.amount" />
+        <app-validation-message [control]="form.controls['amount']" label="数量"></app-validation-message>
+      </div>
+      <div class="form-group">
+        <label>金额</label>
+        <span class="form-control">{{data.price*data.amount}}</span>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-brand m-btn m-btn--icon m-btn--pill" [ladda]="saving" (click)="submit()">
+    <span>
+      <i class="la la-check"></i>
+      <span>保存</span>
+    </span>
+  </button>
+  <button type="button" class="btn btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--pill" (click)="activeModal.hide()">
+    <span>
+      <i class="la la-rotate-left"></i>
+      <span>取消</span>
+    </span>
+  </button>
+</div>

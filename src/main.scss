@@ -1,0 +1,105 @@
+/*
+ * Entry point of global application style.
+ * Component-specific style should not go here and be included directly as part of the components.
+ */
+
+// fonts
+
+/* devanagari */
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v5/gG8m82oGcrBJF727xHU04fY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+02BC, U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200B-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+}
+
+
+/* latin-ext */
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v5/F4YWuALHubF63LLQPw0rMfY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* latin */
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v5/HLBysyo0MQBO_7E-DWLwzg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+// 3rd party libraries
+@import "~animate.css/animate.min.css";
+@import "~ngx-toastr/toastr";
+@import "~malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css";
+@import "~sweetalert2/dist/sweetalert2.min.css";
+@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+// icons
+@import "~socicon/css/socicon.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "assets/vendors/line-awesome/css/line-awesome.css";
+@import "assets/vendors/flaticon/css/flaticon.css";
+@import "assets/vendors/metronic/css/styles.css";
+// metronic v5
+@import "assets/sass/default/style";
+//reset chrome input default Fill
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: #000000;
+    background: none;
+  }
+}
+
+//全局设置input type=‘checkb’ 的样式
+input[type='checkbox']:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+input[type='checkbox']:before {
+  content: "";
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #c7c5c5;
+  z-index: 1;
+}
+
+input[type='checkbox']:checked:before {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  height: .5rem;
+  border-color: #009688;
+  border-top-style: none;
+  border-right-style: none;
+}
+
+.m-alert__text {
+  font-size: 13px;
+  padding: 0rem 0rem 0rem 1.75rem !important;
+}

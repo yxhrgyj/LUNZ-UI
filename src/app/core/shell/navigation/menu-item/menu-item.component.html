@@ -1,0 +1,29 @@
+<a *ngIf="level==1 && menuItem.ngUrl" [routerLink]="menuItem.ngUrl" class="m-menu__link">
+  <i [class]="icon"></i>
+  <span class="m-menu__link-text">{{menuItem.name}}</span>
+  <i class="m-menu__ver-arrow la la-angle-right" *ngIf="hasChild"></i>
+</a>
+<a *ngIf="level==1 && menuItem.ngUrl==undefined" class="m-menu__link m-menu__toggle">
+  <i [class]="icon"></i>
+  <span class="m-menu__link-text">{{menuItem.name}}</span>
+  <i class="m-menu__ver-arrow la la-angle-right" *ngIf="hasChild"></i>
+</a>
+<a *ngIf="level>1" [routerLink]="menuItem.ngUrl" class="m-menu__link">
+  <i [class]="icon"></i>
+  <span class="m-menu__link-text">{{menuItem.name}}</span>
+  <i class="m-menu__ver-arrow la la-angle-right" *ngIf="hasChild"></i>
+</a>
+<div class="m-menu__submenu" *ngIf="hasChild">
+  <span class="m-menu__arrow"></span>
+  <ul class="m-menu__subnav">
+    <li *ngIf="level==1" class="m-menu__item  m-menu__item--parent" aria-haspopup="true">
+      <a class="m-menu__link ">
+        <span class="m-menu__link-text">
+          {{menuItem.name}}
+        </span>
+      </a>
+    </li>
+    <li *ngFor="let child of menuItem.children" [app-menu-item]="child" [level]="level+1" class="m-menu__item" aria-haspopup="true"
+      [ngClass]="isActive(child.ngUrl) ? 'm-menu__item--active' : ''"></li>
+  </ul>
+</div>

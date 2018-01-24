@@ -1,0 +1,87 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "Lunz+"
+  },
+  "apps": [{
+    "root": "src",
+    "outDir": "dist",
+    "assets": [
+      "assets",
+      "translations",
+      "favicon.ico",
+      "robots.txt",
+      "web.config"
+    ],
+    "index": "index.html",
+    "main": "main.ts",
+    "polyfills": "polyfills.ts",
+    "test": "test.ts",
+    "tsconfig": "tsconfig.app.json",
+    "testTsconfig": "tsconfig.spec.json",
+    "prefix": "app",
+    "styles": [
+      "main.scss"
+    ],
+    "scripts": [
+      "../node_modules/jquery/dist/jquery.min.js",
+      "../node_modules/popper.js/dist/umd/popper.js",
+      "../node_modules/bootstrap/dist/js/bootstrap.js",
+      "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
+      "../node_modules/urijs/src/URI.min.js",
+      "../node_modules/signalr/jquery.signalR.js",
+
+      "assets/js/framework/base/app.js",
+      "assets/js/framework/base/util.js",
+      
+      "assets/js/framework/components/general/animate.js",
+      "assets/js/framework/components/general/datatable.js",
+      "assets/js/framework/components/general/dropdown.js",
+      "assets/js/framework/components/general/example.js",
+      "assets/js/framework/components/general/header.js",
+      "assets/js/framework/components/general/menu.js",
+      "assets/js/framework/components/general/messenger.js",
+      "assets/js/framework/components/general/offcanvas.js",
+      "assets/js/framework/components/general/portlet.js",      
+      "assets/js/framework/components/general/quicksearch.js",
+      "assets/js/framework/components/general/scroll-top.js",
+      "assets/js/framework/components/general/toggle.js",
+      
+      "assets/js/default/base/layout.js",
+      "assets/js/snippets/custom/pages/user/login.js"
+    ],
+    "environmentSource": "environments/environment.ts",
+    "environments": {
+      "dev": "environments/environment.ts",
+      "stage": "environments/environment.stage.ts",
+      "prod": "environments/environment.prod.ts"
+    }
+  }],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [{
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {},
+    "serve": {
+      "port": 9200
+    }
+  }
+}

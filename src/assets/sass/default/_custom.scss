@@ -1,0 +1,130 @@
+/* app */
+
+a {
+  cursor: pointer;
+}
+
+app-shell {
+  height: 100%;
+}
+
+app-login {
+  height: 100%;
+}
+
+.m-wrapper .progress.conent-progress {
+  position: absolute;
+  width: 100%;
+  display: none;
+  .progress-bar {
+    width: 100%;
+  }
+}
+
+
+/* metronic */
+
+.m-grid--root.m-page {
+  height: 100%;
+}
+
+.m-dropdown {
+  .m-dropdown__wrapper {
+    width: 150px;
+  }
+}
+
+.btn-secondary {
+  color: #6f727d;
+}
+
+.progress.m-progress--sm {
+  height: 6px;
+}
+
+
+/* sweet alert2 */
+
+.swal2-buttonswrapper button {
+  margin-left: 5px;
+  margin-right: 5px;
+  min-width: 80px;
+}
+
+
+/* @swimlane/ngx-datatable */
+
+.ngx-datatable.material {
+  box-shadow: none;
+  .datatable-header {
+    border-bottom-color: #ebedf2;
+    overflow: initial !important;
+    position: relative !important;
+    z-index: 11 !important;
+    .datatable-header-inner {
+      position: absolute;
+      .datatable-header-cell {
+        overflow: initial !important;
+        .datatable-header-cell-label {
+          font-weight: bold;
+        }
+      }
+      .datatable-header-cell-acitons {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        vertical-align: top;
+        .dropdown {
+          position: relative;
+        }
+      }
+    }
+  }
+  .datatable-checkbox {
+    padding: 0;
+  }
+  .datatable-body {
+    .datatable-body-row {
+      .datatable-body-cell {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .btn {
+          margin-top: -4px;
+        }
+      }
+    }
+    overflow: visible !important;
+  }
+  div.dropdown {
+    position: absolute;
+    .dropdown-menu {
+      position: 100;
+    }
+  }
+  .datatable-footer {
+    border-top-color: #ebedf2;
+  }
+}
+
+
+/* ngx-query */
+
+ngx-query.full-screen {
+  .card {
+    border: none;
+    .card-body {
+      border-bottom: 1px solid #ebedf2;
+    }
+  }
+}
+
+ngx-query.no-header {
+  .card-header {
+    display: none;
+  }
+}
+
+ngx-query {
+  .btn {
+    color: #c4c5d6;
+  }
+}

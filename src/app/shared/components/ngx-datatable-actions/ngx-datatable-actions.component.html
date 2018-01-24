@@ -1,0 +1,18 @@
+<div class="dropdown d-inline">
+  <a href="#" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown" aria-expanded="false">
+    <i class="la la-ellipsis-h"></i>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
+    <ng-container *ngFor="let col of allColumns">
+      <div *ngIf="col.name && col.name!=null && col.name!=''" class="dropdown-item">
+        <a class="m-link" title="可见" (click)="toggleVisible(col)">
+          <i class="la la-check" [ngClass]="{'m--font-focus': col['visible'], 'm--font-metal': !col['visible']}"></i>
+        </a>
+        <a class="m-link" title="固定" (click)="pinningVisible(col)">
+          <i class="la la-thumb-tack" [ngClass]="{'m--font-focus': col['fixed'], 'm--font-metal': !col['fixed']}"></i>
+        </a>
+        <span class="inline">{{col.name}}</span>
+      </div>
+    </ng-container>
+  </div>
+</div>

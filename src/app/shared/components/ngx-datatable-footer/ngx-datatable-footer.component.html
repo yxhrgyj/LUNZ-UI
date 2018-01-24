@@ -1,0 +1,8 @@
+<ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
+  let-curPage="curPage" let-offset="offset">
+  <div class="page-count" *ngIf="rowCount>0" [innerHTML]="'当前 '+(offset * pageSize + 1)+' - '+((offset+1) * pageSize > rowCount?rowCount : (offset+1) * pageSize)+' / '+rowCount+' 行'">
+  </div>
+  <app-ngx-datatable-pager *ngIf="rowCount>0" [pagerPreviousIcon]="'fa fa-step-backward'" [pagerNextIcon]="'fa fa-step-forward'" [pagerLeftArrowIcon]="'fa fa-angle-left'"
+    [pagerRightArrowIcon]="'fa fa-angle-right'" [page]="curPage" [size]="pageSize" [count]="rowCount" (change)="datatable.onFooterPage($event)">
+  </app-ngx-datatable-pager>
+</ng-template>

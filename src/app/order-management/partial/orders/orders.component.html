@@ -1,0 +1,134 @@
+<div class="m-portlet">
+  <div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <span class="m-portlet__head-icon">
+          <i class="flaticon-interface-2"></i>
+        </span>
+        <h3 class="m-portlet__head-text">
+          订单列表
+        </h3>
+      </div>
+    </div>
+    <div class="m-portlet__head-tools">
+      <ul class="m-portlet__nav">
+        <li class="m-portlet__nav-item">
+          <a routerLink="./new" class="btn btn-sm btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--pill">
+            <span>
+              <i class="la la-plus"></i>
+              <span>新建订单</span>
+            </span>
+          </a>
+        </li>
+        <li class="m-portlet__nav-item">
+          <app-ngx-query-toolbar #ngxQueryToolbar [ngxQuery]="ngxQuery"></app-ngx-query-toolbar>
+        </li>
+        <li class="m-portlet__nav-item">
+          <button (click)="appNgxDataTable.refreshData()" type="button" class="btn btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill">
+            <i class="la la-refresh"></i>
+          </button>
+        </li>
+        <li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
+          data-dropdown-toggle="hover" aria-expanded="true">
+          <a class="m-portlet__nav-link btn btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill m-dropdown__toggle">
+            <i class="la la-ellipsis-v"></i>
+          </a>
+          <div class="m-dropdown__wrapper">
+            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+            <div class="m-dropdown__inner">
+              <div class="m-dropdown__body">
+                <div class="m-dropdown__content">
+                  <ul class="m-nav">
+                    <li class="m-nav__item">
+                      <a href="" class="m-nav__link">
+                        <i class="m-nav__link-icon flaticon-share"></i>
+                        <span class="m-nav__link-text">删除订单</span>
+                      </a>
+                    </li>
+                    <li class="m-nav__item">
+                      <a href="" class="m-nav__link">
+                        <i class="m-nav__link-icon flaticon-chat-1"></i>
+                        <span class="m-nav__link-text">完成订单</span>
+                      </a>
+                    </li>
+                    <li class="m-nav__item">
+                      <a href="" class="m-nav__link">
+                        <i class="m-nav__link-icon flaticon-info"></i>
+                        <span class="m-nav__link-text">取消订单</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="m-portlet__body p-0">
+    <ngx-query [hidden]="!ngxQueryToolbar.visible" class="full-screen no-header" #ngxQuery [queryTemplates]="queryTemplates">
+      <ngx-query-field [name]="'subject'" [label]="'订单摘要'" [type]="'string'"></ngx-query-field>
+      <ngx-query-field name="Date" label="日期" type="date"></ngx-query-field>
+      <ngx-query-field [name]="'Amount'" [label]="'数量'" [type]="'number'"></ngx-query-field>
+    </ngx-query>
+    <ngx-datatable #dt class="material" [scrollbarH]="true" (select)="onSelect($event)" [rows]="orders" [loadingIndicator]="loading"
+      [selected]="selectedOrders" [selectionType]="'checkbox'" #appNgxDataTable="NgxDataTableDirective" appNgxDataTable [ngxQuery]="ngxQuery"
+      (data)="loadOrders($event)">
+      <app-ngx-datatable-footer></app-ngx-datatable-footer>
+      <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false" [headerCheckboxable]="true"
+        [checkboxable]="true">
+      </ngx-datatable-column>
+      <ngx-datatable-column name="订单摘要" prop="subject">
+      </ngx-datatable-column>
+      <ngx-datatable-column name="日期" prop="date" headerClass="text-center" cellClass="text-center">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.date | amDateFormat: 'YYYY/MM/DD'}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="单价" prop="price" headerClass="text-right" cellClass="text-right">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.price | rmb}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="数量" prop="amount" headerClass="text-right" cellClass="text-right">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.amount | number: '1.0'}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="金额" prop="total" headerClass="text-right" cellClass="text-right">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.total | rmb}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="付款" prop="paid" headerClass="text-right" cellClass="text-right">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span class="m-badge m-badge--wide" [ngClass]="{'m-badge--brand': row.paid, 'm-badge--metal': !row.paid }">付款</span>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column maxWidth="96" headerClass="datatable-header-cell-acitons">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          <app-ngx-datatable-actions [datatable]="dt" class="pull-right"></app-ngx-datatable-actions>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <a [routerLink]="['./', row.id]" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="查看订单">
+            <i class="la la-sticky-note"></i>
+          </a>
+          <div class="dropdown m-dropdown--inline">
+            <a class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown" aria-expanded="false">
+              <i class="la la-ellipsis-h"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
+              <a class="dropdown-item" [routerLink]="['./', row.id,'edit']">
+                <i class="la la-edit"></i> 编辑订单</a>
+              <a class="dropdown-item" (click)="editByModal(row)">
+                <i class="la la-edit"></i> 编辑订单（弹窗）</a>
+              <a class="dropdown-item" (click)="delete(row)">
+                <i class="la la-remove"></i> 删除订单</a>
+            </div>
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>

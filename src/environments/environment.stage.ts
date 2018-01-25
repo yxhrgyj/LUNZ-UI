@@ -14,19 +14,19 @@ export const environment = {
     'fr-FR'
   ],
   // Web Api
-  serverUrl: '//lunz-sharp.lunztech.cn/api/',
-  appKey: 'a9ee8aaa-9c5b-4f56-9cb0-3a840b6e27f9',
+  serverUrl: '',
+  appKey: '',
   withHeaders: true,
   // User Center
   userCenter: {
-    serverUrl: '//usercenter2015.lunztech.cn/api/',
-    appKey: '4f500000-4c4f-0200-903a-08d4ccde1e74',
-    authUri: '//usercenter2015.lunztech.cn/'
+    serverUrl: '',
+    appKey: '',
+    authUri: ''
   },
   // Message Center
   msgCenter: {
-    signalR: '//messagecenter.lunztech.cn/',
-    serverUrl: '//messagecenter.lunztech.cn/api/',
-    appKey: '53cdc9ab-4c9f-420b-b727-fe0602a7387c'
+    signalR: '',
+    serverUrl: '',
+    appKey: ''
   }
 };

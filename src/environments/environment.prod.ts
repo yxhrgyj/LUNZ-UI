@@ -12,19 +12,19 @@ export const environment = {
     'fr-FR'
   ],
   // Web Api
-  serverUrl: 'NOT-SET',
-  appKey: 'NOT-SET',
+  serverUrl: '',
+  appKey: '',
   withHeaders: false,
   // User Center
   userCenter: {
-    serverUrl: 'NOT-SET',
-    appKey: 'NOT-SET',
-    authUri: 'NOT-SET'
+    serverUrl: '',
+    appKey: '',
+    authUri: ''
   },
   // Message Center
   msgCenter: {
-    signalR: 'NOT-SET',
-    serverUrl: 'NOT-SET',
-    appKey: 'NOT-SET'
+    signalR: '',
+    serverUrl: '',
+    appKey: ''
   }
 };

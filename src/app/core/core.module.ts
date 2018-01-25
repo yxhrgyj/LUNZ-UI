@@ -8,7 +8,7 @@ import { ModalModule, BsDatepickerModule, TabsModule } from 'ngx-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 import { MomentModule } from 'angular2-moment/moment.module';
-import { NgxQueryModule } from 'ngx-query';
+import { NgxQueryModule } from '@zhongruigroup/ngx-query';
 
 import { environment } from '../../environments/environment';
 import { createBsDatepickerConfigProvider } from '../utils/bs-datepicker-config';

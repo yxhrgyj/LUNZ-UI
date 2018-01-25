@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { QueryComponent } from 'ngx-query/query.component';
-import { QueryMode } from 'ngx-query/query.types';
+import { QueryComponent } from '@zhongruigroup/ngx-query/query.component';
+import { QueryMode } from '@zhongruigroup/ngx-query/query.types';
 
 @Component({
   selector: 'app-ngx-query-toolbar',

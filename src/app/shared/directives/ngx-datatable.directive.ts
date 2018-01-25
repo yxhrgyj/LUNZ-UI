@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 
 import { DatatableComponent } from '@swimlane/ngx-datatable/release/components';
 import { ColumnMode, SortType } from '@swimlane/ngx-datatable/release/types';
-import { QueryComponent } from 'ngx-query/query.component';
-import { cloneQueryGroup } from 'ngx-query/utils/query-helper';
+import { QueryComponent } from '@zhongruigroup/ngx-query/query.component';
+import { cloneQueryGroup } from '@zhongruigroup/ngx-query/utils/query-helper';
 
 import { NgxDatatableFooterComponent } from '../components/ngx-datatable-footer/ngx-datatable-footer.component';
 import { NgxDatatableActionsComponent } from '../components/ngx-datatable-actions/ngx-datatable-actions.component';

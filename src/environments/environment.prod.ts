@@ -10,21 +10,5 @@ export const environment = {
   supportedLanguages: [
     'en-US',
     'fr-FR'
-  ],
-  // Web Api
-  serverUrl: 'NOT-SET',
-  appKey: 'NOT-SET',
-  withHeaders: false,
-  // User Center
-  userCenter: {
-    serverUrl: 'NOT-SET',
-    appKey: 'NOT-SET',
-    authUri: 'NOT-SET'
-  },
-  // Message Center
-  msgCenter: {
-    signalR: 'NOT-SET',
-    serverUrl: 'NOT-SET',
-    appKey: 'NOT-SET'
-  }
+  ]
 };

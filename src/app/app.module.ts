@@ -11,7 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { SweetAlertOptions } from 'sweetalert2';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 // https://xuemingfeng.github.io/ngx-query
-import { NgxQueryModule } from 'ngx-query';
+import { NgxQueryModule } from '@zhongruigroup/ngx-query';
 import { SignalRModule, SignalRConfiguration, ConnectionTransports } from 'ng2-signalr';
 // https://www.npmjs.com/package/angular2-moment
 import * as moment from 'moment';

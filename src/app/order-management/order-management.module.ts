@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { NgxQueryModule } from 'ngx-query';
+import { NgxQueryModule } from '@zhongruigroup/ngx-query';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 

@@ -10,5 +10,21 @@ export const environment = {
   supportedLanguages: [
     'en-US',
     'fr-FR'
-  ]
+  ],
+  // Web Api
+  serverUrl: '',
+  appKey: '',
+  withHeaders: false,
+  // User Center
+  userCenter: {
+    serverUrl: '',
+    appKey: '',
+    authUri: ''
+  },
+  // Message Center
+  msgCenter: {
+    signalR: '',
+    serverUrl: '',
+    appKey: ''
+  }
 };

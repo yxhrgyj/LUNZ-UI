@@ -6,7 +6,7 @@
     "ng": "ng",
     "build": "npm run env && ng build --aot --prod",
     "build:stage": "npm run env && ng build --aot --dev --output-hashing=all --environment=stage",
-    "start": "ng serve --open",
+    "start": "ng serve --open --output-hashing=all",
     "lint": "ng lint && stylelint \"src/app/**/*.scss\" --syntax scss && htmlhint \"src/app\" --config .htmlhintrc",
     "lint:all": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "ng test",

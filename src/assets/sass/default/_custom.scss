@@ -128,3 +128,57 @@ ngx-query {
     color: #c4c5d6;
   }
 }
+
+
+/* reset chrome input default Fill */
+
+input:-webkit-autofill {
+  animation-name: autofill;
+  animation-fill-mode: both;
+}
+
+@keyframes autofill {
+  to {
+    color: #000000;
+    background: none;
+  }
+}
+
+
+/* overall situationinput type=‘checkb’ style */
+
+input[type='checkbox']:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+input[type='checkbox']:before {
+  content: "";
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #c7c5c5;
+  z-index: 1;
+}
+
+input[type='checkbox']:checked:before {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  height: .5rem;
+  border-color: #009688;
+  border-top-style: none;
+  border-right-style: none;
+}
+
+.m-alert__text {
+  font-size: 13px;
+  padding: 0rem 0rem 0rem 1.75rem !important;
+}

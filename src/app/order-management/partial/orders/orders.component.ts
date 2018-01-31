@@ -40,8 +40,12 @@ export class OrdersComponent implements OnInit, AfterViewInit {
 
     private datatable: any;
 
-    constructor(private ordersService: OrdersService, private changeDetectorRef: ChangeDetectorRef,
-        private loggerFactory: LoggerFactory, private dialogs: Dialogs, private modalService: BsModalService) {
+    constructor(
+        private ordersService: OrdersService,
+        private changeDetectorRef: ChangeDetectorRef,
+        private loggerFactory: LoggerFactory,
+        private dialogs: Dialogs,
+        private modalService: BsModalService) {
         this.log = this.loggerFactory.getLogger();
     }
 
@@ -54,7 +58,6 @@ export class OrdersComponent implements OnInit, AfterViewInit {
     onSelect(event: any) {
         this.selectedOrders.splice(0, this.selectedOrders.length);
         this.selectedOrders.push(event.selected);
-        console.log(this.selectedOrders);
     }
     loadOrders(event: any) {
         const params: any = event.page;

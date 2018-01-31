@@ -1,18 +1,24 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { LoggerFactory } from '../../../../logger-factory.service';
+import { Logger } from '../../../../logger.service';
+
 @Component({
     selector: 'app-top-menu-actions, [app-top-menu-actions]',
     templateUrl: './actions.component.html',
     styleUrls: ['./actions.component.scss']
 })
 export class ActionsComponent implements OnInit {
+    log: Logger;
     openModelList: Array<any> = [];
     editModel: Boolean = false;
 
     constructor(
-        private router: Router
+        private router: Router,
+        private loggerFactory: LoggerFactory,
     ) {
+        this.log = this.loggerFactory.getLogger();
         const list: any = [
             {
                 clickNum: 5,
@@ -75,12 +81,14 @@ export class ActionsComponent implements OnInit {
 
         if (modeList !== null) {
             this.sortModelList(modeList);
+
             this.openModelList = modeList;
         }
     };
 
     fastEntryModule(row: any): void {
         const url = row.url;
+
         this.router.navigate([url]);
     };
 
@@ -109,18 +117,26 @@ export class ActionsComponent implements OnInit {
         }
 
         this.sortModelList(this.openModelList);
+
         localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
     };
 
-    deleteModel(i: number): void {
+    deleteModel(row: any, i: number): void {
         this.openModelList.splice(i, 1);
+
         localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
+
+        this.log.info(`${row.name} 移除成功！`);
     };
 
     deleteModelAll(): void {
         const count = this.openModelList.length;
+
         this.openModelList.splice(0, count);
+
         localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
+
+        this.log.info(`历史访问模块全部移除成功！`);
     };
 
 };

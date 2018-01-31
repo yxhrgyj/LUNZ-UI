@@ -26,7 +26,7 @@
                   title="上移"></i>
                 <i class="fa flaticon-up-arrow flaticon-up-arrow-down lz-model-edit-icon" *ngIf="i!==openModelList.length-1" (click)="$event.stopPropagation();moveModel(modeList,i,-1)"
                   title="下移"></i>
-                <i class="fa flaticon-close" (click)="$event.stopPropagation();deleteModel(i)" title="移除"></i>
+                <i class="fa flaticon-close" (click)="$event.stopPropagation();deleteModel(modeList,i)" title="移除"></i>
               </span>
             </span>
           </span>

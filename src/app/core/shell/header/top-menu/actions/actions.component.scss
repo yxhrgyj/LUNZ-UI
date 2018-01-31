@@ -1,6 +1,6 @@
 .lz-history-model-title {
   display: inline-block;
-  padding: 5px 125px 10px 16px;
+  padding: 5px 134px 10px 16px;
   font-weight: 500;
 }
 
@@ -9,6 +9,40 @@
 }
 
 .m-menu__item .fa:hover {
+  color: #716aca;
+  cursor: pointer;
+}
+
+.m-menu__link-text {
+  position: relative;
+}
+
+.lz-mode-edit-item {
+  position: absolute;
+  right: -10px;
+  top: -2px;
+}
+
+.flaticon-up-arrow-down {
+  transform: rotate(180deg);
+}
+
+.lz-model-edit-icon {
+  margin-right: 4px;
+}
+
+.flaticon-up-arrow {
+  font-size: 16px;
+}
+
+.lz-history-model-de {
+  display: inline-block;
+  padding-top: 4px;
+  padding-left: 30px;
+  color: #676c7b;
+}
+
+.lz-history-model-de:hover {
   color: #716aca;
   cursor: pointer;
 }

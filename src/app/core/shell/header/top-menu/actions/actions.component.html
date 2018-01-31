@@ -15,16 +15,26 @@
     <li class=" m-menu__item" *ngIf="openModelList.length==0 ">
       <span class="lz-history-model-title">无~~~</span>
     </li>
-    <li class="m-menu__item" *ngFor="let modeList of openModelList;let i=index">
-      <a class="m-menu__link" (click)="jumpMode(modeList)">
+    <li class="m-menu__item" *ngFor="let modeList of openModelList | slice:0:6;let i=index">
+      <a class="m-menu__link" (click)="fastEntryModule(modeList)">
         <i class="m-menu__link-icon {{modeList.icon}} "></i>
         <span class="m-menu__link-title">
           <span class="m-menu__link-wrap">
-            <span class="m-menu__link-text">{{modeList.name}}</span>
-            <i class="fa flaticon-close" *ngIf="editModel" (click)="$event.stopPropagation();deleteModel(i)"></i>
+            <span class="m-menu__link-text">{{modeList.name}}
+              <span *ngIf="editModel" class="lz-mode-edit-item">
+                <i class="fa flaticon-up-arrow lz-model-edit-icon-left lz-model-edit-icon" *ngIf="i!==0" (click)="$event.stopPropagation();moveModel(modeList,i,1)"
+                  title="上移"></i>
+                <i class="fa flaticon-up-arrow flaticon-up-arrow-down lz-model-edit-icon" *ngIf="i!==openModelList.length-1" (click)="$event.stopPropagation();moveModel(modeList,i,-1)"
+                  title="下移"></i>
+                <i class="fa flaticon-close" (click)="$event.stopPropagation();deleteModel(i)" title="移除"></i>
+              </span>
+            </span>
           </span>
         </span>
       </a>
+    </li>
+    <li class="m-menu__item" *ngIf="openModelList.length!==0">
+      <span class="lz-history-model-de" (click)="$event.stopPropagation();deleteModelAll()">remove all</span>
     </li>
   </ul>
 </div>

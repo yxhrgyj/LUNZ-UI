@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class ActionsComponent implements OnInit {
     openModelList: Array<any> = [];
     editModel: Boolean = false;
+
     constructor(
         private router: Router
     ) {

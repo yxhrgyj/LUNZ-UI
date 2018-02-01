@@ -11,7 +11,9 @@ import { Logger } from '../../../../logger.service';
 })
 export class ActionsComponent implements OnInit {
     log: Logger;
+    myModelList: Array<any> = [];
     openModelList: Array<any> = [];
+    editMyModel: Boolean = false;
     editModel: Boolean = false;
 
     constructor(
@@ -63,11 +65,39 @@ export class ActionsComponent implements OnInit {
                 url: `/orders`
             }
         ];
+        const list1: any = [
+            {
+                clickNum: 5,
+                name: `订单管理`,
+                icon: `flaticon-time-1`,
+                url: `/orders`
+            },
+            {
+                clickNum: 10,
+                name: `用户管理`,
+                icon: `flaticon-list-1`,
+                url: `/orders`
+            },
+            {
+                clickNum: 11,
+                name: `用4524户管理`,
+                icon: `flaticon-list-1`,
+                url: `/orders`
+            },
+            {
+                clickNum: 12,
+                name: `用户12管理`,
+                icon: `flaticon-list-1`,
+                url: `/orders`
+            }
+        ];
+        localStorage.setItem(`myModelList`, JSON.stringify(list1));
         localStorage.setItem(`openModelList`, JSON.stringify(list));
     };
 
     ngOnInit() {
-        this.getOpenModeList();
+        this.getModeList(`myModelList`, 1);
+        this.getModeList(`openModelList`, -1);
     };
 
     sortModelList(modeList: any): void {
@@ -76,13 +106,17 @@ export class ActionsComponent implements OnInit {
         });
     };
 
-    getOpenModeList(): void {
-        const modeList = JSON.parse(localStorage.getItem(`openModelList`));
+    getModeList(modelName: string, modeType: number): void {
+        const modeList = JSON.parse(localStorage.getItem(`${modelName}`));
 
         if (modeList !== null) {
             this.sortModelList(modeList);
 
-            this.openModelList = modeList;
+            if (modeType === 1) {
+                this.myModelList = modeList;
+            } else {
+                this.openModelList = modeList;
+            }
         }
     };
 
@@ -92,23 +126,16 @@ export class ActionsComponent implements OnInit {
         this.router.navigate([url]);
     };
 
-    moveModel(row: any, i: any, sortType: number): void {
+    moveModel(row: any, i: any, list: Array<any>, sortType: number, moveListName: string): void {
         if (sortType === 1) {
-            const rowClickNum = row.clickNum;
-            const rowIndex = i;
-
-            this.openModelList.forEach((item, index) => {
+            list.forEach((item, index) => {
                 if (i === index + 1) {
                     const preRowClickNum = item.clickNum;
                     row.clickNum = preRowClickNum + 1;
                 }
             });
-
         } else if (sortType === -1) {
-            const rowClickNum = row.clickNum;
-            const rowIndex = i;
-
-            this.openModelList.forEach((item, index) => {
+            list.forEach((item, index) => {
                 if (i === index - 1) {
                     const preRowClickNum = item.clickNum;
                     row.clickNum = preRowClickNum - 1;
@@ -116,15 +143,15 @@ export class ActionsComponent implements OnInit {
             });
         }
 
-        this.sortModelList(this.openModelList);
+        this.sortModelList(list);
 
-        localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
+        localStorage.setItem(`${moveListName}`, JSON.stringify(list));
     };
 
-    deleteModel(row: any, i: number): void {
-        this.openModelList.splice(i, 1);
+    deleteModel(row: any, list: Array<any>, i: number, deleteListName: string): void {
+        list.splice(i, 1);
 
-        localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
+        localStorage.setItem(`${deleteListName}`, JSON.stringify(list));
 
         this.log.info(`${row.name} 移除成功！`);
     };

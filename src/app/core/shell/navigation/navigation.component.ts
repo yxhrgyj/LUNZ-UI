@@ -22,6 +22,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
     log: Logger;
     isAuthenticated: boolean;
     menuItems: any;
+    menuLists: Array<any> = [];
 
     private _loaded = false;
 
@@ -32,7 +33,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
         private router: Router,
         private modalService: BsModalService) {
         this.log = this.loggerFactory.getLogger('Navigation');
-    }
+    };
 
     ngOnInit() {
 
@@ -41,7 +42,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
         if (this.isAuthenticated) {
             this.getMenuItems();
         }
-    }
+    };
 
     ngAfterViewChecked() {
         if (this._loaded === false) {
@@ -49,20 +50,44 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
             this._loaded = true;
             jQuery('#m_aside_left_minimize_toggle').click();
         }
-    }
+    };
 
     isActive(url: string): boolean {
         if (url) {
             return this.router.isActive(url, true);
         }
-    }
+    };
+
+    private arrangementMenu(menuList: Array<any>): void {
+        menuList.forEach((item: any) => {
+            if (item.ngUrl !== undefined && item.children.length === 0) {
+                this.menuLists.push({
+                    name: item.name,
+                    icon: item.icon,
+                    url: item.url,
+                    clickNum: item.sortOrder
+                });
+            } else {
+                item.children.forEach((itemt: any) => {
+                    this.menuLists.push({
+                        name: itemt.name,
+                        icon: itemt.icon,
+                        url: itemt.ngUrl,
+                        clickNum: itemt.sortOrder
+                    });
+                });
+            }
+        });
+        localStorage.setItem(`menuListAll`, JSON.stringify(this.menuLists));
+    };
 
     private getMenuItems(): void {
         this.profileService.getMenuItems()
             .subscribe(menuItems => {
                 this.menuItems = menuItems;
+                this.arrangementMenu(menuItems);
             }, error => {
                 this.log.error(error);
             });
-    }
-}
+    };
+};

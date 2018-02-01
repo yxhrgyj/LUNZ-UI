@@ -8,7 +8,10 @@
   <ul class="m-menu__subnav">
     <li class="m-menu__item">
       <span class="lz-history-model-title">我的模块</span>
-      <span class="fa lz-model-edit-active" [ngClass]="{'flaticon-more-v2':!editMyModel,'flaticon-interface-5':editMyModel}" (click)="editMyModel=!editMyModel">
+      <span class="fa lz-model-edit-active" [ngClass]="{'flaticon-more-v2 lz-model-edit-icon-back':!editMyModel,'flaticon-interface-5 lz-model-edit-icon-move':editMyModel}"
+        (click)="editMyModel=!editMyModel">
+      </span>
+      <span class="fa flaticon-cancel flaticon-cancel-rotate lz-model-edit-active" *ngIf="editMyModel">
       </span>
     </li>
     <li class="m-menu__item" *ngIf="myModelList.length==0 ">
@@ -25,7 +28,7 @@
                   title="上移"></i>
                 <i class="fa flaticon-up-arrow flaticon-up-arrow-down lz-model-edit-icon" *ngIf="i!==myModelList.length-1" (click)="$event.stopPropagation();moveModel(mode,i,myModelList,-1,'myModelList')"
                   title="下移"></i>
-                <i class="fa flaticon-close" (click)="$event.stopPropagation();deleteModel(mode,myModelList,i,'myModelList')" title="移除"></i>
+                <i class="fa flaticon-cancel" (click)="$event.stopPropagation();deleteModel(mode,myModelList,i,'myModelList')" title="移除"></i>
               </span>
             </span>
           </span>
@@ -34,7 +37,7 @@
     </li>
     <li class="m-menu__item">
       <span class="lz-history-model-title">历史访问模块</span>
-      <span class="fa lz-model-edit-active" *ngIf="openModelList.length!==0" [ngClass]="{'flaticon-more-v2':!editModel,'flaticon-interface-5':editModel}"
+      <span class="fa lz-model-edit-active" *ngIf="openModelList.length!==0" [ngClass]="{'flaticon-more-v2 lz-model-edit-icon-back':!editModel,'flaticon-interface-5 lz-model-edit-icon-move':editModel}"
         (click)="editModel=!editModel">
       </span>
     </li>
@@ -52,7 +55,7 @@
                   title="上移"></i>
                 <i class="fa flaticon-up-arrow flaticon-up-arrow-down lz-model-edit-icon" *ngIf="i!==openModelList.length-1" (click)="$event.stopPropagation();moveModel(modeList,i,openModelList,-1,'openModelList')"
                   title="下移"></i>
-                <i class="fa flaticon-close" (click)="$event.stopPropagation();deleteModel(modeList,openModelList,i,'openModelList')" title="移除"></i>
+                <i class="fa flaticon-cancel" (click)="$event.stopPropagation();deleteModel(modeList,openModelList,i,'openModelList')" title="移除"></i>
               </span>
             </span>
           </span>

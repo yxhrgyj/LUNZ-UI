@@ -73,18 +73,6 @@ export class ActionsComponent implements OnInit {
                 url: `/orders`
             },
             {
-                clickNum: 10,
-                name: `用户管理`,
-                icon: `flaticon-list-1`,
-                url: `/orders`
-            },
-            {
-                clickNum: 11,
-                name: `用4524户管理`,
-                icon: `flaticon-list-1`,
-                url: `/orders`
-            },
-            {
                 clickNum: 12,
                 name: `用户12管理`,
                 icon: `flaticon-list-1`,

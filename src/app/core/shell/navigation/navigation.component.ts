@@ -73,7 +73,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
                         name: itemt.name,
                         icon: itemt.icon,
                         url: itemt.ngUrl,
-                        clickNum: itemt.sortOrder
+                        clickNum: itemt.sortOrder * Math.round(Math.random() * 10)
                     });
                 });
             }

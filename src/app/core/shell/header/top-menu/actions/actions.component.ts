@@ -21,66 +21,6 @@ export class ActionsComponent implements OnInit {
         private loggerFactory: LoggerFactory,
     ) {
         this.log = this.loggerFactory.getLogger();
-        const list: any = [
-            {
-                clickNum: 5,
-                name: `订单管理`,
-                icon: `flaticon-time-1`,
-                url: `/orders`
-            },
-            {
-                clickNum: 10,
-                name: `用户管理`,
-                icon: `flaticon-list-1`,
-                url: `/orders`
-            },
-            {
-                clickNum: 11,
-                name: `用4524户管理`,
-                icon: `flaticon-list-1`,
-                url: `/orders`
-            },
-            {
-                clickNum: 12,
-                name: `用户12管理`,
-                icon: `flaticon-list-1`,
-                url: `/orders`
-            },
-            {
-                clickNum: 17,
-                name: `用户12管理`,
-                icon: `flaticon-list-1`,
-                url: `/orders`
-            },
-            {
-                clickNum: 18,
-                name: `用户1286管理`,
-                icon: `flaticon-list-1`,
-                url: `/orders`
-            },
-            {
-                clickNum: 3,
-                name: `角色管理`,
-                icon: `flaticon-lifebuoy`,
-                url: `/orders`
-            }
-        ];
-        const list1: any = [
-            {
-                clickNum: 5,
-                name: `订单管理`,
-                icon: `flaticon-time-1`,
-                url: `/orders`
-            },
-            {
-                clickNum: 12,
-                name: `用户12管理`,
-                icon: `flaticon-list-1`,
-                url: `/orders`
-            }
-        ];
-        localStorage.setItem(`myModelList`, JSON.stringify(list1));
-        localStorage.setItem(`openModelList`, JSON.stringify(list));
     };
 
     ngOnInit() {
@@ -96,8 +36,8 @@ export class ActionsComponent implements OnInit {
 
     getModeList(modelName: string, modeType: number): void {
         const modeList = JSON.parse(localStorage.getItem(`${modelName}`));
-
-        if (modeList !== null) {
+        console.log(modeList);
+        if (modeList != null) {
             this.sortModelList(modeList);
 
             if (modeType === 1) {

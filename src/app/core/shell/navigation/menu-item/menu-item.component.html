@@ -1,14 +1,14 @@
-<a *ngIf="level==1 && menuItem.ngUrl" [routerLink]="menuItem.ngUrl" class="m-menu__link">
+<a *ngIf="level==1 && menuItem.ngUrl" [routerLink]="menuItem.ngUrl" class="m-menu__link" (click)="recordMenu(menuItem)">
   <i [class]="icon"></i>
   <span class="m-menu__link-text">{{menuItem.name}}</span>
   <i class="m-menu__ver-arrow la la-angle-right" *ngIf="hasChild"></i>
 </a>
-<a *ngIf="level==1 && menuItem.ngUrl==undefined" class="m-menu__link m-menu__toggle">
+<a *ngIf="level==1 && menuItem.ngUrl==undefined" class="m-menu__link m-menu__toggle" (click)="recordMenu(menuItem)">
   <i [class]="icon"></i>
   <span class="m-menu__link-text">{{menuItem.name}}</span>
   <i class="m-menu__ver-arrow la la-angle-right" *ngIf="hasChild"></i>
 </a>
-<a *ngIf="level>1" [routerLink]="menuItem.ngUrl" class="m-menu__link">
+<a *ngIf="level>1" [routerLink]="menuItem.ngUrl" class="m-menu__link" (click)="recordMenu(menuItem)">
   <i [class]="icon"></i>
   <span class="m-menu__link-text">{{menuItem.name}}</span>
   <i class="m-menu__ver-arrow la la-angle-right" *ngIf="hasChild"></i>
@@ -17,7 +17,7 @@
   <span class="m-menu__arrow"></span>
   <ul class="m-menu__subnav">
     <li *ngIf="level==1" class="m-menu__item  m-menu__item--parent" aria-haspopup="true">
-      <a class="m-menu__link ">
+      <a class="m-menu__link" (click)="recordMenu(menuItem)">
         <span class="m-menu__link-text">
           {{menuItem.name}}
         </span>

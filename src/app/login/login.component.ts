@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/finally';
 
@@ -13,12 +14,14 @@ import { AuthenticationService } from '../core/authentication/authentication.ser
 
 declare var URI: any;
 declare var SnippetLogin: any;
+declare var $: any;
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   log: Logger;
   appName: string = environment.appName;
@@ -28,7 +31,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   forgetPassword: Boolean = true;
 
-  constructor(private router: Router,
+  constructor(
+    private location: Location,
+    private router: Router,
     private formBuilder: FormBuilder,
     private i18nService: I18nService,
     private dialogs: Dialogs,
@@ -39,11 +44,18 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() { }
-  // 忘记密码
+  ngOnInit() {
+    $(`body`).on(`keydown`, function (event: any) {
+      if (event.keyCode === 13) {
+        $(`#m_login_signin_submit`).trigger(`click`);
+      }
+    });
+  }
+
   showForgetPassword() {
     this.forgetPassword = !this.forgetPassword;
   }
+
   login() {
     this.isLoading = true;
 
@@ -57,7 +69,7 @@ export class LoginComponent implements OnInit {
       .subscribe(credentials => {
         this.log.debug(`${credentials.username} successfully logged in`);
 
-        const uri = new URI(window.location.href);
+        const uri = new URI(location.href);
         const queryString = uri.query();
 
         if (queryString && queryString !== null && queryString !== '') {

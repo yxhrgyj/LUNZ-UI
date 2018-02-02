@@ -17,33 +17,7 @@
   from {
     right: 20px;
   }
-  to {
-    right: 50px;
-  }
-}
 
-@-moz-keyframes editIconMove {
-  from {
-    right: 20px;
-  }
-  to {
-    right: 50px;
-  }
-}
-
-@-webkit-keyframes editIconMove {
-  from {
-    right: 20px;
-  }
-  to {
-    right: 50px;
-  }
-}
-
-@-o-keyframes editIconMove {
-  from {
-    right: 20px;
-  }
   to {
     right: 50px;
   }
@@ -52,49 +26,19 @@
 .lz-model-edit-icon-move {
   animation: editIconMove 0.5s;
   animation-fill-mode: forwards;
-  animation: editIconMove 0.5s;
-  animation-fill-mode: forwards;
 }
 
 @keyframes editIconBack {
   from {
     right: 50px;
   }
-  to {
-    right: 20px;
-  }
-}
 
-@-moz-keyframes editIconBack {
-  from {
-    right: 50px;
-  }
-  to {
-    right: 20px;
-  }
-}
-
-@-webkit-keyframes editIconBack {
-  from {
-    right: 50px;
-  }
-  to {
-    right: 20px;
-  }
-}
-
-@-o-keyframes editIconBack {
-  from {
-    right: 50px;
-  }
   to {
     right: 20px;
   }
 }
 
 .lz-model-edit-icon-back {
-  animation: editIconBack 0.5s;
-  animation-fill-mode: forwards;
   animation: editIconBack 0.5s;
   animation-fill-mode: forwards;
 }
@@ -163,5 +107,5 @@
 }
 
 .lz-add-model-cancel i:hover {
-  transform: scale(1.4)
+  transform: scale(1.4);
 }

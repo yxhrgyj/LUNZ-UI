@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { NgxQueryModule } from '@zhongruigroup/ngx-query';
+import { ElModule } from 'element-angular';
 
 import { environment } from '../../environments/environment';
 import { createBsDatepickerConfigProvider } from '../utils/bs-datepicker-config';
@@ -53,103 +54,104 @@ import { ReportsComponent } from './shell/header/top-menu/reports/reports.compon
 import { AppsComponent } from './shell/header/top-menu/apps/apps.component';
 
 export function createHttpService(backend: ConnectionBackend,
-  defaultOptions: RequestOptions,
-  httpCacheService: HttpCacheService,
-  router: Router,
-  loggerFactory: LoggerFactory,
-  injector: Injector) {
-  return new HttpService(backend, defaultOptions, httpCacheService, router, loggerFactory, injector);
+    defaultOptions: RequestOptions,
+    httpCacheService: HttpCacheService,
+    router: Router,
+    loggerFactory: LoggerFactory,
+    injector: Injector) {
+    return new HttpService(backend, defaultOptions, httpCacheService, router, loggerFactory, injector);
 }
 
 export function createDatePipe() {
-  return new DatePipe(environment.localeId);
+    return new DatePipe(environment.localeId);
 }
 
 export function createCurrencyPipe() {
-  return new CurrencyPipe(environment.localeId);
+    return new CurrencyPipe(environment.localeId);
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    TranslateModule,
-    RouterModule,
-    NgxQueryModule,
-    ModalModule.forRoot(),
-    BsDatepickerModule.forRoot(),
-    TabsModule.forRoot(),
-    ToastrModule,
-    MomentModule,
-    SharedModule,
-    CoreRoutingModule,
-    SsoModule,
-    WebMessageModule
-  ],
-  exports: [
-    HeaderComponent
-  ],
-  declarations: [
-    ShellComponent,
-    HeaderComponent,
-    NavigationComponent,
-    FooterComponent,
-    PageHeaderComponent,
-    ChangePasswordModalComponent,
-    MenuItemComponent,
-    BreadcrumbsComponent,
-    SsoRegisterComponent,
-    EditOrderModalComponent,
-    ProfileComponent,
-    QuickActionsComponent,
-    NotificationsComponent,
-    QuickSearchComponent,
-    TopMenuComponent,
-    ActionsComponent,
-    ReportsComponent,
-    AppsComponent
-  ],
-  entryComponents: [
-    ChangePasswordModalComponent,
-    EditOrderModalComponent
-  ],
-  providers: [
-    {
-      provide: DatePipe,
-      deps: [],
-      useFactory: createDatePipe
-    },
-    {
-      provide: CurrencyPipe,
-      deps: [],
-      useFactory: createCurrencyPipe
-    },
-    AuthenticationService,
-    AuthenticationGuard,
-    I18nService,
-    HttpCacheService,
-    {
-      provide: Http,
-      deps: [XHRBackend, RequestOptions, HttpCacheService, Router, LoggerFactory, Injector],
-      useFactory: createHttpService
-    },
-    createBsDatepickerConfigProvider(),
-    Dialogs,
-    LoggerFactory,
-    SweetAlert2Service,
-    SsoServiceService,
-    MessageService,
-    OrdersService
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        TranslateModule,
+        RouterModule,
+        NgxQueryModule,
+        ModalModule.forRoot(),
+        BsDatepickerModule.forRoot(),
+        TabsModule.forRoot(),
+        ElModule.forRoot(),
+        ToastrModule,
+        MomentModule,
+        SharedModule,
+        CoreRoutingModule,
+        SsoModule,
+        WebMessageModule
+    ],
+    exports: [
+        HeaderComponent
+    ],
+    declarations: [
+        ShellComponent,
+        HeaderComponent,
+        NavigationComponent,
+        FooterComponent,
+        PageHeaderComponent,
+        ChangePasswordModalComponent,
+        MenuItemComponent,
+        BreadcrumbsComponent,
+        SsoRegisterComponent,
+        EditOrderModalComponent,
+        ProfileComponent,
+        QuickActionsComponent,
+        NotificationsComponent,
+        QuickSearchComponent,
+        TopMenuComponent,
+        ActionsComponent,
+        ReportsComponent,
+        AppsComponent
+    ],
+    entryComponents: [
+        ChangePasswordModalComponent,
+        EditOrderModalComponent
+    ],
+    providers: [
+        {
+            provide: DatePipe,
+            deps: [],
+            useFactory: createDatePipe
+        },
+        {
+            provide: CurrencyPipe,
+            deps: [],
+            useFactory: createCurrencyPipe
+        },
+        AuthenticationService,
+        AuthenticationGuard,
+        I18nService,
+        HttpCacheService,
+        {
+            provide: Http,
+            deps: [XHRBackend, RequestOptions, HttpCacheService, Router, LoggerFactory, Injector],
+            useFactory: createHttpService
+        },
+        createBsDatepickerConfigProvider(),
+        Dialogs,
+        LoggerFactory,
+        SweetAlert2Service,
+        SsoServiceService,
+        MessageService,
+        OrdersService
+    ]
 })
 export class CoreModule {
 
-  constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
-    // Import guard
-    if (parentModule) {
-      throw new Error(`${parentModule} has already been loaded. Import Core module in the AppModule only.`);
+    constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
+        // Import guard
+        if (parentModule) {
+            throw new Error(`${parentModule} has already been loaded. Import Core module in the AppModule only.`);
+        }
     }
-  }
 }

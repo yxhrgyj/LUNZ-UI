@@ -145,3 +145,23 @@
 .flaticon-cancel-rotate {
   transform: rotate(45deg);
 }
+
+.lz-el-checkbox {
+  display: inline-block;
+  margin-left: 18px;
+}
+
+.lz-add-model-cancel {
+  text-align: center;
+}
+
+.lz-add-model-cancel i {
+  font-size: 26px;
+  padding: 0 10px;
+  color: #b9c1d4;
+  cursor: pointer;
+}
+
+.lz-add-model-cancel i:hover {
+  transform: scale(1.4)
+}

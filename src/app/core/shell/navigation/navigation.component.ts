@@ -21,6 +21,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
 
     log: Logger;
     isAuthenticated: boolean;
+    clickNum: any = 1;
     menuItems: any;
     menuLists: Array<any> = [];
 
@@ -64,8 +65,8 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
                 this.menuLists.push({
                     name: item.name,
                     icon: item.icon,
-                    url: item.url,
-                    clickNum: item.sortOrder
+                    url: item.ngUrl,
+                    clickNum: this.clickNum
                 });
             } else {
                 item.children.forEach((itemt: any) => {
@@ -73,11 +74,12 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
                         name: itemt.name,
                         icon: itemt.icon,
                         url: itemt.ngUrl,
-                        clickNum: itemt.sortOrder * Math.round(Math.random() * 10)
+                        clickNum: this.clickNum
                     });
                 });
             }
         });
+
         localStorage.setItem(`menuListAll`, JSON.stringify(this.menuLists));
     };
 

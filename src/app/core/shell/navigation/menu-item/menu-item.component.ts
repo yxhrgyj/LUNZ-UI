@@ -14,8 +14,7 @@ export class MenuItemComponent implements OnInit {
 
     constructor(private router: Router) { };
 
-    ngOnInit() {
-    };
+    ngOnInit() { };
 
     get hasChild(): boolean {
         return this.menuItem && this.menuItem.children && this.menuItem.children.length > 0;
@@ -56,7 +55,9 @@ export class MenuItemComponent implements OnInit {
                 for (let i = 0; i < this.openModelList.length; i++) {
                     if (this.openModelList[i].name === menu.name) {
                         this.openModelList[i].clickNum += 1;
+
                         localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
+
                         return;
                     }
                 }
@@ -69,7 +70,6 @@ export class MenuItemComponent implements OnInit {
                 });
 
                 localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
-
             }
         }
     };

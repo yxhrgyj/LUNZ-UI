@@ -88,7 +88,6 @@ export class OrdersComponent implements OnInit, AfterViewInit {
     }
 
     editByModal(row: any) {
-        console.log('12353213');
         const onHidden = this.modalService.onHidden.subscribe((reason: string) => {
             this.log.debug('onHidden', reason);
             this.ngxDataTable.refreshData();

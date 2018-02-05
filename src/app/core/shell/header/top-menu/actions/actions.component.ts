@@ -44,7 +44,7 @@ export class ActionsComponent implements OnInit {
     getModeList(modelName: string, modeType: number): void {
         const modeList = JSON.parse(localStorage.getItem(`${modelName}`));
 
-        if (modeList != null) {
+        if (modeList !== null) {
             this.sortModelList(modeList);
 
             if (modeType === 1) {

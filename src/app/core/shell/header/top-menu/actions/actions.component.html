@@ -51,10 +51,6 @@
           <span class="m-menu__link-wrap">
             <span class="m-menu__link-text">{{modeList.name}}
               <span *ngIf="editModel" class="lz-mode-edit-item">
-                <i class="fa flaticon-up-arrow lz-model-edit-icon-left lz-model-edit-icon" *ngIf="i!==0" (click)="$event.stopPropagation();moveModel(modeList,i,openModelList,1,'openModelList')"
-                  title="上移"></i>
-                <i class="fa flaticon-up-arrow flaticon-up-arrow-down lz-model-edit-icon" *ngIf="i!==openModelList.length-1" (click)="$event.stopPropagation();moveModel(modeList,i,openModelList,-1,'openModelList')"
-                  title="下移"></i>
                 <i class="fa flaticon-cancel" (click)="$event.stopPropagation();deleteModel(modeList,openModelList,i,'openModelList')" title="移除"></i>
               </span>
             </span>

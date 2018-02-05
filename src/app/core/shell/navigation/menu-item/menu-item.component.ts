@@ -42,7 +42,7 @@ export class MenuItemComponent implements OnInit {
 
             if (this.openModelList === null) {
                 this.recordClickMenu.push({
-                    clickNum: menu.sortOrder,
+                    clickNum: 1,
                     name: menu.name,
                     icon: menu.icon,
                     url: menu.ngUrl
@@ -63,7 +63,7 @@ export class MenuItemComponent implements OnInit {
                 }
 
                 this.openModelList.push({
-                    clickNum: menu.sortOrder,
+                    clickNum: 1,
                     name: menu.name,
                     icon: menu.icon,
                     url: menu.ngUrl

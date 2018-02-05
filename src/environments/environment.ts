@@ -13,12 +13,12 @@ export const environment = {
         'fr-FR'
     ],
     // Web Api
-    serverUrl: '//datacenter.lunztech.cn/api/',
-    appKey: '536BABCC-DD54-42FB-B43E-31C80B7AFA74',
+    serverUrl: '',
+    appKey: '',
     withHeaders: false,
     // User Center
     userCenter: {
-        serverUrl: '//usercenter2015.lunztech.cn/api/',
-        appKey: '6861aec5-3774-455d-8d14-0352bdcd21c0'
+        serverUrl: '',
+        appKey: ''
     }
 };

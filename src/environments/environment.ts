@@ -4,30 +4,21 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  appName: 'LUNZ+',
-  production: false,
-  version: '2.0',
-  localeId: 'zh-CN',
-  defaultLanguage: 'zh-CN',
-  supportedLanguages: [
-    'en-US',
-    'fr-FR'
-  ],
-  // Web Api
-  // serverUrl: '//localhost:38544/api/',
-  serverUrl: '',
-  appKey: '',
-  withHeaders: true,
-  // User Centertech
-  userCenter: {
-    serverUrl: '',
-    appKey: '',
-    authUri: ''
-  },
-  // Message Center
-  msgCenter: {
-    signalR: '',
-    serverUrl: '',
-    appKey: ''
-  }
+    production: false,
+    version: '(dev)',
+
+    defaultLanguage: 'en-US',
+    supportedLanguages: [
+        'en-US',
+        'fr-FR'
+    ],
+    // Web Api
+    serverUrl: '//datacenter.lunztech.cn/api/',
+    appKey: '536BABCC-DD54-42FB-B43E-31C80B7AFA74',
+    withHeaders: false,
+    // User Center
+    userCenter: {
+        serverUrl: '//usercenter2015.lunztech.cn/api/',
+        appKey: '6861aec5-3774-455d-8d14-0352bdcd21c0'
+    }
 };

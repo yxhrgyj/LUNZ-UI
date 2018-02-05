@@ -2,29 +2,20 @@
 import env from './.env.json';
 
 export const environment = {
-  appName: 'LUNZ+',
-  production: true,
-  version: env.npm_package_version,
-  localeId: 'zh-CN',
-  defaultLanguage: 'en-US',
-  supportedLanguages: [
-    'en-US',
-    'fr-FR'
-  ],
-  // Web Api
-  serverUrl: '',
-  appKey: '',
-  withHeaders: false,
-  // User Center
-  userCenter: {
-    serverUrl: '',
-    appKey: '',
-    authUri: ''
-  },
-  // Message Center
-  msgCenter: {
-    signalR: '',
-    serverUrl: '',
-    appKey: ''
-  }
+    production: true,
+    version: env.npm_package_version,
+    defaultLanguage: 'en-US',
+    supportedLanguages: [
+        'en-US',
+        'fr-FR'
+    ],
+    // Web Api
+    serverUrl: 'NOT-SET',
+    appKey: 'NOT-SET',
+    withHeaders: false,
+    // User Center
+    userCenter: {
+        serverUrl: 'NOT-SET',
+        appKey: 'NOT-SET'
+    }
 };

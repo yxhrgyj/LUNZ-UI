@@ -53,7 +53,8 @@ import { ActionsComponent } from './shell/header/top-menu/actions/actions.compon
 import { ReportsComponent } from './shell/header/top-menu/reports/reports.component';
 import { AppsComponent } from './shell/header/top-menu/apps/apps.component';
 
-export function createHttpService(backend: ConnectionBackend,
+export function createHttpService(
+    backend: ConnectionBackend,
     defaultOptions: RequestOptions,
     httpCacheService: HttpCacheService,
     router: Router,

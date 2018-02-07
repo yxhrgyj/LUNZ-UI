@@ -31,38 +31,30 @@ import 'core-js/es6/date';
 import 'core-js/es6/array';
 import 'core-js/es6/regexp';
 import 'core-js/es6/map';
-import 'core-js/es6/set';
-import 'core-js/es6/index';
-import 'core-js/es6/promise';
-import 'core-js/es6/typed';
 import 'core-js/es6/weak-map';
-import 'core-js/es6/weak-set';
-// import 'babel-polyfill/dist/polyfill.min';
+import 'core-js/es6/set';
+import 'core-js/es7/array';
+import 'core-js/client/shim';
 
 // IE10 and IE11 requires the following for NgClass support on SVG elements
-// import 'classlist.js';  // Run `npm install --save classlist.js`.
+import 'classlist.js'; // Run npm install --save classlist.js.
 
-// IE10 and IE11 requires the following to support `@angular/animation`.
-// import 'web-animations-js';  // Run `npm install --save web-animations-js`.
-
-
-// Evergreen browsers require these.
+// IE10 and IE11 requires the following for the Reflect API.
 import 'core-js/es6/reflect';
+
+// Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
+import 'core-js/es7/array';
 import 'core-js/es7/reflect';
 
+// IE10 and IE11 requires the following to support `@angular/animation`.
+import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
-// ALL Firefox browsers require the following to support `@angular/animation`.
-// import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+// Included with Angular CLI.
+import 'zone.js/dist/zone';
 
-
-// Zone JS is required by Angular itself.
-import 'zone.js/dist/zone';  // Included with Angular-CLI.
-
-
-/*
- * APPLICATION IMPORTS
- */
 
 // Date, currency, decimal and percent pipes.
 // Needed for: All but Chrome, Firefox, Edge, IE11 and Safari 10
-// import 'intl';  // Run `npm install --save intl`.
+import 'intl';  // Run `npm install --save intl`.
+import 'intl/locale-data/complete.js';
+import 'intl/locale-data/jsonp/en.js';

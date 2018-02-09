@@ -15,8 +15,25 @@
       <div class="m-dropdown__content">
         <div class="m-scrollable" data-scrollable="false" data-max-height="380" data-mobile-max-height="200">
           <div class="m-nav-grid m-nav-grid--skin-light">
-            <app-my-module [modelName]="'我的模块'" [modelList]="myModelList" [addIcon]="true" [moveIcon]="true" [removeAllIcon]="false" [modelListName]="'myModelList'"></app-my-module>
-            <app-my-module [modelName]="'历史访问模块'" [modelList]="openModelList" [addIcon]="false" [moveIcon]="false" [removeAllIcon]="true" [modelListName]="'openModelList'"></app-my-module>
+            <div *ngIf="modelOption">
+              <app-my-module [modelName]="'我的模块'" [modelList]="myModelList" [addIcon]="true" [moveIcon]="true" [removeAllIcon]="false"
+                [modelListName]="'myModelList'" (addModelEv)="gitAllModel($event)"></app-my-module>
+              <app-my-module [modelName]="'历史访问模块'" [modelList]="openModelList" [addIcon]="false" [moveIcon]="false" [removeAllIcon]="true"
+                [modelListName]="'openModelList'"></app-my-module>
+            </div>
+            <div *ngIf="!modelOption" class="lz-model-add-wr">
+              <h5>模块列表</h5>
+              <a class="lz-checkbox" *ngFor="let itemModel of allModelList;let i=index">
+                <label for="{{i}}">
+                  <input type="checkbox" id="{{i}}" checked="{{itemModel.checked}}" (click)="handle($event,itemModel)">
+                  <span>{{itemModel.name}}</span>
+                </label>
+              </a>
+              <div class="lz-model-add-icon lz-text-align-center">
+                <i class="m-portlet__nav-link m-dropdown__toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand" (click)="$event.stopPropagation();submitCheckedModel()">OK</i>
+                <i (click)="$event.stopPropagation();cancelAddModel()" class="m-portlet__nav-link m-dropdown__toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand">NO</i>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LoggerFactory } from '../../../../logger-factory.service';
@@ -34,6 +34,8 @@ export class MyModuleComponent implements OnInit {
     get modelList(): Array<any> {
         return this._modelList;
     }
+
+    @Output() addModelEv = new EventEmitter<boolean>();
 
     constructor(
         private router: Router,
@@ -135,4 +137,9 @@ export class MyModuleComponent implements OnInit {
             }
         }
     };
+
+    addModel(agreed: boolean): void {
+        this.addModelEv.emit(agreed);
+    };
+    
 }

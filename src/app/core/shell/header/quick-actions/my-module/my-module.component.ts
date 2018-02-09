@@ -13,6 +13,7 @@ export class MyModuleComponent implements OnInit {
     log: Logger;
     editModel: Boolean = true;
     storageDragDom: any;
+    recordClickMenu: Array<any>;
 
     private _modelList: Array<any> = [];
 
@@ -48,7 +49,7 @@ export class MyModuleComponent implements OnInit {
     fastEntryModule(row: any): void {
         const url = row.url;
 
-        // this.recordMenu(row);
+        this.recordMenu(row);
         this.router.navigate([url]);
     };
 
@@ -96,5 +97,42 @@ export class MyModuleComponent implements OnInit {
         localStorage.setItem(`${this.modelListName}`, JSON.stringify(this.modelList));
 
         this.log.info(`移除成功！`);
+    };
+
+    recordMenu(rew: any) {
+        if (rew.url) {
+            const openModelList = localStorage.getItem(`openModelList`);
+            if (openModelList == null) {
+                this.recordClickMenu.push({
+                    clickNum: rew.clickNum,
+                    name: rew.name,
+                    icon: rew.icon,
+                    url: rew.url
+                });
+
+                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+            } else {
+                this.recordClickMenu = JSON.parse(openModelList);
+
+                for (let i = 0; i < this.recordClickMenu.length; i++) {
+                    if (this.recordClickMenu[i].name === rew.name) {
+                        this.recordClickMenu[i].clickNum += 1;
+
+                        localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+                        this.recordClickMenu = [];
+                        return;
+                    }
+                }
+
+                this.recordClickMenu.push({
+                    clickNum: rew.clickNum,
+                    name: rew.name,
+                    icon: rew.icon,
+                    url: rew.url
+                });
+
+                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+            }
+        }
     };
 }

@@ -1,0 +1,35 @@
+.lz-hover-clolor:hover {
+  color: #724AD2;
+}
+
+.lz-hover-cursor:hover {
+  cursor: pointer;
+}
+
+@keyframes hoverRotate180 {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(180deg)
+  }
+}
+
+.lz-hover-rotate-180:hover {
+  animation: hoverRotate180 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hoverRotate360 {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.lz-hover-rotate-360:hover {
+  animation: hoverRotate360 1s;
+  animation-fill-mode: forwards;
+}

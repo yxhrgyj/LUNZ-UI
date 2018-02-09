@@ -67,16 +67,18 @@ export class ActionsComponent implements OnInit {
             list.forEach((item, index) => {
                 if (i === index + 1) {
                     const preRowClickNum = item.clickNum;
-
-                    row.clickNum = preRowClickNum + 1;
+                    const rowRowClickNum = row.clickNum;
+                    row.clickNum = preRowClickNum;
+                    item.clickNum = rowRowClickNum;
                 }
             });
         } else if (sortType === -1) {
             list.forEach((item, index) => {
                 if (i === index - 1) {
-                    const preRowClickNum = item.clickNum;
-
-                    row.clickNum = preRowClickNum - 1;
+                    const nextRowClickNum = item.clickNum;
+                    const rowRowClickNum = row.clickNum;
+                    row.clickNum = nextRowClickNum;
+                    item.clickNum = rowRowClickNum;
                 }
             });
         }

@@ -1,3 +1,15 @@
+/*global*/
+* {
+    box-sizing: border-box;
+}
+.lz-hover-clolor:hover {
+  color: #724AD2;
+}
+
+.lz-hover-cursor:hover {
+  cursor: pointer;
+}
+
 /*scroll bar*/
 
 ::-webkit-scrollbar {
@@ -6,23 +18,22 @@
   background-color: #E1F6FB;
 }
 
- ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background: #fff;
 }
 
- ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   border-radius: 6px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
   background-color: transparent;
 }
 
- ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   border-radius: 3px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
   background-color: rgb(122, 128, 133);
 }
-
 
 /* reset chrome input default Fill */
 
@@ -37,7 +48,6 @@ input:-webkit-autofill {
     background: none;
   }
 }
-
 
 /* app */
 
@@ -62,7 +72,6 @@ app-login {
   }
 }
 
-
 /* metronic */
 
 .m-grid--root.m-page {
@@ -83,7 +92,6 @@ app-login {
   height: 6px;
 }
 
-
 /* sweet alert2 */
 
 .swal2-buttonswrapper button {
@@ -91,7 +99,6 @@ app-login {
   margin-right: 5px;
   min-width: 80px;
 }
-
 
 /* @swimlane/ngx-datatable */
 
@@ -146,7 +153,6 @@ app-login {
   }
 }
 
-
 /* ngx-query */
 
 ngx-query.full-screen {
@@ -169,7 +175,6 @@ ngx-query {
     color: #c4c5d6;
   }
 }
-
 
 /* overall situationinput type=‘checkb’ style */
 

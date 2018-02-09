@@ -21,7 +21,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
 
     log: Logger;
     isAuthenticated: boolean;
-    clickNum: any = 1;
+    clickNum: number = 0;
     menuItems: any;
     menuLists: Array<any> = [];
 
@@ -66,7 +66,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
                     name: item.name,
                     icon: item.icon,
                     url: item.ngUrl,
-                    clickNum: this.clickNum
+                    clickNum: this.clickNum += 1
                 });
             } else {
                 item.children.forEach((itemt: any) => {
@@ -74,7 +74,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
                         name: itemt.name,
                         icon: itemt.icon,
                         url: itemt.ngUrl,
-                        clickNum: this.clickNum
+                        clickNum: this.clickNum += 1
                     });
                 });
             }

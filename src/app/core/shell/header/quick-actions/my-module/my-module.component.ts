@@ -90,4 +90,11 @@ export class MyModuleComponent implements OnInit {
 
         this.log.info(`${row.name} 移除成功！`);
     };
+
+    removeAllModel(): void {
+        this.modelList.length = 0;
+        localStorage.setItem(`${this.modelListName}`, JSON.stringify(this.modelList));
+
+        this.log.info(`移除成功！`);
+    };
 }

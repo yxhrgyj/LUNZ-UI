@@ -124,7 +124,7 @@ export class ActionsComponent implements OnInit {
     };
 
     handle(event: any, modelList: any) {
-        if (event === true) {
+        if (event.target.checked === true) {
             this.temporaryList.push({
                 name: modelList.name,
                 icon: modelList.icon,

@@ -9,7 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { NgxQueryModule } from '@zhongruigroup/ngx-query';
-import { ElModule } from 'element-angular';
 
 import { environment } from '../../environments/environment';
 import { createBsDatepickerConfigProvider } from '../utils/bs-datepicker-config';
@@ -84,7 +83,6 @@ export function createCurrencyPipe() {
         ModalModule.forRoot(),
         BsDatepickerModule.forRoot(),
         TabsModule.forRoot(),
-        ElModule.forRoot(),
         ToastrModule,
         MomentModule,
         SharedModule,

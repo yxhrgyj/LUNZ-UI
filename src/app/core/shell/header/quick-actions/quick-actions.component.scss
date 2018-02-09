@@ -2,3 +2,15 @@
   background: url('../../../../../assets/media/app/img/misc/quick_actions_bg.jpg');
   background-size: cover;
 }
+
+.lz-model-add-wr {
+  padding: 20px 20px 10px;
+}
+
+.lz-model-add-icon {
+  margin-bottom: 10px;
+  >i {
+    display: inline-block;
+    margin: 10px 5px 20px;
+  }
+}

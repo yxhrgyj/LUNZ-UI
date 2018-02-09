@@ -9,7 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { NgxQueryModule } from '@zhongruigroup/ngx-query';
-import { ElModule } from 'element-angular';
 
 import { environment } from '../../environments/environment';
 import { createBsDatepickerConfigProvider } from '../utils/bs-datepicker-config';
@@ -52,8 +51,10 @@ import { TopMenuComponent } from './shell/header/top-menu/top-menu.component';
 import { ActionsComponent } from './shell/header/top-menu/actions/actions.component';
 import { ReportsComponent } from './shell/header/top-menu/reports/reports.component';
 import { AppsComponent } from './shell/header/top-menu/apps/apps.component';
+import { MyModuleComponent } from './shell/header/quick-actions/my-module/my-module.component';
 
-export function createHttpService(backend: ConnectionBackend,
+export function createHttpService(
+    backend: ConnectionBackend,
     defaultOptions: RequestOptions,
     httpCacheService: HttpCacheService,
     router: Router,
@@ -82,7 +83,6 @@ export function createCurrencyPipe() {
         ModalModule.forRoot(),
         BsDatepickerModule.forRoot(),
         TabsModule.forRoot(),
-        ElModule.forRoot(),
         ToastrModule,
         MomentModule,
         SharedModule,
@@ -111,7 +111,8 @@ export function createCurrencyPipe() {
         TopMenuComponent,
         ActionsComponent,
         ReportsComponent,
-        AppsComponent
+        AppsComponent,
+        MyModuleComponent
     ],
     entryComponents: [
         ChangePasswordModalComponent,

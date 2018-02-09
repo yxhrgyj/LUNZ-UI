@@ -1,0 +1,83 @@
+.m-nav-grid__row {
+  padding: 20px 20px 10px;
+  :nth-of-type(2) {
+    margin-bottom: 4px;
+  }
+}
+
+.lz-header-quick-operation-title {
+  position: relative;
+  i {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    line-height: 1em
+  }
+}
+
+.lz-header-quick-operation-item {
+  position: relative;
+  display: inline-block;
+  padding: 14px;
+  min-width: 110px;
+  font-size: 12px;
+  text-align: center;
+  border: solid 1px #ffffff;
+  p {
+    margin-bottom: 0;
+    i {
+      display: inline-block;
+      padding: 2px;
+      font-size: 14px;
+      line-height: 1em;
+    }
+    .lz-move-prev {
+      transform: rotate(-90deg)
+    }
+    .lz-move-back {
+      transform: rotate(90deg)
+    }
+  }
+  >i {
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    font-size: 14px;
+  }
+}
+
+.lz-header-quick-operation-item:hover {
+  border-color: #eeeaea;
+}
+
+.flaticon-cancel-rotate {
+  transform: rotate(45deg);
+}
+
+@keyframes editIconMove {
+  from {
+    right: 10px;
+  }
+  to {
+    right: 40px
+  }
+}
+
+@keyframes editIconBack {
+  from {
+    right: 40px;
+  }
+  to {
+    right: 10px
+  }
+}
+
+.lz-edit-icon-move {
+  animation: editIconMove 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.lz-edit-icon-back {
+  animation: editIconBack 0.3s;
+  animation-fill-mode: forwards;
+}

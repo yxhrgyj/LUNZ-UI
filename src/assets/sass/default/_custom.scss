@@ -1,4 +1,8 @@
-/*scroll bar*/
+/*global*/
+
+* {
+  box-sizing: border-box;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -6,25 +10,22 @@
   background-color: #E1F6FB;
 }
 
- ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background: #fff;
 }
 
- ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   border-radius: 6px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
   background-color: transparent;
 }
 
- ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   border-radius: 3px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
   background-color: rgb(122, 128, 133);
 }
-
-
-/* reset chrome input default Fill */
 
 input:-webkit-autofill {
   animation-name: autofill;
@@ -38,6 +39,64 @@ input:-webkit-autofill {
   }
 }
 
+.lz-text-align-center {
+  text-align: center;
+}
+
+.lz-checkbox {
+  display: inline-block;
+}
+
+.lz-checkbox>label {
+  position: relative;
+  display: inline-block;
+  margin: 4px 6px;
+}
+
+.lz-checkbox>label>span {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1em;
+}
+
+.lz-checkbox>label>input[type='checkbox'] {
+  display: inline-block;
+  width: 0;
+  margin-right: 18px;
+  line-height: 1em;
+}
+
+.lz-checkbox>label>input[type='checkbox']:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1em;
+  cursor: pointer;
+}
+
+.lz-checkbox>label>input[type='checkbox']:before {
+  content: "";
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1em;
+  border: 1px solid #c7c5c5; //   z-index: 1;
+}
+
+.lz-checkbox>label>input[type='checkbox']:checked:before {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  height: .5rem;
+  border-color: #7148D2;
+  border-top-style: none;
+  border-right-style: none;
+  line-height: 1em;
+}
 
 /* app */
 
@@ -62,7 +121,6 @@ app-login {
   }
 }
 
-
 /* metronic */
 
 .m-grid--root.m-page {
@@ -83,7 +141,6 @@ app-login {
   height: 6px;
 }
 
-
 /* sweet alert2 */
 
 .swal2-buttonswrapper button {
@@ -91,7 +148,6 @@ app-login {
   margin-right: 5px;
   min-width: 80px;
 }
-
 
 /* @swimlane/ngx-datatable */
 
@@ -146,7 +202,6 @@ app-login {
   }
 }
 
-
 /* ngx-query */
 
 ngx-query.full-screen {
@@ -170,39 +225,7 @@ ngx-query {
   }
 }
 
-
 /* overall situationinput type=‘checkb’ style */
-
-input[type='checkbox']:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1.2rem;
-  height: 1.2rem;
-  background: #fff;
-  cursor: pointer;
-}
-
-input[type='checkbox']:before {
-  content: "";
-  transition: all 0.3s ease-in-out;
-  position: absolute;
-  left: 0;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid #c7c5c5;
-  z-index: 1;
-}
-
-input[type='checkbox']:checked:before {
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  height: .5rem;
-  border-color: #009688;
-  border-top-style: none;
-  border-right-style: none;
-}
 
 .m-alert__text {
   font-size: 13px;

@@ -8,44 +8,31 @@
   <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
   <div class="m-dropdown__inner">
     <div class="m-dropdown__header m--align-center">
-      <span class="m-dropdown__header-title">
-        快捷操作
-      </span>
-      <span class="m-dropdown__header-subtitle">
-        快速进入常用模块
-      </span>
+      <span class="m-dropdown__header-title">快捷操作</span>
+      <span class="m-dropdown__header-subtitle">快速进入常用模块</span>
     </div>
     <div class="m-dropdown__body m-dropdown__body--paddingless">
       <div class="m-dropdown__content">
         <div class="m-scrollable" data-scrollable="false" data-max-height="380" data-mobile-max-height="200">
           <div class="m-nav-grid m-nav-grid--skin-light">
-            <div class="m-nav-grid__row">
-              <a class="m-nav-grid__item">
-                <i class="m-nav-grid__icon flaticon-file"></i>
-                <span class="m-nav-grid__text">
-                  生成报表
-                </span>
-              </a>
-              <a class="m-nav-grid__item">
-                <i class="m-nav-grid__icon flaticon-time"></i>
-                <span class="m-nav-grid__text">
-                  新建事件
-                </span>
-              </a>
+            <div *ngIf="modelOption">
+              <app-my-module [modelName]="'我的模块'" [modelList]="myModelList" [addIcon]="true" [moveIcon]="true" [removeAllIcon]="false"
+                [modelListName]="'myModelList'" (addModelEv)="gitAllModel($event)"></app-my-module>
+              <app-my-module [modelName]="'历史访问模块'" [modelList]="openModelList" [addIcon]="false" [moveIcon]="false" [removeAllIcon]="true"
+                [modelListName]="'openModelList'"></app-my-module>
             </div>
-            <div class="m-nav-grid__row">
-              <a class="m-nav-grid__item">
-                <i class="m-nav-grid__icon flaticon-folder"></i>
-                <span class="m-nav-grid__text">
-                  新建任务
-                </span>
+            <div *ngIf="!modelOption" class="lz-model-add-wr">
+              <h5>模块列表</h5>
+              <a class="lz-checkbox" *ngFor="let itemModel of allModelList;let i=index">
+                <label for="{{i}}">
+                  <input type="checkbox" id="{{i}}" checked="{{itemModel.checked}}" (click)="handle($event,itemModel)">
+                  <span>{{itemModel.name}}</span>
+                </label>
               </a>
-              <a class="m-nav-grid__item">
-                <i class="m-nav-grid__icon flaticon-clipboard"></i>
-                <span class="m-nav-grid__text">
-                  任务完成
-                </span>
-              </a>
+              <div class="lz-model-add-icon lz-text-align-center">
+                <i class="m-portlet__nav-link m-dropdown__toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand" (click)="$event.stopPropagation();submitCheckedModel()">OK</i>
+                <i (click)="$event.stopPropagation();cancelAddModel()" class="m-portlet__nav-link m-dropdown__toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand">NO</i>
+              </div>
             </div>
           </div>
         </div>

@@ -44,7 +44,7 @@ export class ActionsComponent implements OnInit {
     getModeList(modelName: string, modeType: number): void {
         const modeList = JSON.parse(localStorage.getItem(`${modelName}`));
 
-        if (modeList != null) {
+        if (modeList !== null) {
             this.sortModelList(modeList);
 
             if (modeType === 1) {
@@ -67,16 +67,18 @@ export class ActionsComponent implements OnInit {
             list.forEach((item, index) => {
                 if (i === index + 1) {
                     const preRowClickNum = item.clickNum;
-
-                    row.clickNum = preRowClickNum + 1;
+                    const rowRowClickNum = row.clickNum;
+                    row.clickNum = preRowClickNum;
+                    item.clickNum = rowRowClickNum;
                 }
             });
         } else if (sortType === -1) {
             list.forEach((item, index) => {
                 if (i === index - 1) {
-                    const preRowClickNum = item.clickNum;
-
-                    row.clickNum = preRowClickNum - 1;
+                    const nextRowClickNum = item.clickNum;
+                    const rowRowClickNum = row.clickNum;
+                    row.clickNum = nextRowClickNum;
+                    item.clickNum = rowRowClickNum;
                 }
             });
         }
@@ -122,7 +124,7 @@ export class ActionsComponent implements OnInit {
     };
 
     handle(event: any, modelList: any) {
-        if (event === true) {
+        if (event.target.checked === true) {
             this.temporaryList.push({
                 name: modelList.name,
                 icon: modelList.icon,

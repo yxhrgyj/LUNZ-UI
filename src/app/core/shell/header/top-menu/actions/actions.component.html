@@ -2,6 +2,7 @@
   <i class="m-menu__link-icon flaticon-add"></i>
   <span class="m-menu__link-text">我的操作</span>
   <i class="m-menu__hor-arrow la la-angle-down"></i>
+  <i class="m-menu__ver-arrow la la-angle-right"></i>
 </a>
 <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
   <span class="m-menu__arrow m-menu__arrow--adjust"></span>
@@ -66,8 +67,13 @@
     <li class="m-menu__item">
       <span class="lz-history-model-title">模块列表</span>
     </li>
-    <li class="lz-el-checkbox" *ngFor="let modelList of allModelList">
-      <el-checkbox [model]="modelList.checked" (modelChange)="handle($event,modelList)">{{modelList.name}}</el-checkbox>
+    <li class="lz-el-checkbox" *ngFor="let modelList of allModelList;let i=index">
+      <a class="lz-checkbox">
+        <label for="{{i}}">
+          <input type="checkbox" id="{{i}}" checked="{{modelList.checked}}" (click)="handle($event,modelList)">
+          <span>{{modelList.name}}</span>
+        </label>
+      </a>
     </li>
     <li class="lz-add-model-cancel">
       <i class="el-icon-check" (click)="$event.stopPropagation();submitCheckedModel()"></i>

@@ -11,8 +11,8 @@ import { Logger } from '../../../logger.service';
 export class QuickActionsComponent implements OnInit {
     log: Logger;
 
-    myModelList: Array<any>;
-    openModelList: Array<any>;
+    myModelList: Array<any> = [];
+    openModelList: Array<any> = [];
     allModelList: Array<any> = [];
     temporaryList: Array<any> = [];
     modelOption: Boolean = true;

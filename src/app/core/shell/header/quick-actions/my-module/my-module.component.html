@@ -9,9 +9,9 @@
   <p>
     <a class="lz-header-quick-operation-item" *ngFor="let model of modelList|slice:0:6;let i=index" (click)="$event.stopPropagation();fastEntryModule(model)">
       <p>
-        <i class="{{model.icon}}"></i>
+        <i class="lz-hover-clolor lz-hover-cursor {{model.icon}}"></i>
       </p>
-      <span>{{model.name}}</span>
+      <span class="lz-hover-clolor lz-hover-cursor">{{model.name}}</span>
       <p *ngIf="!editModel&&moveIcon">
         <i *ngIf="i!==0" (click)="$event.stopPropagation();moveModel(model,i,1)" class="flaticon-up-arrow lz-hover-clolor lz-move-prev"
           title="向前移动"></i>

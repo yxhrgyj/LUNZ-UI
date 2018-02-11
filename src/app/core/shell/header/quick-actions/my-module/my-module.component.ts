@@ -9,13 +9,8 @@ import { Logger } from '../../../../logger.service';
     templateUrl: './my-module.component.html',
     styleUrls: ['./my-module.component.scss']
 })
-export class MyModuleComponent implements OnInit {
-    log: Logger;
-    editModel: Boolean = true;
-    storageDragDom: any;
-    recordClickMenu: Array<any>;
 
-    private _modelList: Array<any> = [];
+export class MyModuleComponent implements OnInit {
 
     @Input() modelName: string;
     @Input() addIcon: Boolean;
@@ -29,12 +24,18 @@ export class MyModuleComponent implements OnInit {
             this._modelList = modelList;
         }
     }
-
     get modelList(): Array<any> {
         return this._modelList;
     }
 
     @Output() addModelEv = new EventEmitter<boolean>();
+
+    log: Logger;
+    editModel: Boolean = true;
+    storageDragDom: any;
+    recordClickMenu: Array<any>;
+
+    private _modelList: Array<any> = [];
 
     constructor(
         private router: Router,
@@ -43,9 +44,7 @@ export class MyModuleComponent implements OnInit {
         this.log = this.loggerFactory.getLogger();
     }
 
-    ngOnInit() {
-
-    }
+    ngOnInit() { }
 
     fastEntryModule(row: any): void {
         const url = row.url;
@@ -140,5 +139,5 @@ export class MyModuleComponent implements OnInit {
     addModel(agreed: boolean): void {
         this.addModelEv.emit(agreed);
     };
-    
+
 }

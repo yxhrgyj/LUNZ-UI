@@ -70,7 +70,7 @@
     <li class="lz-el-checkbox" *ngFor="let modelList of allModelList;let i=index">
       <a class="lz-checkbox">
         <label for="{{i}}">
-          <input type="checkbox" id="{{i}}" checked="{{modelList.checked}}" (click)="handle($event,modelList)">
+          <input type="checkbox" id="{{i}}" checked="{{modelList.checked}}" (click)="handle($event,modelList)" />
           <span>{{modelList.name}}</span>
         </label>
       </a>

@@ -21,7 +21,7 @@ export class NavigationComponent implements OnInit, AfterViewChecked {
 
     log: Logger;
     isAuthenticated: boolean;
-    clickNum: number = 0;
+    clickNum: any = 0;
     menuItems: any;
     menuLists: Array<any> = [];
 

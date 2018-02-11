@@ -14,12 +14,12 @@
     "selector-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
     "no-empty-source": null,
-    "selector-class-pattern": "[a-z-]+",
-    "selector-id-pattern": "[a-z-]+",
+    "selector-class-pattern": "[a-z-]+|>",
+    "selector-id-pattern": "[a-z-]+|>",
     "selector-no-id": true,
     "selector-no-universal": true,
     "selector-pseudo-element-colon-notation": "single",
-    "unit-whitelist": ["px", "%", "rem", "vw", "vh", "deg", "s", "ms"],
+    "unit-whitelist": ["px", "%", "rem", "em", "vw", "vh", "deg", "s", "ms"],
     "max-line-length": 120
   }
 }

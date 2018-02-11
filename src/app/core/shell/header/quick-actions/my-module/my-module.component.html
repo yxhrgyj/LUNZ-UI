@@ -4,7 +4,7 @@
     <i class="lz-hover-clolor lz-hover-cursor" *ngIf="modelList.length!==0" [ngClass]="{'flaticon-more-v6 lz-edit-icon-back':editModel,'flaticon-interface-5 lz-edit-icon-move':!editModel}"
       (click)="editModel=!editModel"></i>
     <i class="flaticon-cancel flaticon-cancel-rotate lz-hover-clolor lz-hover-cursor" *ngIf="!editModel&&addIcon||(addIcon&&modelList.length===0)"
-    (click)="$event.stopPropagation();addModel(false)"></i>
+      (click)="$event.stopPropagation();addModel(false)"></i>
   </p>
   <p>
     <a class="lz-header-quick-operation-item" *ngFor="let model of modelList|slice:0:6;let i=index" (click)="$event.stopPropagation();fastEntryModule(model)">
@@ -18,7 +18,7 @@
         <i *ngIf="i!==modelList.length-1" (click)="$event.stopPropagation();moveModel(model,i,-1)" class="flaticon-up-arrow lz-hover-clolor lz-move-back"
           title="向后移动"></i>
       </p>
-      <i *ngIf="!editModel" (click)="$event.stopPropagation();removeModel(model,i,modelListName)" class="flaticon-cancel lz-hover-clolor"
+      <i *ngIf="!editModel" (click)="$event.stopPropagation();removeModel(model,i,modelListName)" class="lz-my-model-remove flaticon-cancel lz-hover-clolor"
         title="移除"></i>
     </a>
     <a *ngIf="modelList.length===0">无~~~~</a>

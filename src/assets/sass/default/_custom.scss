@@ -61,8 +61,7 @@ input:-webkit-autofill {
 
 .lz-checkbox>label>input[type='checkbox'] {
   display: inline-block;
-  width: 0;
-  margin-right: 18px;
+  width: 1.2rem;
   line-height: 1em;
 }
 
@@ -73,6 +72,7 @@ input:-webkit-autofill {
   left: 0;
   width: 1.2rem;
   height: 1.2rem;
+  background: #fff;
   line-height: 1em;
   cursor: pointer;
 }
@@ -85,7 +85,9 @@ input:-webkit-autofill {
   width: 1rem;
   height: 1rem;
   line-height: 1em;
-  border: 1px solid #c7c5c5; //   z-index: 1;
+  border: 1px solid #c7c5c5;
+  background: #fff;
+  z-index: 1;
 }
 
 .lz-checkbox>label>input[type='checkbox']:checked:before {

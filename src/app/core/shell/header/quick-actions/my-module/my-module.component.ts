@@ -24,7 +24,6 @@ export class MyModuleComponent implements OnInit {
     @Input() modelListName: string;
     @Input()
     set modelList(modelList: Array<any>) {
-        console.log(modelList);
         if (modelList) {
             this.sortModelList(modelList);
             this._modelList = modelList;

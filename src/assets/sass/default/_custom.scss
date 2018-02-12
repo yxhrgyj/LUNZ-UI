@@ -39,8 +39,8 @@ input:-webkit-autofill {
   }
 }
 
-.lz-text-align-center {
-  text-align: center;
+.lz-hover-box-shadow:hover {
+    box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.2);
 }
 
 .lz-checkbox {
@@ -55,8 +55,8 @@ input:-webkit-autofill {
 
 .lz-checkbox>label>span {
   display: inline-block;
-  cursor: pointer;
   line-height: 1em;
+  cursor: pointer;
 }
 
 .lz-checkbox>label>input[type='checkbox'] {

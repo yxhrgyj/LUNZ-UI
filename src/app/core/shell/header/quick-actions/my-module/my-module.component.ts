@@ -33,7 +33,7 @@ export class MyModuleComponent implements OnInit {
     log: Logger;
     editModel: Boolean = true;
     storageDragDom: any;
-    recordClickMenu: Array<any>;
+    recordClickMenu: Array<any> = [];
 
     private _modelList: Array<any> = [];
 

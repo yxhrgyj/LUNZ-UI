@@ -10,27 +10,27 @@
 
 .m-menu__item .lz-model-edit-active {
   position: absolute;
-  right: 20px;
+  right: 30px;
 }
 
-@keyframes editIconMove {
+@keyframes myModeleditIconMove {
   from {
     right: 20px;
   }
 
   to {
-    right: 50px;
+    right: 60px;
   }
 }
 
 .lz-model-edit-icon-move {
-  animation: editIconMove 0.5s;
+  animation: myModeleditIconMove 0.5s;
   animation-fill-mode: forwards;
 }
 
-@keyframes editIconBack {
+@keyframes myModeleditIconBack {
   from {
-    right: 50px;
+    right: 60px;
   }
 
   to {
@@ -39,7 +39,7 @@
 }
 
 .lz-model-edit-icon-back {
-  animation: editIconBack 0.5s;
+  animation: myModeleditIconBack 0.5s;
   animation-fill-mode: forwards;
 }
 
@@ -99,13 +99,14 @@
   text-align: center;
 }
 
-.lz-add-model-cancel i {
-  font-size: 26px;
+.lz-add-model-cancel span {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 16px;
   padding: 0 10px;
-  color: #b9c1d4;
   cursor: pointer;
 }
 
-.lz-add-model-cancel i:hover {
-  transform: scale(1.4);
+.lz-add-model-cancel span:hover {
+  transform: scale(1.2);
 }

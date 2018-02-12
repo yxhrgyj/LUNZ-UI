@@ -99,13 +99,15 @@
   text-align: center;
 }
 
-.lz-add-model-cancel i {
-  font-size: 26px;
+.lz-add-model-cancel span {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 16px;
   padding: 0 10px;
   color: #b9c1d4;
   cursor: pointer;
 }
 
-.lz-add-model-cancel i:hover {
-  transform: scale(1.4);
+.lz-add-model-cancel span:hover {
+  transform: scale(1.2);
 }

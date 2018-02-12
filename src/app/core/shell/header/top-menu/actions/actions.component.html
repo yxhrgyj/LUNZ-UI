@@ -76,8 +76,8 @@
       </a>
     </li>
     <li class="lz-add-model-cancel">
-      <i class="la-check" (click)="$event.stopPropagation();submitCheckedModel()"></i>
-      <i class="la-close" (click)="$event.stopPropagation();cancelCheckedModel()"></i>
+      <span (click)="$event.stopPropagation();submitCheckedModel()">提交</span>
+      <span (click)="$event.stopPropagation();cancelCheckedModel()">取消</span>
     </li>
   </ul>
 </div>

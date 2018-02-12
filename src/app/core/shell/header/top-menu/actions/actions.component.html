@@ -4,7 +4,7 @@
   <i class="m-menu__hor-arrow la la-angle-down"></i>
   <i class="m-menu__ver-arrow la la-angle-right"></i>
 </a>
-<div class="lz-my-module-wr m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
+<div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
   <span class="m-menu__arrow m-menu__arrow--adjust"></span>
   <ul class="m-menu__subnav" *ngIf="!addModel">
     <li class="m-menu__item">
@@ -18,7 +18,7 @@
     <li class="m-menu__item" *ngIf="myModelList.length==0 ">
       <span class="lz-history-model-title">未添加~~~</span>
     </li>
-    <li class="m-menu__item" *ngFor="let mode of myModelList | slice:0:6;let i=index">
+    <li class="m-menu__item" *ngFor="let mode of myModelList | slice:0:5;let i=index">
       <a class="m-menu__link" (click)="fastEntryModule(mode)">
         <i class="m-menu__link-icon {{mode.icon}} "></i>
         <span class="m-menu__link-title">
@@ -45,7 +45,7 @@
     <li class=" m-menu__item" *ngIf="openModelList.length==0 ">
       <span class="lz-history-model-title">无~~~</span>
     </li>
-    <li class="m-menu__item" *ngFor="let modeList of openModelList | slice:0:6;let i=index">
+    <li class="m-menu__item" *ngFor="let modeList of openModelList | slice:0:5;let i=index">
       <a class="m-menu__link" (click)="fastEntryModule(modeList)">
         <i class="m-menu__link-icon {{modeList.icon}} "></i>
         <span class="m-menu__link-title">
@@ -76,8 +76,8 @@
       </a>
     </li>
     <li class="lz-add-model-cancel">
-      <i class="el-icon-check" (click)="$event.stopPropagation();submitCheckedModel()"></i>
-      <i class="el-icon-close" (click)="$event.stopPropagation();cancelCheckedModel()"></i>
+      <i class="la-check" (click)="$event.stopPropagation();submitCheckedModel()"></i>
+      <i class="la-close" (click)="$event.stopPropagation();cancelCheckedModel()"></i>
     </li>
   </ul>
 </div>

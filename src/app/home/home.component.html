@@ -1,22 +1,13 @@
-<!-- <div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content animated fadeInRight">
   <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>
-        <img class="logo" src="assets/angular-logo.svg" alt="angular logo" />
-        <span translate>Hello world !</span>
-      </h1>
-      <app-loader [isLoading]="isLoading"></app-loader>
-      <q [hidden]="isLoading">{{quote}}</q>
-      <p>
-        <button (click)="alert()" class="btn btn-info">Alert</button>
-        <button (click)="confirm()" class="btn btn-danger">Confirm</button>
-        <button (click)="wait()" class="btn btn-danger">Wait</button>
-      </p>
+    <div class="row">
+      <div *ngFor="let module of moduleAllList" (click)="enterModule(module)" 
+            class="col-lg-1 col-md-1 col-sm-1 col-xs-4 text-center lz-home-module-item">
+        <a>
+          <h6 class="{{module.icon}}"></h6>
+          <p>{{module.name}}</p>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-3">
-      <app-file-upload [multiple]="false" (success)="onSuccess($event)" (error)="onError($event)"></app-file-upload>
-    </div>
-  </div>
-</div> -->
+</div>

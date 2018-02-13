@@ -1,0 +1,22 @@
+.lz-home-module-item {
+  display: flex;
+  margin: 2px;
+  padding-top: 16px;
+  border: solid 1px #d4d5d9;
+  cursor: pointer;
+
+  a {
+    display: inline-block;
+    margin: auto;
+
+    h6 {
+      font-size: 24px;
+    }
+  }
+}
+
+.lz-home-module-item:hover {
+  color: #fff;
+  background: #2c2e3e;
+  box-shadow: 0 0 15px 1px rgba(44, 46, 62, 0.3);
+}

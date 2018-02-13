@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { LoggerFactory } from '../../../logger-factory.service';
 import { Logger } from '../../../logger.service';
+import { OperationService } from './operation-service/operation.service';
 
 @Component({
     selector: 'app-quick-actions, [app-quick-actions]',
@@ -19,26 +20,15 @@ export class QuickActionsComponent implements OnInit {
 
     constructor(
         private loggerFactory: LoggerFactory,
+        private operationService: OperationService
     ) {
         this.log = this.loggerFactory.getLogger();
     }
 
     ngOnInit() {
-        this.getModeList(`myModelList`, 1);
-        this.getModeList(`openModelList`, -1);
+        this.myModelList = this.operationService.getModeList(`myModelList`) || [];
+        this.openModelList = this.operationService.getModeList(`openModelList`) || [];
     }
-
-    getModeList(modelName: string, modeType: number): void {
-        const modeList = JSON.parse(localStorage.getItem(`${modelName}`));
-
-        if (modeList !== null) {
-            if (modeType === 1) {
-                this.myModelList = modeList;
-            } else {
-                this.openModelList = modeList;
-            }
-        }
-    };
 
     gitAllModel(event: any) {
         const allModel = JSON.parse(localStorage.getItem(`menuListAll`));

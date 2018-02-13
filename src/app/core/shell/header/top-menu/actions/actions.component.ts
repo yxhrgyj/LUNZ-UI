@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 import { LoggerFactory } from '../../../../logger-factory.service';
 import { Logger } from '../../../../logger.service';
+import { OperationService } from '../../quick-actions/operation-service/operation.service';
 
 @Component({
     selector: 'app-top-menu-actions, [app-top-menu-actions]',
@@ -24,42 +24,15 @@ export class ActionsComponent implements OnInit {
     addModel: Boolean = false;
 
     constructor(
-        private router: Router,
         private loggerFactory: LoggerFactory,
+        private operationService: OperationService,
     ) {
         this.log = this.loggerFactory.getLogger();
     };
 
     ngOnInit() {
-        this.getModeList(`myModelList`, 1);
-        this.getModeList(`openModelList`, -1);
-    };
-
-    sortModelList(modeList: any): void {
-        modeList.sort((x: any, y: any) => {
-            return y.clickNum - x.clickNum;
-        });
-    };
-
-    getModeList(modelName: string, modeType: number): void {
-        const modeList = JSON.parse(localStorage.getItem(`${modelName}`));
-
-        if (modeList !== null) {
-            this.sortModelList(modeList);
-
-            if (modeType === 1) {
-                this.myModelList = modeList;
-            } else {
-                this.openModelList = modeList;
-            }
-        }
-    };
-
-    fastEntryModule(row: any): void {
-        const url = row.url;
-
-        this.recordMenu(row);
-        this.router.navigate([url]);
+        this.myModelList = this.operationService.getModeList(`myModelList`) || [];
+        this.openModelList = this.operationService.getModeList(`openModelList`) || [];
     };
 
     moveModel(row: any, i: any, list: Array<any>, sortType: number, moveListName: string): void {
@@ -83,7 +56,7 @@ export class ActionsComponent implements OnInit {
             });
         }
 
-        this.sortModelList(list);
+        this.operationService.sortModelList(list);
 
         localStorage.setItem(`${moveListName}`, JSON.stringify(list));
     };
@@ -156,43 +129,6 @@ export class ActionsComponent implements OnInit {
     cancelCheckedModel(): void {
         this.temporaryList = [];
         this.addModel = false;
-    };
-
-    recordMenu(rew: any) {
-        if (rew.url) {
-            const openModelList = localStorage.getItem(`openModelList`);
-            if (openModelList == null) {
-                this.recordClickMenu.push({
-                    clickNum: rew.clickNum,
-                    name: rew.name,
-                    icon: rew.icon,
-                    url: rew.url
-                });
-
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
-            } else {
-                this.recordClickMenu = JSON.parse(openModelList);
-
-                for (let i = 0; i < this.recordClickMenu.length; i++) {
-                    if (this.recordClickMenu[i].name === rew.name) {
-                        this.recordClickMenu[i].clickNum += 1;
-
-                        localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
-                        this.recordClickMenu = [];
-                        return;
-                    }
-                }
-
-                this.recordClickMenu.push({
-                    clickNum: rew.clickNum,
-                    name: rew.name,
-                    icon: rew.icon,
-                    url: rew.url
-                });
-
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
-            }
-        }
     };
 
 };

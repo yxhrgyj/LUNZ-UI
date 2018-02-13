@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { LoggerFactory } from '../../../../logger-factory.service';
 import { Logger } from '../../../../logger.service';
+import { OperationService } from '../operation-service/operation.service';
 
 @Component({
     selector: 'app-my-module',
@@ -17,16 +18,7 @@ export class MyModuleComponent implements OnInit {
     @Input() moveIcon: Boolean;
     @Input() removeAllIcon: Boolean;
     @Input() modelListName: string;
-    @Input()
-    set modelList(modelList: Array<any>) {
-        if (modelList) {
-            this.sortModelList(modelList);
-            this._modelList = modelList;
-        }
-    }
-    get modelList(): Array<any> {
-        return this._modelList;
-    }
+    @Input() modelList: Array<any>;
 
     @Output() addModelEv = new EventEmitter<boolean>();
 
@@ -35,29 +27,14 @@ export class MyModuleComponent implements OnInit {
     storageDragDom: any;
     recordClickMenu: Array<any> = [];
 
-    private _modelList: Array<any> = [];
-
     constructor(
-        private router: Router,
         private loggerFactory: LoggerFactory,
+        private operationService: OperationService,
     ) {
         this.log = this.loggerFactory.getLogger();
     }
 
     ngOnInit() { }
-
-    fastEntryModule(row: any): void {
-        const url = row.url;
-
-        this.recordMenu(row);
-        this.router.navigate([url]);
-    };
-
-    sortModelList(modeList: any): void {
-        modeList.sort((x: any, y: any) => {
-            return y.clickNum - x.clickNum;
-        });
-    };
 
     moveModel(row: any, i: any, sortType: number): void {
         if (sortType === 1) {
@@ -80,7 +57,7 @@ export class MyModuleComponent implements OnInit {
             });
         }
 
-        this.sortModelList(this.modelList);
+        this.operationService.sortModelList(this.modelList);
         localStorage.setItem(`${this.modelListName}`, JSON.stringify(this.modelList));
     };
 
@@ -99,45 +76,8 @@ export class MyModuleComponent implements OnInit {
         this.log.info(`移除成功！`);
     };
 
-    recordMenu(rew: any) {
-        if (rew.url) {
-            const openModelList = localStorage.getItem(`openModelList`);
-            if (openModelList == null) {
-                this.recordClickMenu.push({
-                    clickNum: rew.clickNum,
-                    name: rew.name,
-                    icon: rew.icon,
-                    url: rew.url
-                });
-
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
-            } else {
-                this.recordClickMenu = JSON.parse(openModelList);
-
-                for (let i = 0; i < this.recordClickMenu.length; i++) {
-                    if (this.recordClickMenu[i].name === rew.name) {
-                        this.recordClickMenu[i].clickNum += 1;
-
-                        localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
-                        this.recordClickMenu = [];
-                        return;
-                    }
-                }
-
-                this.recordClickMenu.push({
-                    clickNum: rew.clickNum,
-                    name: rew.name,
-                    icon: rew.icon,
-                    url: rew.url
-                });
-
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
-            }
-        }
-    };
-
     addModel(agreed: boolean): void {
         this.addModelEv.emit(agreed);
     };
 
-}
+};

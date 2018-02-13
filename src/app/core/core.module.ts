@@ -32,6 +32,7 @@ import { SsoServiceService } from '../sso/shared/sso-service.service';
 
 import { MessageService } from '../messages/shared/message.service';
 import { OrdersService } from '../order-management/shared/orders.service';
+import { OperationService } from './shell/header/quick-actions/operation-service/operation.service';
 
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './shell/header/header.component';
@@ -144,7 +145,8 @@ export function createCurrencyPipe() {
         SweetAlert2Service,
         SsoServiceService,
         MessageService,
-        OrdersService
+        OrdersService,
+        OperationService
     ]
 })
 export class CoreModule {

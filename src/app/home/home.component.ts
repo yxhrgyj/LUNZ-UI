@@ -16,7 +16,9 @@ export class HomeComponent implements OnInit {
     ) { };
 
     ngOnInit() {
-        this.moduleAllList = JSON.parse(localStorage.getItem(`menuListAll`)) || [];
+        setTimeout(() => {
+            this.moduleAllList = JSON.parse(localStorage.getItem(`menuListAll`)) || [];
+        }, 1000);
     };
 
     enterModule(row: any) {

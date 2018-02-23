@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MaxLengthValidatorComponent } from './max-length-validator.component';
+import { MinValueValidatorComponent } from './min-value-validator.component';
 
-describe('MaxLengthValidatorComponent', () => {
-  let component: MaxLengthValidatorComponent;
-  let fixture: ComponentFixture<MaxLengthValidatorComponent>;
+describe('MinValueValidatorComponent', () => {
+  let component: MinValueValidatorComponent;
+  let fixture: ComponentFixture<MinValueValidatorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MaxLengthValidatorComponent ]
+      declarations: [ MinValueValidatorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MaxLengthValidatorComponent);
+    fixture = TestBed.createComponent(MinValueValidatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

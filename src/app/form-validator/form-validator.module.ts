@@ -9,8 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { FormValidatorRoutingModule } from './form-validator-routing.module';
 import { FormValidatorComponent } from './partial/form-validator/form-validator.component';
 import { RequiredValidatorComponent } from './partial/required-validator/required-validator.component';
-import { MinLengthValidatorComponent } from './partial/min-length-validator/min-length-validator.component';
-import { MaxLengthValidatorComponent } from './partial/max-length-validator/max-length-validator.component';
+import { MinValueValidatorComponent } from './partial/min-value-validator/min-value-validator.component';
+import { MaxValueValidatorComponent } from './partial/max-value-validator/max-value-validator.component';
 import { RangeLengthValidatorComponent } from './partial/range-length-validator/range-length-validator.component';
 import { NumberValidatorComponent } from './partial/number-validator/number-validator.component';
 import { UrlValidatorComponent } from './partial/url-validator/url-validator.component';
@@ -20,7 +20,6 @@ import { MinDateValidatorComponent } from './partial/min-date-validator/min-date
 import { MaxDateValidatorComponent } from './partial/max-date-validator/max-date-validator.component';
 import { PhoneValidatorComponent } from './partial/phone-validator/phone-validator.component';
 import { EqualToValidatorComponent } from './partial/equal-to-validator/equal-to-validator.component';
-import { NotEqualToValidatorComponent } from './partial/not-equal-to-validator/not-equal-to-validator.component';
 import { CustomPatternValidatorComponent } from './partial/custom-pattern-validator/custom-pattern-validator.component';
 
 @NgModule({
@@ -35,8 +34,8 @@ import { CustomPatternValidatorComponent } from './partial/custom-pattern-valida
     declarations: [
         FormValidatorComponent,
         RequiredValidatorComponent,
-        MinLengthValidatorComponent,
-        MaxLengthValidatorComponent,
+        MinValueValidatorComponent,
+        MaxValueValidatorComponent,
         RangeLengthValidatorComponent,
         NumberValidatorComponent,
         UrlValidatorComponent,
@@ -46,7 +45,6 @@ import { CustomPatternValidatorComponent } from './partial/custom-pattern-valida
         MaxDateValidatorComponent,
         PhoneValidatorComponent,
         EqualToValidatorComponent,
-        NotEqualToValidatorComponent,
         CustomPatternValidatorComponent
     ]
 })

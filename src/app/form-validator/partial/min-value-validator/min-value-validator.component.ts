@@ -4,19 +4,20 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 
 @Component({
-    selector: 'app-phone-validator',
-    templateUrl: './phone-validator.component.html',
-    styleUrls: ['./phone-validator.component.scss']
+    selector: 'app-min-value-validator',
+    templateUrl: './min-value-validator.component.html',
+    styleUrls: ['./min-value-validator.component.scss']
 })
 
-export class PhoneValidatorComponent implements OnInit {
+export class MinValueValidatorComponent implements OnInit {
+
     form: FormGroup;
 
     constructor() {
         this.form = new FormGroup({
-            phone: new FormControl('', CustomValidators.phone('zh-CN'))
+            min: new FormControl('', CustomValidators.min(5))
         });
-    };
+    }
 
     ngOnInit() {
     }

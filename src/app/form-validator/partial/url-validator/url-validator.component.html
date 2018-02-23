@@ -4,6 +4,7 @@
       url验证
       <small>（url）</small>
     </label>
-    <input type="text" class="form-control" id="url">
+    <input type="text" class="form-control" id="url" name="url" [(ngModel)]="form.url" #url="ngModel" url>
+    <p *ngIf="url.errors?.url&&(url.dirty||url.touched)" class="text-danger">url格式不正确</p>
   </div>
 </form>

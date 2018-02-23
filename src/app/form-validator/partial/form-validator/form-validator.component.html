@@ -4,13 +4,17 @@
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
       <app-required-validator></app-required-validator>
     </div>
-    <!-- 最小长度验证 -->
+    <!-- number验证 -->
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
-      <app-min-length-validator></app-min-length-validator>
+      <app-number-validator></app-number-validator>
     </div>
-    <!-- 最大长度验证 -->
+    <!-- 最小值（number）验证 -->
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
-      <app-max-length-validator></app-max-length-validator>
+      <app-min-value-validator></app-min-value-validator>
+    </div>
+    <!-- 最大值（number）验证 -->
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+      <app-max-value-validator></app-max-value-validator>
     </div>
     <!-- 长度范围验证 -->
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
@@ -32,10 +36,6 @@
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
       <app-email-validator></app-email-validator>
     </div>
-    <!-- number验证 -->
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
-      <app-number-validator></app-number-validator>
-    </div>
     <!-- phone验证 -->
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
       <app-phone-validator></app-phone-validator>
@@ -51,10 +51,6 @@
     <!-- 值相同验证 -->
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
       <app-equal-to-validator></app-equal-to-validator>
-    </div>
-    <!-- 值不相同验证 -->
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
-      <app-not-equal-to-validator></app-not-equal-to-validator>
     </div>
   </div>
 </div>

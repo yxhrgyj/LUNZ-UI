@@ -4,19 +4,19 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 
 @Component({
-    selector: 'app-phone-validator',
-    templateUrl: './phone-validator.component.html',
-    styleUrls: ['./phone-validator.component.scss']
+    selector: 'app-max-value-validator',
+    templateUrl: './max-value-validator.component.html',
+    styleUrls: ['./max-value-validator.component.scss']
 })
 
-export class PhoneValidatorComponent implements OnInit {
+export class MaxValueValidatorComponent implements OnInit {
     form: FormGroup;
 
     constructor() {
         this.form = new FormGroup({
-            phone: new FormControl('', CustomValidators.phone('zh-CN'))
+            min: new FormControl('', CustomValidators.max(5))
         });
-    };
+    }
 
     ngOnInit() {
     }

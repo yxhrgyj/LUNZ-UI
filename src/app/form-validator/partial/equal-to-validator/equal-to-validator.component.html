@@ -2,9 +2,11 @@
   <div class="form-group">
     <label for="equalto">
       字段相同验证
-      <small>（相同）</small>
     </label>
-    <input type="text" class="form-control" />
-    <input type="text" class="form-control" />
+    <input type="password" class="form-control" [(ngModel)]="form.required" name="password" #password="ngModel" required/>
+    <p *ngIf="password.errors?.required" class="text-danger">此项必填</p>
+    <input type="password" class="form-control" [(ngModel)]="form.certainPassword" name="certainPassword" #certainPassword="ngModel"
+      [equalTo]="password" />
+    <p *ngIf="certainPassword.errors?.equalTo" class="text-danger">两次输入不一致</p>
   </div>
 </form>

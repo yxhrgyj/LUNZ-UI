@@ -4,6 +4,7 @@
       必填验证
       <small>（*）</small>
     </label>
-    <input type="text" class="form-control" id="required" placeholder="此字段为必填">
+    <input type="text" class="form-control" [(ngModel)]="form.required" name="required" #field="ngModel" required />
+    <p *ngIf="field.errors?.required" class="text-danger">此字段为必填字段</p>
   </div>
 </form>

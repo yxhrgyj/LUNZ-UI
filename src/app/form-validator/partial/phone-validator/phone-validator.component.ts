@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-
-import { CustomValidators } from 'ng2-validation';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-phone-validator',
@@ -14,7 +12,7 @@ export class PhoneValidatorComponent implements OnInit {
 
     constructor() {
         this.form = new FormGroup({
-            phone: new FormControl('', CustomValidators.phone('zh-CN'))
+            phone: new FormControl('', Validators.pattern(''))
         });
     };
 

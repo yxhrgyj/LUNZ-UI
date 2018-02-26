@@ -22,6 +22,8 @@ import { PhoneValidatorComponent } from './partial/phone-validator/phone-validat
 import { EqualToValidatorComponent } from './partial/equal-to-validator/equal-to-validator.component';
 import { CustomPatternValidatorComponent } from './partial/custom-pattern-validator/custom-pattern-validator.component';
 
+import { UsingDocumentsComponent } from './partial/doc/using-documents/using-documents.component';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -45,7 +47,9 @@ import { CustomPatternValidatorComponent } from './partial/custom-pattern-valida
         MaxDateValidatorComponent,
         PhoneValidatorComponent,
         EqualToValidatorComponent,
-        CustomPatternValidatorComponent
+        CustomPatternValidatorComponent,
+
+        UsingDocumentsComponent
     ]
 })
 

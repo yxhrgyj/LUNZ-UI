@@ -4,7 +4,8 @@
       电话号码验证
       <small>（电话号码）</small>
     </label>
-    <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="form.phone" #phone="ngModel" phone="CN" />
-    <p *ngIf="phone.errors?.phone&&(phone.dirty||phone.touched)" class="text-danger">电话号码格式不正确</p>
+    <input type="text" class="form-control" name="phone" [(ngModel)]="form.phone" #phone="ngModel" pattern="^\d{3}-\d{8}$|^\d{4}-\d{8}$|^1[34578]\d{9}$"
+      placeholder="若座机号码,在区号后面添加“-”" />
+    <p *ngIf="phone.errors?.pattern" class="text-danger">电话号码格式不正确</p>
   </div>
 </form>

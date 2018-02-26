@@ -11,7 +11,7 @@ import { CustomValidators } from 'ng2-validation';
 
 export class FormValidatorComponent implements OnInit {
     form: FormGroup;
-    model:any;
+    model: any;
 
     constructor() {
         this.form = new FormGroup({

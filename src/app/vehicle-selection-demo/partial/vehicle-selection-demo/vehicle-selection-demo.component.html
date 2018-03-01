@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <h6>选择车辆品牌</h6>
+        <app-vehicle-selection [outputType]="'brand'" (handel)="getBrand($event)"></app-vehicle-selection>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <h6>选择车辆系列</h6>
+        <app-vehicle-selection [outputType]="'series'" (handel)="getSeries($event)"></app-vehicle-selection>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <h6>选择车辆型号</h6>
+        <app-vehicle-selection [outputType]="'model'" (handel)="getModel($event)"></app-vehicle-selection>
+    </div>
+</div>
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-4">{{brand}} </div>
+  <div class="col-lg-4 col-md-4 col-sm-4">{{series}}</div>
+  <div class="col-lg-4 col-md-4 col-sm-4">{{model}}</div>
+</div>

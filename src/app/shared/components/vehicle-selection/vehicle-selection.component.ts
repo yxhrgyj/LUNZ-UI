@@ -32,12 +32,12 @@ export class VehicleSelectionComponent implements OnInit {
     filterTemporaryList: Array<any>;
     outGoingList: any;
 
-    letterActive: string = 'A';
+    letterActive: String = 'A';
     filterString: any = '';
     outPutBrand: string;
     outPutSeries: string;
     outPutModel: string;
-    outPutResult: string = `选择车品牌/车系/车型`;
+    outPutResult: String = `选择车品牌/车系/车型`;
 
     constructor(
         private vehicleService: VehicleService,
@@ -51,21 +51,21 @@ export class VehicleSelectionComponent implements OnInit {
         this.getCarbrand(`A`);
     };
 
-    //获取字母表
+    // 获取字母表
     getLetterList() {
         this.letterList = this.vehicleService.letterList();
     };
 
-    //处理车系数据
+    // 处理车系数据
     handleCarSeriesData(obj: any) {
-        let arr: Array<any> = [];
+        const arr: Array<any> = [];
         let assembleObj = {
             title: true
         };
 
         obj.forEach((item: any) => {
             let itemAssemble: Array<any> = [];
-            for (let i in item) {
+            for (const i in item) {
                 if (i === `vehicle_Series`) {
                     for (let m = 0; m < item[i].length; m++) {
                         itemAssemble.push(item[i][m]);
@@ -85,19 +85,21 @@ export class VehicleSelectionComponent implements OnInit {
         return arr;
     };
 
-    //处理车型数据
+    // 处理车型数据
     handleCarModelsData(obj: any) {
-        let arr: Array<any> = [];
+        const arr: Array<any> = [];
         let assembleObj = {
             title: true
         };
 
         obj.forEach((item: any) => {
             let itemAssemble: Array<any> = [];
-            for (let i in item) {
+            for (const i in item) {
                 if (i === `infolist`) {
                     for (let m = 0; m < item[i].length; m++) {
-                        item[i][m]['mosaicName'] = `${item[i][m].vehicleName} ${item[i][m].driveName} 排量：${item[i][m].displacement}`;
+                        item[i][m]['mosaicName'] = `${item[i][m].vehicleName}
+                         ${item[i][m].driveName} 排量：
+                         ${item[i][m].displacement}`;
                         itemAssemble.push(item[i][m]);
                     }
                 } else {
@@ -121,7 +123,7 @@ export class VehicleSelectionComponent implements OnInit {
         return arr;
     };
 
-    //获取车品牌
+    // 获取车品牌
     getCarbrand(code: string) {
         this.vehicleService.getCarbrand(code).subscribe(Response => {
             this.carBrandList = Response;
@@ -130,7 +132,7 @@ export class VehicleSelectionComponent implements OnInit {
         });
     };
 
-    //获取车系列
+    // 获取车系列
     getCarSeries(item: any) {
         if (this.outputType === `brand`) {
             this.outPutResult = item.tree.name;
@@ -152,7 +154,7 @@ export class VehicleSelectionComponent implements OnInit {
                 carBrandId: item.tree.id
             };
         } else if (this.outputType === `model`) {
-            this.outPutBrand = item.tree.name
+            this.outPutBrand = item.tree.name;
             this.outPutResult = item.tree.name;
             this.outGoingList = {
                 carBrandName: item.tree.name,
@@ -171,9 +173,11 @@ export class VehicleSelectionComponent implements OnInit {
         });
     };
 
-    //获取车型
+    // 获取车型
     getCarModels(item: any) {
-        if (item.title) return;
+        if (item.title) {
+            return;
+        };
 
         if (this.outputType === `series`) {
             this.outPutResult = `${this.outPutBrand}/${item.name}`;
@@ -208,9 +212,11 @@ export class VehicleSelectionComponent implements OnInit {
         });
     };
 
-    //选择车型
+    // 选择车型
     selectCarModels(item: any) {
-        if (item.title) return;
+        if (item.title) {
+            return;
+        };
 
         this.outPutResult = `${this.outPutBrand}/${this.outPutSeries}/${item.mosaicName}`;
         this.outGoingList[`carModelInfo`] = item;
@@ -220,7 +226,7 @@ export class VehicleSelectionComponent implements OnInit {
         this.operationShow = true;
     };
 
-    //过滤车系数据
+    // 过滤车系数据
     filterCarSeriesData(array: Array<any>) {
         this.filterTemporaryList = array.filter((item: any) => {
             return item.name.indexOf(`${this.filterString}`) >= 0;
@@ -229,7 +235,7 @@ export class VehicleSelectionComponent implements OnInit {
         this.carSeriesList = this.filterTemporaryList;
     };
 
-    //过滤车型数据
+    // 过滤车型数据
     filterCarModelsData(array: Array<any>) {
         this.filterTemporaryList = array.filter((item: any) => {
             return item.mosaicName.indexOf(`${this.filterString}`) >= 0;

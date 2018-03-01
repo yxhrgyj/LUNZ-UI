@@ -20,13 +20,13 @@ export class VehicleService extends WebApiResultResponse {
 
     };
 
-    //获取字母表
+    // 获取字母表
     letterList(): Array<any> {
         return ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     };
 
-    //获取车品牌
+    // 获取车品牌
     getCarbrand(code: string): Observable<any> {
         const url = environment.dataCenter.serverUrl + 'vehicle/Brand/TreeList';
 
@@ -42,7 +42,7 @@ export class VehicleService extends WebApiResultResponse {
             .catch(super.handleError);
     };
 
-    //获取车系列
+    // 获取车系列
     getCarSeries(parentId: string): Observable<any> {
         const url = environment.dataCenter.serverUrl + 'vehicle/Brand/GetChildListByParentId';
 
@@ -57,7 +57,7 @@ export class VehicleService extends WebApiResultResponse {
             .catch(super.handleError);
     };
 
-    //获取车型号
+    // 获取车型号
     getCarModels(seriesId: string): Observable<any> {
         const url = environment.dataCenter.serverUrl + 'vehicle/Info/YearInfoListBySeriesID';
 

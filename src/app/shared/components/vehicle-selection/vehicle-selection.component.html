@@ -13,11 +13,11 @@
             <a>品牌</a>
           </li>
           <li class="float-left" [hidden]="carSeriesNav" (click)="carModelNav=true;carModels=true;carSeries=false">
-            <span>&nbsp;></span>
+            <span>&nbsp;&gt;</span>
             <a>车系</a>
           </li>
           <li class="float-left" [hidden]="carModelNav">
-            <span>&nbsp;></span>
+            <span>&nbsp;&gt;</span>
             <a>车型</a>
           </li>
         </ul>
@@ -44,7 +44,7 @@
         <div class="container">
           <input type="text" class="form-control" placeholder="车系关键字" name="keyword" 
           [(ngModel)]="filterString" (keyup)="filterCarSeriesData(carSeriesFilterList)"
-            trim>
+            trim />
         </div>
         <div class="container lz-vehicle-selection-container">
           <ul class="list-style list-unstyled text-center">
@@ -60,7 +60,7 @@
         <div class="container">
           <input type="text" class="form-control" placeholder="车型关键字" name="keywordtype" 
           [(ngModel)]="filterString" 
-          (keyup)="filterCarModelsData(carModelFilterList)" trim>
+          (keyup)="filterCarModelsData(carModelFilterList)" trim />
         </div>
         <div class="container lz-vehicle-selection-container">
           <ul class="list-style list-unstyled text-center">

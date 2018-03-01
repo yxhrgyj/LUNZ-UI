@@ -8,6 +8,7 @@ import { VehicleService } from '../shared/components/vehicle-selection/vehicle-s
 
 import { VehicleSelectionDemoComponent } from './partial/vehicle-selection-demo/vehicle-selection-demo.component';
 import { VehicleSelectionComponent } from '../shared/components/vehicle-selection/vehicle-selection.component';
+import { UsingDocumentsComponent } from './partial/using-documents/using-documents.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { VehicleSelectionComponent } from '../shared/components/vehicle-selectio
     ],
     declarations: [
         VehicleSelectionDemoComponent,
-        VehicleSelectionComponent
+        VehicleSelectionComponent,
+        UsingDocumentsComponent
     ],
     providers: [
         VehicleService

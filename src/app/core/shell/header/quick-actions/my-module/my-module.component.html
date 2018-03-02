@@ -2,12 +2,12 @@
   <p class="lz-header-quick-operation-title">
     <span>{{modelName}}</span>
     <i class="lz-hover-clolor lz-hover-cursor" *ngIf="modelList.length!==0" [ngClass]="{'flaticon-more-v6 lz-edit-icon-back':editModel,'flaticon-interface-5 lz-edit-icon-move':!editModel}"
-      (click)="editModel=!editModel"></i>
+      (click)="$event.stopPropagation();editModel=!editModel"></i>
     <i class="flaticon-cancel flaticon-cancel-rotate lz-hover-clolor lz-hover-cursor" *ngIf="!editModel&&addIcon||(addIcon&&modelList.length===0)"
       (click)="$event.stopPropagation();addModel(false)"></i>
   </p>
   <p>
-    <a class="lz-header-quick-operation-item lz-hover-box-shadow" *ngFor="let model of modelList|slice:0:6;let i=index" (click)="$event.stopPropagation();operationService.fastEntryModule(model)">
+    <a class="lz-header-quick-operation-item lz-hover-box-shadow" *ngFor="let model of modelList|slice:0:6;let i=index" (click)="operationService.fastEntryModule(model)">
       <p>
         <i class="lz-hover-clolor lz-hover-cursor {{model.icon}}"></i>
       </p>

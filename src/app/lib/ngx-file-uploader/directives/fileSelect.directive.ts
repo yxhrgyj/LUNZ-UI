@@ -74,7 +74,6 @@ export class FileSelectDirective implements OnInit, OnDestroy {
 
         const filesData: FileList = this._InputFile.files;
 
-        console.log('onChange', filesData);
         this.readFile(filesData);
 
         this.fileAccepted.emit(this._files);

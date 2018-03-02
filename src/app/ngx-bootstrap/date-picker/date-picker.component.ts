@@ -20,7 +20,6 @@ export class DatePickerComponent implements OnInit {
   }
 
   set bsValue(v: Date) {
-    console.log(v);
     this._bsValue = v;
   }
 

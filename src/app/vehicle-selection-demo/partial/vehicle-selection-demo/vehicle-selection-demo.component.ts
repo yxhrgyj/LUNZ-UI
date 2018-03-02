@@ -16,17 +16,14 @@ export class VehicleSelectionDemoComponent implements OnInit {
     }
 
     getBrand(event: any) {
-        console.log(event);
         this.brand = JSON.stringify(event);
     };
 
     getSeries(event: any) {
-        console.log(event);
         this.series = JSON.stringify(event);
     };
 
     getModel(event: any) {
-        console.log(event);
         this.model = JSON.stringify(event);
     };
 }

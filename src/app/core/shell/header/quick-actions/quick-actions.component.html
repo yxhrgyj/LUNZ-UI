@@ -16,10 +16,10 @@
         <div class="m-scrollable" data-scrollable="false" data-max-height="380" data-mobile-max-height="200">
           <div class="m-nav-grid m-nav-grid--skin-light">
             <div *ngIf="modelOption">
-              <app-my-module [modelName]="'我的模块'" [modelList]="myModelList" [addIcon]="true" [moveIcon]="true" [removeAllIcon]="false"
-                [modelListName]="'myModelList'" (addModelEv)="gitAllModel($event)"></app-my-module>
-              <app-my-module [modelName]="'历史访问模块'" [modelList]="openModelList" [addIcon]="false" [moveIcon]="false" [removeAllIcon]="true"
-                [modelListName]="'openModelList'"></app-my-module>
+              <app-my-module [modelName]="'我的模块'" [modelList]="quickOperationMyModelList" [addIcon]="true" [moveIcon]="true" [removeAllIcon]="false"
+                [modelListName]="'quickOperationMyModelList'" (addModelEv)="gitAllModel($event)" [openHistoryListName]="'quickOperationOpenHistoryList'"></app-my-module>
+              <app-my-module [modelName]="'历史访问模块'" [modelList]="quickOperationOpenHistoryList" [addIcon]="false" [moveIcon]="false" [removeAllIcon]="true"
+                [modelListName]="'quickOperationOpenHistoryList'" [openHistoryListName]="'quickOperationOpenHistoryList'"></app-my-module>
             </div>
             <div *ngIf="!modelOption" class="lz-model-add-wr">
               <h5>模块列表</h5>

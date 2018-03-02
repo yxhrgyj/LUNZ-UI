@@ -12,8 +12,8 @@ import { OperationService } from './operation-service/operation.service';
 export class QuickActionsComponent implements OnInit {
     log: Logger;
 
-    myModelList: Array<any> = [];
-    openModelList: Array<any> = [];
+    quickOperationMyModelList: Array<any> = [];
+    quickOperationOpenHistoryList: Array<any> = [];
     allModelList: Array<any> = [];
     temporaryList: Array<any> = [];
     modelOption: Boolean = true;
@@ -26,15 +26,15 @@ export class QuickActionsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.myModelList = this.operationService.getModeList(`myModelList`) || [];
-        this.openModelList = this.operationService.getModeList(`openModelList`) || [];
+        this.quickOperationMyModelList = this.operationService.getModeList(`quickOperationMyModelList`) || [];
+        this.quickOperationOpenHistoryList = this.operationService.getModeList(`quickOperationOpenHistoryList`) || [];
     }
 
     gitAllModel(event: any) {
         const allModel = JSON.parse(localStorage.getItem(`menuListAll`));
 
         allModel.forEach((item: any) => {
-            this.myModelList.forEach((itemt: any) => {
+            this.quickOperationMyModelList.forEach((itemt: any) => {
                 if (item.name === itemt.name) {
                     item.checked = true;
 
@@ -68,9 +68,13 @@ export class QuickActionsComponent implements OnInit {
     };
 
     submitCheckedModel(): void {
+        if (this.temporaryList.length > 6) {
+            this.log.warn(`最多添加6个模块！`);
+            return;
+        }
 
-        this.myModelList = this.operationService.sortModelList(this.temporaryList);
-        localStorage.setItem(`myModelList`, JSON.stringify(this.myModelList));
+        this.quickOperationMyModelList = this.operationService.sortModelList(this.temporaryList);
+        localStorage.setItem(`quickOperationMyModelList`, JSON.stringify(this.quickOperationMyModelList));
 
         this.temporaryList = [];
         this.modelOption = true;

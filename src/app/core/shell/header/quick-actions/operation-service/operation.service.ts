@@ -24,25 +24,25 @@ export class OperationService {
         }
     };
 
-    fastEntryModule(row: any): void {
+    fastEntryModule(row: any, openHistoryListName: string): void {
         const url = row.url;
 
-        this.recordMenu(row);
+        this.recordMenu(row, openHistoryListName);
         this.router.navigate([url]);
     };
 
-    recordMenu(rew: any) {
+    recordMenu(rew: any, openHistoryListName: string) {
         if (rew.url) {
-            const openModelList = localStorage.getItem(`openModelList`);
+            const openModelList = localStorage.getItem(`${openHistoryListName}`);
             if (openModelList == null) {
                 this.recordClickMenu.push({
-                    clickNum: rew.clickNum,
+                    clickNum: 1,
                     name: rew.name,
                     icon: rew.icon,
                     url: rew.url
                 });
 
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+                localStorage.setItem(`${openHistoryListName}`, JSON.stringify(this.recordClickMenu));
             } else {
                 this.recordClickMenu = JSON.parse(openModelList);
 
@@ -50,20 +50,20 @@ export class OperationService {
                     if (this.recordClickMenu[i].name === rew.name) {
                         this.recordClickMenu[i].clickNum += 1;
 
-                        localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+                        localStorage.setItem(`${openHistoryListName}`, JSON.stringify(this.recordClickMenu));
                         this.recordClickMenu = [];
                         return;
                     }
                 }
 
                 this.recordClickMenu.push({
-                    clickNum: rew.clickNum,
+                    clickNum: 1,
                     name: rew.name,
                     icon: rew.icon,
                     url: rew.url
                 });
 
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+                localStorage.setItem(`${openHistoryListName}`, JSON.stringify(this.recordClickMenu));
                 this.recordClickMenu = [];
             }
         }

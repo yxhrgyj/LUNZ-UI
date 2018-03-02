@@ -68,7 +68,8 @@ export class QuickActionsComponent implements OnInit {
     };
 
     submitCheckedModel(): void {
-        this.myModelList = this.temporaryList;
+
+        this.myModelList = this.operationService.sortModelList(this.temporaryList);
         localStorage.setItem(`myModelList`, JSON.stringify(this.myModelList));
 
         this.temporaryList = [];

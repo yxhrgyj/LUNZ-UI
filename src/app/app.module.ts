@@ -111,7 +111,8 @@ moment.locale(environment.localeId);
         SharedModule.forRoot(sweetAlertOptions),
         LoginModule,
         HomeModule,
-        ChangePasswordModule,          // !!!MUST BE LAST ONE!!!
+        ChangePasswordModule,
+        // !!!MUST BE LAST ONE!!!
         AppRoutingModule
     ],
     declarations: [AppComponent],

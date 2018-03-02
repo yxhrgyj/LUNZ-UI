@@ -9,10 +9,10 @@
     <div class="row lz-vehicle-selection-nav-style">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <ul class="list-style list-inline clearfix lz-vehicle-selection-type">
-          <li class="float-left" (click)="carSeriesNav=true;carModelNav=true;carBrand=false;carSeries=true;carModels=true;">
+          <li class="float-left" (click)="carSeriesNav=true;carModelNav=true;carBrand=false;carSeries=true;carModels=true;filterString='';">
             <a>品牌</a>
           </li>
-          <li class="float-left" [hidden]="carSeriesNav" (click)="carModelNav=true;carModels=true;carSeries=false">
+          <li class="float-left" [hidden]="carSeriesNav" (click)="carModelNav=true;carModels=true;carSeries=false;filterString='';">
             <span>&nbsp;&gt;</span>
             <a>车系</a>
           </li>

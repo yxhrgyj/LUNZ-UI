@@ -233,21 +233,18 @@ export class ProtocolXHR extends Protocol {
         _xhr.addEventListener('load', () => {
             const headers = uploader._parseHeaders(_xhr.getAllResponseHeaders());
             const response = uploader._transformResponse(_xhr.response, headers);
-            console.log('File upload done');
             const status = _xhr.status;
             this._load.emit({_file: _file, response: response, status: status, headers: headers});
         });
         _xhr.addEventListener('error', () => {
             const headers = uploader._parseHeaders(_xhr.getAllResponseHeaders());
             const response = uploader._transformResponse(_xhr.response, headers);
-            console.log('File upload error');
             const status = _xhr.status;
             this._error.emit({_file: _file, response: response, status: status, headers: headers});
         });
         _xhr.addEventListener('abort', () => {
             const headers = uploader._parseHeaders(_xhr.getAllResponseHeaders());
             const response = uploader._transformResponse(_xhr.response, headers);
-            console.log('File upload abort');
             const status = _xhr.status;
             this._abort.emit({_file: _file, response: response, status: status, headers: headers});
         });

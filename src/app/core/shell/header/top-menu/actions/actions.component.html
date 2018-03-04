@@ -15,21 +15,21 @@
       <span class="fa flaticon-cancel flaticon-cancel-rotate lz-model-edit-active" *ngIf="editMyModel" (click)="$event.stopPropagation();gitAllModel();">
       </span>
     </li>
-    <li class="m-menu__item" *ngIf="myModelList.length==0 ">
+    <li class="m-menu__item" *ngIf="myOperationMyModelList.length==0 ">
       <span class="lz-history-model-title">未添加~~~</span>
     </li>
-    <li class="m-menu__item" *ngFor="let mode of myModelList | slice:0:5;let i=index">
+    <li class="m-menu__item" *ngFor="let mode of myOperationMyModelList | slice:0:5;let i=index">
       <a class="m-menu__link" (click)="operationService.fastEntryModule(mode)">
         <i class="m-menu__link-icon {{mode.icon}} "></i>
         <span class="m-menu__link-title">
           <span class="m-menu__link-wrap">
             <span class="m-menu__link-text">{{mode.name}}
               <span *ngIf="editMyModel" class="lz-mode-edit-item">
-                <i class="fa flaticon-up-arrow lz-model-edit-icon-left lz-model-edit-icon" *ngIf="i!==0" (click)="$event.stopPropagation();moveModel(mode,i,myModelList,1,'myModelList')"
+                <i class="fa flaticon-up-arrow lz-model-edit-icon-left lz-model-edit-icon" *ngIf="i!==0" (click)="$event.stopPropagation();moveModel(mode,i,myOperationMyModelList,1,'myOperationMyModelList')"
                   title="上移"></i>
-                <i class="fa flaticon-up-arrow flaticon-up-arrow-down lz-model-edit-icon" *ngIf="i!==myModelList.length-1" (click)="$event.stopPropagation();moveModel(mode,i,myModelList,-1,'myModelList')"
+                <i class="fa flaticon-up-arrow flaticon-up-arrow-down lz-model-edit-icon" *ngIf="i!==myOperationMyModelList.length-1" (click)="$event.stopPropagation();moveModel(mode,i,myOperationMyModelList,-1,'myOperationMyModelList')"
                   title="下移"></i>
-                <i class="fa flaticon-cancel" (click)="$event.stopPropagation();deleteModel(mode,myModelList,i,'myModelList')" title="移除"></i>
+                <i class="fa flaticon-cancel" (click)="$event.stopPropagation();deleteModel(mode,myOperationMyModelList,i,'myOperationMyModelList')" title="移除"></i>
               </span>
             </span>
           </span>
@@ -38,29 +38,29 @@
     </li>
     <li class="m-menu__item">
       <span class="lz-history-model-title">历史访问模块</span>
-      <span class="fa lz-model-edit-active" *ngIf="openModelList.length!==0" [ngClass]="{'flaticon-more-v2 lz-model-edit-icon-back':!editModel,'flaticon-interface-5 lz-model-edit-icon-move':editModel}"
+      <span class="fa lz-model-edit-active" *ngIf="myOperationOpenHistoryList.length!==0" [ngClass]="{'flaticon-more-v2 lz-model-edit-icon-back':!editModel,'flaticon-interface-5 lz-model-edit-icon-move':editModel}"
         (click)="editModel=!editModel">
       </span>
     </li>
-    <li class=" m-menu__item" *ngIf="openModelList.length==0 ">
+    <li class="m-menu__item" *ngIf="myOperationOpenHistoryList.length==0 ">
       <span class="lz-history-model-title">无~~~</span>
     </li>
-    <li class="m-menu__item" *ngFor="let modeList of openModelList | slice:0:5;let i=index">
+    <li class="m-menu__item" *ngFor="let modeList of myOperationOpenHistoryList | slice:0:5;let i=index">
       <a class="m-menu__link" (click)="operationService.fastEntryModule(modeList)">
         <i class="m-menu__link-icon {{modeList.icon}} "></i>
         <span class="m-menu__link-title">
           <span class="m-menu__link-wrap">
             <span class="m-menu__link-text">{{modeList.name}}
               <span *ngIf="editModel" class="lz-mode-edit-item">
-                <i class="fa flaticon-cancel" (click)="$event.stopPropagation();deleteModel(modeList,openModelList,i,'openModelList')" title="移除"></i>
+                <i class="fa flaticon-cancel" (click)="$event.stopPropagation();deleteModel(modeList,myOperationOpenHistoryList,i,'myOperationOpenHistoryList')" title="移除"></i>
               </span>
             </span>
           </span>
         </span>
       </a>
     </li>
-    <li class="m-menu__item" *ngIf="openModelList.length!==0">
-      <span class="lz-history-model-de" (click)="$event.stopPropagation();deleteModelAll()">remove all</span>
+    <li class="m-menu__item" *ngIf="myOperationOpenHistoryList.length!==0">
+      <span class="lz-history-model-de" *ngIf="editModel" (click)="$event.stopPropagation();deleteModelAll()">remove all</span>
     </li>
   </ul>
   <ul class="m-menu__subnav" *ngIf="addModel">
@@ -76,7 +76,7 @@
       </a>
     </li>
     <li class="lz-add-model-cancel">
-      <span (click)="$event.stopPropagation();submitCheckedModel()">提交</span>
+      <span (click)="$event.stopPropagation();submitCheckedModel()">添加</span>
       <span (click)="$event.stopPropagation();cancelCheckedModel()">取消</span>
     </li>
   </ul>

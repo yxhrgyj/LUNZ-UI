@@ -33,37 +33,37 @@ export class OperationService {
 
     recordMenu(rew: any) {
         if (rew.url) {
-            const openModelList = localStorage.getItem(`openModelList`);
-            if (openModelList == null) {
+            const openHistoryList = localStorage.getItem(`openHistoryList`);
+            if (openHistoryList == null) {
                 this.recordClickMenu.push({
-                    clickNum: rew.clickNum,
+                    clickNum: 1,
                     name: rew.name,
                     icon: rew.icon,
                     url: rew.url
                 });
 
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+                localStorage.setItem(`openHistoryList`, JSON.stringify(this.recordClickMenu));
             } else {
-                this.recordClickMenu = JSON.parse(openModelList);
+                this.recordClickMenu = JSON.parse(openHistoryList);
 
                 for (let i = 0; i < this.recordClickMenu.length; i++) {
                     if (this.recordClickMenu[i].name === rew.name) {
                         this.recordClickMenu[i].clickNum += 1;
 
-                        localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+                        localStorage.setItem(`openHistoryList`, JSON.stringify(this.recordClickMenu));
                         this.recordClickMenu = [];
                         return;
                     }
                 }
 
                 this.recordClickMenu.push({
-                    clickNum: rew.clickNum,
+                    clickNum: 1,
                     name: rew.name,
                     icon: rew.icon,
                     url: rew.url
                 });
 
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
+                localStorage.setItem(`openHistoryList`, JSON.stringify(this.recordClickMenu));
                 this.recordClickMenu = [];
             }
         }

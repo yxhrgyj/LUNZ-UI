@@ -204,7 +204,6 @@ export abstract class Transfer {
         try {
             this.validate(_file);
         } catch (e) {
-            console.log(e.message);
             this._onAddFileError(_file);
             return false;
         }

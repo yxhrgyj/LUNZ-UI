@@ -565,9 +565,10 @@
       var target = $(e.target);
       var dropdown = $(this).mDropdown();
       var toggle = $(this).find('.m-dropdown__toggle');
-      // if (toggle.length > 0 && target.is(toggle) !== true && toggle.find(target).length === 0 && target.find(toggle).length === 0 && dropdown.isPersistent() == false) {
-      //     dropdown.hide();     
-      // } else 
+      //click dropdown item hide dropdown
+      if (toggle.length > 0 && target.is(toggle) !== true && toggle.find(target).length === 0 && target.find(toggle).length === 0 && dropdown.isPersistent() == false) {
+          dropdown.hide();     
+      } else 
       if ($(this).find(target).length === 0) {
         dropdown.hide();
       }

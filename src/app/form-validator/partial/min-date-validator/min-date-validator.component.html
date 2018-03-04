@@ -1,0 +1,10 @@
+<form>
+  <div class="form-group">
+    <label for="mindate">
+      最小日期验证
+      <small>（日期不能小于2018-02-14）</small>
+    </label>
+    <input type="text" class="form-control" name="mindate" [(ngModel)]="form.mindate" #mindate="ngModel" minDate="2018-02-14" />
+    <p *ngIf="mindate.errors?.minDate&&(mindate.dirty||mindate.touched)" class="text-danger">日期不能小于2018-02-14</p>
+  </div>
+</form>

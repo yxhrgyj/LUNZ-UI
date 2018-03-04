@@ -1,0 +1,10 @@
+<form>
+  <div class="form-group">
+    <label for="minlength">
+      最大值（number）验证
+      <small>（值不能大于5）</small>
+    </label>
+    <input type="text" class="form-control" name="minlength" [(ngModel)]="form.minlength" #max="ngModel" [max]="5" />
+    <p *ngIf="max.errors?.max&&(max.dirty||max.touched)" class="text-danger">值不能大于5</p>
+  </div>
+</form>

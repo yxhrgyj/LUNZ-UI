@@ -1,0 +1,10 @@
+<form>
+  <div class="form-group">
+    <label for="number">
+      数字验证
+      <small>（number值）</small>
+    </label>
+    <input type="text" class="form-control" name="number" [(ngModel)]="form.number" #number="ngModel" number />
+    <p *ngIf="number.errors?.number&&(number.dirty||number.touched)" class="text-danger">必须为数字</p>
+  </div>
+</form>

@@ -18,6 +18,7 @@ export class MyModuleComponent implements OnInit {
     @Input() moveIcon: Boolean;
     @Input() removeAllIcon: Boolean;
     @Input() modelListName: string;
+    @Input() openHistoryListName: string;
     @Input() modelList: Array<any>;
 
     @Output() addModelEv = new EventEmitter<boolean>();

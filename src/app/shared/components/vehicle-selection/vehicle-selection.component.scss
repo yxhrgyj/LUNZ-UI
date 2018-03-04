@@ -1,0 +1,136 @@
+.lz-vehicle-selection-wr {
+  position: relative;
+}
+
+.lz-vehicle-selection-operation {
+  position: absolute;
+  width: 100%;
+  top: 42px;
+  left: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+.lz-vehicle-selection-bg {
+  border-right: solid 1px #adadad;
+  border-left: solid 1px #adadad;
+  background: #fff;
+}
+
+.lz-vehicle-selection-nav-style:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 9px;
+  right: auto;
+  display: inline-block;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #e0e0e0;
+  border-left: 8px solid transparent;
+}
+
+.lz-vehicle-selection-nav-style:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 10px;
+  right: auto;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+  border-left: 7px solid transparent;
+}
+
+.lz-vehicle-selection-result {
+  text-align: center;
+  border: solid 1px #adadad;
+  background: #ededed;
+  cursor: pointer;
+}
+
+.lz-vehicle-selection-result-text {
+  display: inline-block;
+  padding: 5px 0;
+}
+
+.lz-vehicle-selection-result-icon {
+  display: inline-block;
+  line-height: 2em;
+}
+
+.lz-vehicle-selection-result:hover {
+  background: #d6d5d5;
+}
+
+.lz-vehicle-selection-type {
+  margin-top: 8px;
+}
+
+.lz-vehicle-selection-type a :hover {
+  color: #6e46cd;
+  text-decoration: underline;
+}
+
+.lz-vehicle-selection-letter {
+  display: inline-block;
+  padding: 0 6px;
+  text-align: center;
+}
+
+.lz-vehicle-selection-letter li {
+  padding: 0 4px;
+}
+
+.lz-vehicle-selection-letter li:hover {
+  background: #2c2e3e;
+  color: #fff;
+  cursor: pointer;
+}
+
+.lz-vehicle-selection-letter-li-active {
+  background: #2c2e3e;
+  color: #fff;
+  cursor: pointer;
+}
+
+.lz-vehicle-selection-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.lz-vehicle-selection-container b {
+  font-weight: bold;
+}
+
+.lz-vehicle-selection-nav-style {
+  border-left: solid 1px #adadad;
+  border-right: solid 1px #adadad;
+  background: #fff;
+}
+
+.lz-vehicle-selection-container-style {
+  border-left: solid 1px #adadad;
+  border-right: solid 1px #adadad;
+  border-bottom: solid 1px #adadad;
+  background: #fff;
+}
+
+.lz-vehicle-selection-item {
+  padding: 4px 0;
+}
+
+.lz-vehicle-selection-item:hover {
+  background: #ededed;
+  cursor: pointer;
+}
+
+.lz-vehicle-selection-cartitle {
+  font-weight: bold;
+}
+
+.lz-vehicle-selection-bg-br {
+  border-right: solid 1px #adadad;
+  border-left: solid 1px #adadad;
+  background: #fff;
+  border-bottom: solid 1px #adadad;
+}

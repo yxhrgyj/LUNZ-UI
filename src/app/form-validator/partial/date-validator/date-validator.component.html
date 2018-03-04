@@ -1,0 +1,10 @@
+<form>
+  <div class="form-group">
+    <label for="date">
+      日期验证
+      <small>（字段格式为日期）</small>
+    </label>
+    <input type="text" class="form-control" name="date" [(ngModel)]="form.date" #date="ngModel" date />
+    <p *ngIf="date.errors?.date&&(date.dirty||date.touched)" class="text-danger">日期格式不正确</p>
+  </div>
+</form>

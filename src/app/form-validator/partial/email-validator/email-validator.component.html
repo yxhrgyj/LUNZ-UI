@@ -1,0 +1,10 @@
+<form>
+  <div class="form-group">
+    <label for="email">
+      email验证
+      <small>（email）</small>
+    </label>
+    <input type="text" class="form-control" [(ngModel)]="form.email" name="email" #email="ngModel" email />
+    <p *ngIf="email.errors?.email&&(email.dirty||email.touched)" class="text-danger">邮箱格式不正确</p>
+  </div>
+</form>

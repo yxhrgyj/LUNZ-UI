@@ -1,0 +1,10 @@
+<form>
+  <div class="form-group">
+    <label for="maxdate">
+      最大日期验证
+      <small>（日期不能大于2018-02-14）</small>
+    </label>
+    <input type="text" class="form-control" id="maxdate" name="maxdate" [(ngModel)]="form.maxdate" #maxdate="ngModel" maxDate="2018-02-14" />
+    <p *ngIf="maxdate.errors?.maxDate&&(maxdate.dirty||maxdate.touched)" class="text-danger">日期不能大于2018-02-14</p>
+  </div>
+</form>

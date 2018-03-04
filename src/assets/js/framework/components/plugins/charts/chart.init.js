@@ -23,7 +23,6 @@ Chart.elements.Rectangle.prototype.draw = function() {
         signX = 1;
         signY = bottom > top? 1: -1;
         borderSkipped = vm.borderSkipped || 'bottom';
-        //console.log(vm.base + '-' + vm.y);
     } else {
         // horizontal bar
         left = vm.base;

@@ -148,7 +148,6 @@ export class TypeaheadComponent implements OnInit {
   }
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
-    console.log('Selected value: ', e.value);
   }
 
   constructor() {

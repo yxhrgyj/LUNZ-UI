@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
     templateUrl: './menu-item.component.html',
     styleUrls: ['./menu-item.component.scss']
 })
+
 export class MenuItemComponent implements OnInit {
     @Input('app-menu-item') menuItem: any;
     @Input() level: number;
@@ -38,9 +39,9 @@ export class MenuItemComponent implements OnInit {
 
     recordMenu(menu: any) {
         if (menu.ngUrl) {
-            this.openModelList = JSON.parse(localStorage.getItem(`openModelList`));
+            const openHistoryList = JSON.parse(localStorage.getItem(`openHistoryList`));
 
-            if (this.openModelList === null) {
+            if (openHistoryList === null) {
                 this.recordClickMenu.push({
                     clickNum: 1,
                     name: menu.name,
@@ -48,28 +49,25 @@ export class MenuItemComponent implements OnInit {
                     url: menu.ngUrl
                 });
 
-                localStorage.setItem(`openModelList`, JSON.stringify(this.recordClickMenu));
-
+                localStorage.setItem(`openHistoryList`, JSON.stringify(this.recordClickMenu));
                 this.recordClickMenu = [];
             } else {
-                for (let i = 0; i < this.openModelList.length; i++) {
-                    if (this.openModelList[i].name === menu.name) {
-                        this.openModelList[i].clickNum += 1;
+                for (let i = 0; i < openHistoryList.length; i++) {
+                    if (openHistoryList[i].name === menu.name) {
+                        openHistoryList[i].clickNum += 1;
 
-                        localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
-
+                        localStorage.setItem(`openHistoryList`, JSON.stringify(openHistoryList));
                         return;
                     }
                 }
 
-                this.openModelList.push({
+                openHistoryList.push({
                     clickNum: 1,
                     name: menu.name,
                     icon: menu.icon,
                     url: menu.ngUrl
                 });
-
-                localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
+                localStorage.setItem(`openHistoryList`, JSON.stringify(openHistoryList));
             }
         }
     };

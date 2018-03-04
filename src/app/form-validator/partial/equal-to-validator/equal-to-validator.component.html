@@ -1,0 +1,9 @@
+<form>
+  <div class="form-group">
+    <label for="equalto">字段相同验证</label>
+    <input type="password" class="form-control" [(ngModel)]="form.password" name="password" #password="ngModel" />
+    <input type="password" class="form-control" [(ngModel)]="form.certainPassword" name="certainPassword" #certainPassword="ngModel"
+      [equalTo]="password" />
+    <p *ngIf="certainPassword.errors?.equalTo&&(certainPassword.dirty||certainPassword.touched)" class="text-danger">两次输入不一致</p>
+  </div>
+</form>

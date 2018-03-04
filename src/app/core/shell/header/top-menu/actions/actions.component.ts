@@ -13,8 +13,8 @@ import { OperationService } from '../../quick-actions/operation-service/operatio
 export class ActionsComponent implements OnInit {
     log: Logger;
 
-    myModelList: Array<any> = [];
-    openModelList: Array<any> = [];
+    myOperationMyModelList: Array<any> = [];
+    myOperationOpenHistoryList: Array<any> = [];
     allModelList: Array<any> = [];
     temporaryList: Array<any> = [];
     recordClickMenu: Array<any> = [];
@@ -31,8 +31,8 @@ export class ActionsComponent implements OnInit {
     };
 
     ngOnInit() {
-        this.myModelList = this.operationService.getModeList(`myModelList`) || [];
-        this.openModelList = this.operationService.getModeList(`openModelList`) || [];
+        this.myOperationMyModelList = this.operationService.getModeList(`myOperationMyModelList`) || [];
+        this.myOperationOpenHistoryList = this.operationService.getModeList(`openHistoryList`) || [];
     };
 
     moveModel(row: any, i: any, list: Array<any>, sortType: number, moveListName: string): void {
@@ -70,11 +70,11 @@ export class ActionsComponent implements OnInit {
     };
 
     deleteModelAll(): void {
-        const count = this.openModelList.length;
+        const count = this.myOperationOpenHistoryList.length;
 
-        this.openModelList.splice(0, count);
+        this.myOperationOpenHistoryList.splice(0, count);
 
-        localStorage.setItem(`openModelList`, JSON.stringify(this.openModelList));
+        localStorage.setItem(`myOperationOpenHistoryList`, JSON.stringify(this.myOperationOpenHistoryList));
 
         this.log.info(`历史访问模块全部移除成功！`);
     };
@@ -83,7 +83,7 @@ export class ActionsComponent implements OnInit {
         const allModel = JSON.parse(localStorage.getItem(`menuListAll`));
 
         allModel.forEach((item: any) => {
-            this.myModelList.forEach((itemt: any) => {
+            this.myOperationMyModelList.forEach((itemt: any) => {
                 if (item.name === itemt.name) {
                     item.checked = true;
 
@@ -117,8 +117,13 @@ export class ActionsComponent implements OnInit {
     };
 
     submitCheckedModel(): void {
-        this.myModelList = this.temporaryList;
-        localStorage.setItem(`myModelList`, JSON.stringify(this.myModelList));
+        if (this.temporaryList.length > 5) {
+            this.log.warn(`最多添加5个模块！`);
+            return;
+        }
+
+        this.myOperationMyModelList = this.operationService.sortModelList(this.temporaryList);
+        localStorage.setItem(`myOperationMyModelList`, JSON.stringify(this.myOperationMyModelList));
 
         this.temporaryList = [];
         this.addModel = false;

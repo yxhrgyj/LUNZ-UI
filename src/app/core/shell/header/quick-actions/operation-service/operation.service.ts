@@ -24,17 +24,17 @@ export class OperationService {
         }
     };
 
-    fastEntryModule(row: any, openHistoryListName: string): void {
+    fastEntryModule(row: any): void {
         const url = row.url;
 
-        this.recordMenu(row, openHistoryListName);
+        this.recordMenu(row);
         this.router.navigate([url]);
     };
 
-    recordMenu(rew: any, openHistoryListName: string) {
+    recordMenu(rew: any) {
         if (rew.url) {
-            const openModelList = localStorage.getItem(`${openHistoryListName}`);
-            if (openModelList == null) {
+            const openHistoryList = localStorage.getItem(`openHistoryList`);
+            if (openHistoryList == null) {
                 this.recordClickMenu.push({
                     clickNum: 1,
                     name: rew.name,
@@ -42,15 +42,15 @@ export class OperationService {
                     url: rew.url
                 });
 
-                localStorage.setItem(`${openHistoryListName}`, JSON.stringify(this.recordClickMenu));
+                localStorage.setItem(`openHistoryList`, JSON.stringify(this.recordClickMenu));
             } else {
-                this.recordClickMenu = JSON.parse(openModelList);
+                this.recordClickMenu = JSON.parse(openHistoryList);
 
                 for (let i = 0; i < this.recordClickMenu.length; i++) {
                     if (this.recordClickMenu[i].name === rew.name) {
                         this.recordClickMenu[i].clickNum += 1;
 
-                        localStorage.setItem(`${openHistoryListName}`, JSON.stringify(this.recordClickMenu));
+                        localStorage.setItem(`openHistoryList`, JSON.stringify(this.recordClickMenu));
                         this.recordClickMenu = [];
                         return;
                     }
@@ -63,7 +63,7 @@ export class OperationService {
                     url: rew.url
                 });
 
-                localStorage.setItem(`${openHistoryListName}`, JSON.stringify(this.recordClickMenu));
+                localStorage.setItem(`openHistoryList`, JSON.stringify(this.recordClickMenu));
                 this.recordClickMenu = [];
             }
         }

@@ -32,7 +32,7 @@ export class ActionsComponent implements OnInit {
 
     ngOnInit() {
         this.myOperationMyModelList = this.operationService.getModeList(`myOperationMyModelList`) || [];
-        this.myOperationOpenHistoryList = this.operationService.getModeList(`myOperationOpenHistoryList`) || [];
+        this.myOperationOpenHistoryList = this.operationService.getModeList(`openHistoryList`) || [];
     };
 
     moveModel(row: any, i: any, list: Array<any>, sortType: number, moveListName: string): void {

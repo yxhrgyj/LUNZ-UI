@@ -17,9 +17,9 @@
           <div class="m-nav-grid m-nav-grid--skin-light">
             <div *ngIf="modelOption">
               <app-my-module [modelName]="'我的模块'" [modelList]="quickOperationMyModelList" [addIcon]="true" [moveIcon]="true" [removeAllIcon]="false"
-                [modelListName]="'quickOperationMyModelList'" (addModelEv)="gitAllModel($event)" [openHistoryListName]="'quickOperationOpenHistoryList'"></app-my-module>
+                [modelListName]="'quickOperationMyModelList'" (addModelEv)="gitAllModel($event)"></app-my-module>
               <app-my-module [modelName]="'历史访问模块'" [modelList]="quickOperationOpenHistoryList" [addIcon]="false" [moveIcon]="false" [removeAllIcon]="true"
-                [modelListName]="'quickOperationOpenHistoryList'" [openHistoryListName]="'quickOperationOpenHistoryList'"></app-my-module>
+                [modelListName]="'quickOperationOpenHistoryList'"></app-my-module>
             </div>
             <div *ngIf="!modelOption" class="lz-model-add-wr">
               <h5>模块列表</h5>
@@ -31,8 +31,8 @@
               </a>
               <div class="lz-model-add-icon text-center">
                 <i class="lz-my-model-add-icon m-portlet__nav-link m-dropdown__toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand"
-                  (click)="$event.stopPropagation();submitCheckedModel()">OK</i>
-                <i (click)="$event.stopPropagation();cancelAddModel()" class="lz-my-model-add-icon m-portlet__nav-link m-dropdown__toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand">NO</i>
+                  (click)="$event.stopPropagation();submitCheckedModel()">添加</i>
+                <i (click)="$event.stopPropagation();cancelAddModel()" class="lz-my-model-add-icon m-portlet__nav-link m-dropdown__toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand">取消</i>
               </div>
             </div>
           </div>

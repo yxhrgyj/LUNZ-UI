@@ -27,7 +27,7 @@ export class QuickActionsComponent implements OnInit {
 
     ngOnInit() {
         this.quickOperationMyModelList = this.operationService.getModeList(`quickOperationMyModelList`) || [];
-        this.quickOperationOpenHistoryList = this.operationService.getModeList(`quickOperationOpenHistoryList`) || [];
+        this.quickOperationOpenHistoryList = this.operationService.getModeList(`openHistoryList`) || [];
     }
 
     gitAllModel(event: any) {

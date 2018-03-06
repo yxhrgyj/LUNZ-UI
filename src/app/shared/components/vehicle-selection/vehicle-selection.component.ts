@@ -12,7 +12,7 @@ import { VehicleService } from './vehicle-selection-sevice/vehicle.service';
 
 export class VehicleSelectionComponent implements OnInit {
     @Input() outputType: string;
-    @Output() handel = new EventEmitter<Array<any>>();
+    @Output() selected = new EventEmitter<Array<any>>();
 
     log: Logger;
 
@@ -141,7 +141,7 @@ export class VehicleSelectionComponent implements OnInit {
                 carBrandId: item.tree.id
             };
 
-            this.handel.emit(this.outGoingList);
+            this.selected.emit(this.outGoingList);
 
             this.operationShow = true;
 
@@ -184,7 +184,7 @@ export class VehicleSelectionComponent implements OnInit {
             this.outGoingList['carSeriesName'] = item.name;
             this.outGoingList['carSeriesId'] = item.id;
 
-            this.handel.emit(this.outGoingList);
+            this.selected.emit(this.outGoingList);
 
             this.operationShow = true;
 
@@ -221,7 +221,7 @@ export class VehicleSelectionComponent implements OnInit {
         this.outPutResult = `${this.outPutBrand}/${this.outPutSeries}/${item.mosaicName}`;
         this.outGoingList[`carModelInfo`] = item;
 
-        this.handel.emit(this.outGoingList);
+        this.selected.emit(this.outGoingList);
 
         this.operationShow = true;
     };

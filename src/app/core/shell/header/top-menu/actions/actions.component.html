@@ -19,7 +19,7 @@
       <span class="lz-history-model-title">未添加~~~</span>
     </li>
     <li class="m-menu__item" *ngFor="let mode of myOperationMyModelList | slice:0:5;let i=index">
-      <a class="m-menu__link" (click)="operationService.fastEntryModule(mode)">
+      <a class="m-menu__link lz-m-menu__link" (click)="operationService.fastEntryModule(mode)">
         <i class="m-menu__link-icon {{mode.icon}} "></i>
         <span class="m-menu__link-title">
           <span class="m-menu__link-wrap">
@@ -47,7 +47,7 @@
       <span class="lz-history-model-title">无~~~</span>
     </li>
     <li class="m-menu__item" *ngFor="let modeList of myOperationOpenHistoryList | slice:0:5;let i=index">
-      <a class="m-menu__link" (click)="operationService.fastEntryModule(modeList)">
+      <a class="m-menu__link lz-m-menu__link" (click)="operationService.fastEntryModule(modeList)">
         <i class="m-menu__link-icon {{modeList.icon}} "></i>
         <span class="m-menu__link-title">
           <span class="m-menu__link-wrap">

@@ -4,6 +4,8 @@ import { LoggerFactory } from '../../../../logger-factory.service';
 import { Logger } from '../../../../logger.service';
 import { OperationService } from '../../quick-actions/operation-service/operation.service';
 
+declare var $: any;
+
 @Component({
     selector: 'app-top-menu-actions, [app-top-menu-actions]',
     templateUrl: './actions.component.html',
@@ -33,8 +35,11 @@ export class ActionsComponent implements OnInit {
     ngOnInit() {
         this.myOperationMyModelList = this.operationService.getModeList(`myOperationMyModelList`) || [];
         this.myOperationOpenHistoryList = this.operationService.getModeList(`openHistoryList`) || [];
-    };
 
+        $('.m-menu__submenu--left').on('click', '.lz-m-menu__link', function () {
+            $(this).parents('.m-menu__item--rel').removeClass('m-menu__item--open-dropdown m-menu__item--hover');
+        });
+    };
     moveModel(row: any, i: any, list: Array<any>, sortType: number, moveListName: string): void {
         if (sortType === 1) {
             list.forEach((item, index) => {

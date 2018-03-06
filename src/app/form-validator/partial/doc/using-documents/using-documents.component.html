@@ -1,48 +1,61 @@
-<p>
-  官方使用文档见：
-  <a href="https://www.npmjs.com/package/ng2-validation">“ng2-validation”.</a>
-  <span>此表单验证器，包括常见的必填验证、数字验证、最小/大值验证、字符长度验证、日期验证、最小/大日期验证、
-       email验证、url验证、字段相同验证等，电话号码验证不能针对国内常见电话号码格式验证，
-        因此在demo中利用正则表达式来验证。各种验证方法雷同，这里拿required举例，更多不常见信息验证请查看
+<div class="m-portlet">
+  <div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <span class="m-portlet__head-icon">
+          <i class="flaticon-interface-2"></i>
+        </span>
+        <h3 class="m-portlet__head-text">表单验证器使用文档</h3>
+      </div>
+    </div>
+  </div>
+  <div class="m-portlet__body p-0">
+    <p>
+      官方使用文档见：
+      <a href="https://www.npmjs.com/package/ng2-validation">“ng2-validation”.</a>
+      <span>此表单验证器，包括常见的必填验证、数字验证、最小/大值验证、字符长度验证、日期验证、最小/大日期验证、 email验证、url验证、字段相同验证等，电话号码验证不能针对国内常见电话号码格式验证， 因此在demo中利用正则表达式来验证。各种验证方法雷同，这里拿required举例，更多不常见信息验证请查看
         <a href="https://www.npmjs.com/package/ng2-validation">官网</a>。
-  </span>
-</p>
-<ul>
-  <li>
-    <span>1、在当前模块的.module.ts中引入:</span>
-    <br/>
-    <code> import &#123; FormsModule &#125; from '@angular/forms';</code>
-    <br/>
-    <code> import &#123; CustomFormsModule &#125; from 'ng2-validation';</code>
-  </li>
-  <li>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;添加到@NgModule装饰器中:</span>
-    <br/>
-    <code>@NgModule(&#123;imports: [FormsModule,CustomFormsModule]&#125;);</code>
-  </li>
-  <li>
-    <span>2、.component.ts中:</span>
-    <br/>
-    <code> import &#123; FormGroup,FormControl &#125; from '@angular/forms';</code>
-    <br/>
-    <code> import &#123; CustomValidators &#125; from 'ng2-validation';</code>
-  </li>
-  <li>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;class类中,定义form变量实现接口FormGroup，构造函数中定义验证规则，详见demo,如：required,‘required-validator.component.ts’</span>
-  </li>
-  <li>
-    <span>3、.component.html中:</span>
-  </li>
-  <li>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;在需要验证的表单控件input中声明模板引用变量，值等于ngModel,并添加验证规则为‘required’，如：</span>
-    <br/>
-    <code>&lt;input type="text" class="form-control" [(ngModel)]="form.required" name="required" #field="ngModel" required /&gt;</code>
-    <br/>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;添加验证视觉提示，根据模板引用变量中验证信息来显示与隐藏，如：</span>
-    <br/>
-    <code>&lt;p *ngIf="field.errors?.required" class="text-danger"&gt;此字段为必填字段&lt;/p&gt;</code>
-  </li>
-  <li>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;详细见demo文件，‘required.component.html’</span>
-  </li>
-</ul>
+      </span>
+    </p>
+    <ul>
+      <li>
+        <span>1、在当前模块的.module.ts中引入:</span>
+        <br/>
+        <code> import &#123; FormsModule &#125; from '@angular/forms';</code>
+        <br/>
+        <code> import &#123; CustomFormsModule &#125; from 'ng2-validation';</code>
+      </li>
+      <li>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;添加到@NgModule装饰器中:</span>
+        <br/>
+        <code>@NgModule(&#123;imports: [FormsModule,CustomFormsModule]&#125;);</code>
+      </li>
+      <li>
+        <span>2、.component.ts中:</span>
+        <br/>
+        <code> import &#123; FormGroup,FormControl &#125; from '@angular/forms';</code>
+        <br/>
+        <code> import &#123; CustomValidators &#125; from 'ng2-validation';</code>
+      </li>
+      <li>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;class类中,定义form变量实现接口FormGroup，构造函数中定义验证规则，详见demo,如：required,‘required-validator.component.ts’</span>
+      </li>
+      <li>
+        <span>3、.component.html中:</span>
+      </li>
+      <li>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;在需要验证的表单控件input中声明模板引用变量，值等于ngModel,并添加验证规则为‘required’，如：</span>
+        <br/>
+        <code>&lt;input type="text" class="form-control" [(ngModel)]="form.required" name="required" #field="ngModel" required
+          /&gt;</code>
+        <br/>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;添加验证视觉提示，根据模板引用变量中验证信息来显示与隐藏，如：</span>
+        <br/>
+        <code>&lt;p *ngIf="field.errors?.required" class="text-danger"&gt;此字段为必填字段&lt;/p&gt;</code>
+      </li>
+      <li>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;详细见demo文件，‘required.component.html’</span>
+      </li>
+    </ul>
+  </div>
+</div>

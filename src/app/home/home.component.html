@@ -1,12 +1,23 @@
-<div class="wrapper wrapper-content animated fadeInRight">
-  <div class="container-fluid">
-    <div class="row">
-      <div *ngFor="let module of moduleAllList" (click)="enterModule(module)" 
-            class="col-lg-1 col-md-1 col-sm-1 col-xs-4 text-center lz-home-module-item">
-        <a>
-          <h6 class="{{module.icon}}"></h6>
-          <p>{{module.name}}</p>
-        </a>
+<div class="m-portlet">
+  <div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <span class="m-portlet__head-icon">
+          <i class="flaticon-interface-2"></i>
+        </span>
+        <h3 class="m-portlet__head-text">组件库</h3>
+      </div>
+    </div>
+  </div>
+  <div class="m-portlet__body p-0">
+    <div class="container-fluid">
+      <div class="row">
+        <div *ngFor="let module of moduleAllList" (click)="enterModule(module)" class="col-lg-1 col-md-1 col-sm-1 col-xs-4 text-center lz-home-module-item">
+          <a>
+            <h6 class="{{module.icon}}"></h6>
+            <p>{{module.name}}</p>
+          </a>
+        </div>
       </div>
     </div>
   </div>

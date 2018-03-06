@@ -1,38 +1,62 @@
-<h5>使用方法：</h5>
-<ul>
-  <li>
-    <span>1、在当前模块的.module.ts中引入车型选择组件和组件所需要的服务，如下:</span>
-    <br/>
-    <code> import &#123; VehicleSelectionComponent &#125; from '../shared/components/vehicle-selection/vehicle-selection.component';</code>
-    <br/>
-    <code> import &#123; VehicleService &#125; from '../shared/components/vehicle-selection/vehicle-selection-sevice/vehicle.service';</code>
-  </li>
-  <li>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;添加到@NgModule装饰器中:</span>
-    <br/>
-    <code>@NgModule(&#123;<br/>&nbsp;&nbsp;&nbsp;&nbsp;declarations: [<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        VehicleSelectionComponent<br/>&nbsp;&nbsp;&nbsp;&nbsp;],<br/>&nbsp;&nbsp;&nbsp;&nbsp;providers: [<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VehicleService<br/>&nbsp;&nbsp;&nbsp;&nbsp;]<br/>&#125;);
-    </code>
-  </li>
-  <li>
-    <span>2、.component.html中:</span>
-  </li>
-  <li>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;在使用车型选择组件的视图（.component.html）中，直接引用组件标签即可，
-        传入需要组件传出的值的类型[‘brand’：车品牌（id/name），‘series’：车品牌(id/name)+车系列(id/name)，
-        ‘model’：车品牌(id/name)+车系列(id/name)+车型所有信息]和接受组件传出的事件方法，此两项必传。例如：</span>
-    <br/>
-    <code>&lt;app-vehicle-selection [outputType]="'brand'" (handel)="getBrand($event)"&gt;&lt;/app-vehicle-selection&gt;</code>
-  </li>
-  <li>
-    <span>3、.component.ts中:</span>
-    <br/>
-    <span>在.component.ts只需声明用于接受组件传出的事件方法，例如：</span>
-    <br/>
-    <code>getBrand(event: any) &#123; <br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;console.log(event);
-        <br/>&#125;;</code><br/>
-    <span>event即是组件传出的数据，详细见demo</span>
-  </li>
-</ul>
+<div class="m-portlet">
+  <div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <span class="m-portlet__head-icon">
+          <i class="flaticon-interface-2"></i>
+        </span>
+        <h3 class="m-portlet__head-text">车型选择使用方法</h3>
+      </div>
+    </div>
+  </div>
+  <div class="m-portlet__body p-0">
+    <div class="container-fluid">
+      <div class="row">
+        <h5>使用方法：</h5>
+        <ul>
+          <li>
+            <span>1、在当前模块的.module.ts中引入车型选择组件和组件所需要的服务，如下:</span>
+            <br/>
+            <code> import &#123; VehicleSelectionComponent &#125; from '../shared/components/vehicle-selection/vehicle-selection.component';</code>
+            <br/>
+            <code> import &#123; VehicleService &#125; from '../shared/components/vehicle-selection/vehicle-selection-sevice/vehicle.service';</code>
+          </li>
+          <li>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;添加到@NgModule装饰器中:</span>
+            <br/>
+            <code>@NgModule(&#123;
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;declarations: [
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VehicleSelectionComponent
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;],
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;providers: [
+              <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VehicleService
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;]
+              <br/>&#125;);
+            </code>
+          </li>
+          <li>
+            <span>2、.component.html中:</span>
+          </li>
+          <li>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;在使用车型选择组件的视图（.component.html）中，直接引用组件标签即可， 传入需要组件传出的值的类型[‘brand’：车品牌（id/name），‘series’：车品牌(id/name)+车系列(id/name)，
+              ‘model’：车品牌(id/name)+车系列(id/name)+车型所有信息]和接受组件传出的事件方法，此两项必传。例如：
+            </span>
+            <br/>
+            <code>&lt;app-vehicle-selection [outputType]="'brand'" (selected)="getBrand($event)"&gt;&lt;/app-vehicle-selection&gt;</code>
+          </li>
+          <li>
+            <span>3、.component.ts中:</span>
+            <br/>
+            <span>在.component.ts只需声明用于接受组件传出的事件方法，例如：</span>
+            <br/>
+            <code>getBrand(event: any) &#123;
+              <br/> &nbsp;&nbsp;&nbsp;&nbsp;console.log(event);
+              <br/>&#125;;</code>
+            <br/>
+            <span>event即是组件传出的数据，详细见demo</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

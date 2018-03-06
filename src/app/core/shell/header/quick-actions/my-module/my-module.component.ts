@@ -72,7 +72,7 @@ export class MyModuleComponent implements OnInit {
 
     removeAllModel(): void {
         this.modelList.length = 0;
-        localStorage.setItem(`${this.modelListName}`, JSON.stringify(this.modelList));
+        localStorage.setItem(`openHistoryList`, JSON.stringify(this.modelList));
 
         this.log.info(`移除成功！`);
     };

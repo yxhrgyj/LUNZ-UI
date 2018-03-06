@@ -79,9 +79,9 @@ export class ActionsComponent implements OnInit {
 
         this.myOperationOpenHistoryList.splice(0, count);
 
-        localStorage.setItem(`myOperationOpenHistoryList`, JSON.stringify(this.myOperationOpenHistoryList));
+        localStorage.setItem(`openHistoryList`, JSON.stringify(this.myOperationOpenHistoryList));
 
-        this.log.info(`历史访问模块全部移除成功！`);
+        this.log.info(`移除成功！`);
     };
 
     gitAllModel() {

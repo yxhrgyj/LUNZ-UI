@@ -44,7 +44,9 @@ export class MessageService extends WebApiResultResponse {
 
         return this.http.get(url, {
             headers: new Headers({
-                'AppKey': environment.msgCenter.appKey
+                'AppKey': environment.msgCenter.appKey,
+                'X-XSS-Protection': '1',
+                'X-Content-Type-Options': 'nosniff'
             }),
             params: {
                 'username': this.authenticationService.credentials.username
@@ -61,7 +63,9 @@ export class MessageService extends WebApiResultResponse {
 
         return this.http.get(url, {
             headers: new Headers({
-                'AppKey': environment.msgCenter.appKey
+                'AppKey': environment.msgCenter.appKey,
+                'X-XSS-Protection': '1',
+                'X-Content-Type-Options': 'nosniff'
             }),
             params: {
                 'paging': paging,
@@ -76,7 +80,9 @@ export class MessageService extends WebApiResultResponse {
 
         return this.http.get(url, {
             headers: new Headers({
-                'AppKey': environment.msgCenter.appKey
+                'AppKey': environment.msgCenter.appKey,
+                'X-XSS-Protection': '1',
+                'X-Content-Type-Options': 'nosniff'
             }),
             params: {
                 'msgId': msgId

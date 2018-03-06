@@ -55,7 +55,9 @@ export class ProfileService extends WebApiResultResponse {
       cache: true,
       headers: new Headers({
         'appKey': environment.userCenter.appKey,
-        'authToken': this.authenticationService.credentials.token
+        'authToken': this.authenticationService.credentials.token,
+        'X-XSS-Protection': '1',
+        'X-Content-Type-Options': 'nosniff'
       })
     }).map(response => {
       const menuItems = super.handleSuccess(response);
@@ -73,7 +75,9 @@ export class ProfileService extends WebApiResultResponse {
 
     return this.http.get(url, {
       headers: new Headers({
-        'AppKey': environment.userCenter.appKey
+        'AppKey': environment.userCenter.appKey,
+        'X-XSS-Protection': '1',
+        'X-Content-Type-Options': 'nosniff'
       }),
       params: {
         'username': username

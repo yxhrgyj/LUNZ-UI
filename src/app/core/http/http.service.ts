@@ -53,7 +53,8 @@ export class HttpService extends Http {
         let url: string;
 
         const authenticationService: AuthenticationService = this.injector.get(AuthenticationService);
-        const credentials: Credentials = authenticationService.isAuthenticated() ? authenticationService.credentials : null;
+        const credentials: Credentials =
+            authenticationService.isAuthenticated() ? authenticationService.credentials : null;
         const token: string = credentials == null ? null : credentials.token;
 
         if (options && options != null && options.params && options.params != null) {

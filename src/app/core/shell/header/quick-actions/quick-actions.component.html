@@ -23,12 +23,10 @@
             </div>
             <div *ngIf="!modelOption" class="lz-model-add-wr">
               <h5>模块列表</h5>
-              <a class="lz-checkbox" *ngFor="let itemModel of allModelList;let i=index">
-                <label for="{{i}}" (click)="$event.stopPropagation();handle($event,itemModel)">
-                  <input type="checkbox" id="{{i}}" checked="{{itemModel.checked}}" />
-                  <span>{{itemModel.name}}</span>
-                </label>
-              </a>
+              <label class="m-checkbox m-checkbox--state-brand lz-m-checkbox--state-brand" *ngFor="let itemModel of allModelList;let i=index" (click)="$event.stopPropagation();handle($event,itemModel)">
+                <input type="checkbox" checked="{{itemModel.checked}}" />{{itemModel.name}}
+                <span></span>
+              </label>
               <div class="lz-model-add-icon text-center">
                 <i class="lz-my-model-add-icon m-portlet__nav-link m-dropdown__toggle btn btn--sm m-btn--pill btn-secondary m-btn m-btn--label-brand"
                   (click)="$event.stopPropagation();submitCheckedModel()">添加</i>

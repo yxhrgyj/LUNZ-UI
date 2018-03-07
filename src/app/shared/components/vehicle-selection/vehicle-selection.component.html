@@ -20,14 +20,14 @@
                 <a>车型</a>
               </li>
             </ul>
-            <div class="row lz-vehicle-selection-container " [hidden]="carBrand">
-              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+            <div class="row lz-vehicle-selection-container" [hidden]="carBrand">
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 <ul class="list-style list-unstyled lz-vehicle-selection-letter">
                   <li *ngFor="let letter of letterList" [ngClass]="{'lz-vehicle-selection-letter-li-active':letterActive==letter}" (click)="letterActive=letter;getCarbrand(letter)">{{letter}}</li>
                 </ul>
               </div>
-              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                <ul class="list-style list-unstyled text-center">
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <ul class="list-style list-unstyled text-left">
                   <li class="lz-vehicle-selection-item" *ngFor="let carbrand of carBrandList" (click)="getCarSeries(carbrand)">{{carbrand.tree.name}}</li>
                 </ul>
               </div>

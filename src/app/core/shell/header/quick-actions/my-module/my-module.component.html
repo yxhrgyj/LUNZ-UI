@@ -18,7 +18,7 @@
         <i *ngIf="i!==modelList.length-1" (click)="$event.stopPropagation();moveModel(model,i,-1)" class="flaticon-up-arrow lz-hover-clolor lz-move-back"
           title="向后移动"></i>
       </p>
-      <i *ngIf="!editModel" (click)="$event.stopPropagation();removeModel(model,i,modelListName)" class="lz-my-model-remove flaticon-cancel lz-hover-clolor"
+      <i *ngIf="!editModel" (click)="$event.stopPropagation();removeModel(model,i,removeListName)" class="lz-my-model-remove flaticon-cancel lz-hover-clolor"
         title="移除"></i>
     </a>
     <a *ngIf="modelList.length===0">无~~~~</a>

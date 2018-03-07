@@ -18,6 +18,7 @@ export class MyModuleComponent implements OnInit {
     @Input() moveIcon: Boolean;
     @Input() removeAllIcon: Boolean;
     @Input() modelListName: string;
+    @Input() removeListName: string;
     @Input() openHistoryListName: string;
     @Input() modelList: Array<any>;
 
@@ -62,10 +63,10 @@ export class MyModuleComponent implements OnInit {
         localStorage.setItem(`${this.modelListName}`, JSON.stringify(this.modelList));
     };
 
-    removeModel(row: any, i: number, modelListName: any) {
+    removeModel(row: any, i: number, removeListName: any) {
         this.modelList.splice(i, 1);
 
-        localStorage.setItem(`${modelListName}`, JSON.stringify(this.modelList));
+        localStorage.setItem(`${removeListName}`, JSON.stringify(this.modelList));
 
         this.log.info(`${row.name} 移除成功！`);
     };

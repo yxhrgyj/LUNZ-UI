@@ -1,10 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { LoggerFactory } from '../../../core/logger-factory.service';
 import { Logger } from '../../../core/logger.service';
 import { VehicleService } from './vehicle-selection-sevice/vehicle.service';
-
-declare const $: any;
 
 @Component({
     selector: 'app-vehicle-selection',
@@ -12,7 +10,7 @@ declare const $: any;
     styleUrls: ['./vehicle-selection.component.scss']
 })
 
-export class VehicleSelectionComponent implements OnInit, AfterViewInit {
+export class VehicleSelectionComponent implements OnInit {
     @Input() outputType: string;
     @Output() selected = new EventEmitter<Array<any>>();
 
@@ -51,10 +49,6 @@ export class VehicleSelectionComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.getLetterList();
         this.getCarbrand(`A`);
-    };
-
-    ngAfterViewInit() {
-
     };
 
     // 获取字母表

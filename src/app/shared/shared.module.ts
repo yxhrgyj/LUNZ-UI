@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { SweetAlertOptions, SweetAlertType } from 'sweetalert2';
@@ -27,6 +28,8 @@ import { RmbPipe } from './pipes/rmb.pipe';
 import { BsDateValueDirective } from './directives/bs-date-value.directive';
 import { LaddaDirective } from './directives/ladda.directive';
 import { NgxQueryToolbarComponent } from './components/ngx-query-toolbar/ngx-query-toolbar.component';
+import { VehicleSelectionComponent } from './components/vehicle-selection/vehicle-selection.component';
+import { VehicleService } from './components/vehicle-selection/vehicle-selection-sevice/vehicle.service';
 
 export function createDecimalPipe() {
   return new DecimalPipe(environment.localeId);
@@ -37,7 +40,8 @@ export function createDecimalPipe() {
     CommonModule,
     RouterModule,
     NgxDatatableModule,
-    FileUploaderModule
+    FileUploaderModule,
+    FormsModule
   ],
   declarations: [
     LoaderComponent,
@@ -52,7 +56,8 @@ export function createDecimalPipe() {
     RmbPipe,
     BsDateValueDirective,
     LaddaDirective,
-    NgxQueryToolbarComponent
+    NgxQueryToolbarComponent,
+    VehicleSelectionComponent
   ],
   exports: [
     LoaderComponent,
@@ -66,12 +71,14 @@ export function createDecimalPipe() {
     NgxDatatablePagerComponent,
     NgxDatatableActionsComponent,
     NgxQueryToolbarComponent,
+    VehicleSelectionComponent,
     RmbPipe,
     LaddaDirective
   ],
   providers: [
     ConvertService,
-    SharedSessionStorageService
+    SharedSessionStorageService,
+    VehicleService
   ]
 })
 export class SharedModule {

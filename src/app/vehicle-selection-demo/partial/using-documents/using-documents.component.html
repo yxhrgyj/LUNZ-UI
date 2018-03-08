@@ -17,19 +17,14 @@
           <li>
             <span>1、在当前模块的.module.ts中引入车型选择组件和组件所需要的服务，如下:</span>
             <br/>
-            <code> import &#123; VehicleSelectionComponent &#125; from '../shared/components/vehicle-selection/vehicle-selection.component';</code>
-            <br/>
-            <code> import &#123; VehicleService &#125; from '../shared/components/vehicle-selection/vehicle-selection-sevice/vehicle.service';</code>
+            <code> import &#123; SharedModule &#125; from '../shared/shared.module';</code>
           </li>
           <li>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;添加到@NgModule装饰器中:</span>
             <br/>
             <code>@NgModule(&#123;
-              <br/>&nbsp;&nbsp;&nbsp;&nbsp;declarations: [
-              <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VehicleSelectionComponent
-              <br/>&nbsp;&nbsp;&nbsp;&nbsp;],
-              <br/>&nbsp;&nbsp;&nbsp;&nbsp;providers: [
-              <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VehicleService
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;imports: [
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SharedModule
               <br/>&nbsp;&nbsp;&nbsp;&nbsp;]
               <br/>&#125;);
             </code>
@@ -50,7 +45,7 @@
             <span>在.component.ts只需声明用于接受组件传出的事件方法，例如：</span>
             <br/>
             <code>getBrand(event: any) &#123;
-              <br/> &nbsp;&nbsp;&nbsp;&nbsp;console.log(event);
+              <br/> &nbsp;&nbsp;&nbsp;&nbsp;somecode(event);
               <br/>&#125;;</code>
             <br/>
             <span>event即是组件传出的数据，详细见demo</span>

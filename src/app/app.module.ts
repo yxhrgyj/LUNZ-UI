@@ -4,7 +4,6 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { CustomFormsModule } from 'ng2-validation';
 import { TranslateModule } from '@ngx-translate/core';
 // https://github.com/scttcper/ngx-toastr
 import { ToastrModule } from 'ngx-toastr';
@@ -90,7 +89,6 @@ moment.locale(environment.localeId);
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
-        CustomFormsModule,
         HttpModule,
         // 3rd party libraries
         TranslateModule.forRoot(),

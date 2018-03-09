@@ -20,7 +20,7 @@ const routes: Routes = RouteExtensions.withShell([
     { path: '', loadChildren: '../datepicker/datepicker.module#DatepickerModule' },
     { path: '', loadChildren: '../dropdown/dropdown.module#DropdownModule' },
     { path: '', loadChildren: '../form/form.module#FormModule' }
-])
+]);
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

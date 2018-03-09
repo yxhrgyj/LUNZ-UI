@@ -8,8 +8,19 @@
         <h3 class="m-portlet__head-text">表单验证器</h3>
       </div>
     </div>
+    <div class="m-portlet__head-tools">
+      <ul class="m-portlet__nav">
+        <li class="m-portlet__nav-item">
+          <a routerLink="./new" class="btn btn-sm btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--pill">
+            <span>
+              <a [routerLink]="['using-documents']">使用文档</a>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="m-portlet__body p-0">
+  <div class="m-portlet__body">
     <form [formGroup]="form">
       <div class="container-fluid">
         <div class="row">
@@ -17,7 +28,7 @@
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
             <div class="form-group">
               <label for="required">
-                required验证
+                必填验证
                 <small>（必填）</small>
               </label>
               <input type="text" class="form-control" name="required" formControlName="required" />
@@ -28,8 +39,8 @@
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
             <div class="form-group">
               <label for="email">
-                email验证
-                <small>（email）</small>
+                邮箱验证
+                <small>（邮箱）</small>
               </label>
               <input type="text" class="form-control" name="email" formControlName="email" />
               <app-validation-message [control]="form.controls['email']"></app-validation-message>
@@ -39,8 +50,8 @@
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
             <div class="form-group">
               <label for="number">
-                number验证
-                <small>number值</small>
+                数字验证
+                <small>（数字）</small>
               </label>
               <input type="text" class="form-control" name="number" formControlName="number" />
               <app-validation-message [control]="form.controls['number']"></app-validation-message>
@@ -50,8 +61,8 @@
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
             <div class="form-group">
               <label for="min">
-                最小值（number）验证
-                <small>不能小于5</small>
+                最小值数字验证
+                <small>（不能小于5）</small>
               </label>
               <input type="text" class="form-control" name="min" formControlName="min" />
               <app-validation-message [control]="form.controls['min']" label="5"></app-validation-message>
@@ -61,8 +72,8 @@
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
             <div class="form-group">
               <label for="max">
-                最大值（number）验证
-                <small>不能大于5</small>
+                最大值数字验证
+                <small>（不能大于5）</small>
               </label>
               <input type="text" class="form-control" name="max" formControlName="max" />
               <app-validation-message [control]="form.controls['max']" label="5"></app-validation-message>
@@ -73,7 +84,7 @@
             <div class="form-group">
               <label for="rangeLength">
                 字符长度范围验证
-                <small>5-10个字符</small>
+                <small>（5-10个字符）</small>
               </label>
               <input type="text" class="form-control" name="rangeLength" formControlName="rangeLength" />
               <app-validation-message [control]="form.controls['rangeLength']" label="5-10"></app-validation-message>
@@ -84,7 +95,7 @@
             <div class="form-group">
               <label for="date">
                 日期验证
-                <small>日期格式</small>
+                <small>（日期）</small>
               </label>
               <input type="text" class="form-control" name="date" formControlName="date" />
               <app-validation-message [control]="form.controls['date']"></app-validation-message>
@@ -95,7 +106,7 @@
             <div class="form-group">
               <label for="minDate">
                 最小日期验证
-                <small>不能小于2018-03-07</small>
+                <small>（不能小于2018-03-07）</small>
               </label>
               <input type="text" class="form-control" name="minDate" formControlName="minDate" />
               <app-validation-message [control]="form.controls['minDate']" label="2018-03-07"></app-validation-message>
@@ -106,7 +117,7 @@
             <div class="form-group">
               <label for="maxDate">
                 最大日期验证
-                <small>不能大于2018-03-07</small>
+                <small>（不能大于2018-03-07）</small>
               </label>
               <input type="text" class="form-control" name="maxDate" formControlName="maxDate" />
               <app-validation-message [control]="form.controls['maxDate']" label="2018-03-07"></app-validation-message>
@@ -116,7 +127,7 @@
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
             <div class="form-group">
               <label for="phone">
-                phone验证
+                电话号码验证
                 <small>电话号码（通过自定义正则表达式实现）</small>
               </label>
               <input type="text" class="form-control" formControlName="phone" placeholder="联系电话" />
@@ -127,8 +138,8 @@
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
             <div class="form-group">
               <label for="url">
-                url验证
-                <small>url</small>
+                网址验证
+                <small>（网址）</small>
               </label>
               <input type="text" class="form-control" name="url" formControlName="url" />
               <app-validation-message [control]="form.controls['url']"></app-validation-message>
@@ -139,16 +150,12 @@
             <div class="form-group">
               <label for="equalTo">
                 值相同验证
-                <small>输入相同的字段</small>
+                <small>（输入相同的字段）</small>
               </label>
               <input type="text" class="form-control" name="password" formControlName="password" />
               <input type="text" class="form-control" name="equalTo" formControlName="equalTo" />
               <app-validation-message [control]="form.controls['equalTo']"></app-validation-message>
             </div>
-          </div>
-          <!-- 使用文档 -->
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
-            <a [routerLink]="['using-documents']">使用文档</a>
           </div>
         </div>
       </div>

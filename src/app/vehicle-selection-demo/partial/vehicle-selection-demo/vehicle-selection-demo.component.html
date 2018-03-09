@@ -8,8 +8,19 @@
         <h3 class="m-portlet__head-text">车型选择</h3>
       </div>
     </div>
+    <div class="m-portlet__head-tools">
+      <ul class="m-portlet__nav">
+        <li class="m-portlet__nav-item">
+          <a routerLink="./new" class="btn btn-sm btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--pill">
+            <span>
+              <a [routerLink]="['using-documents']">使用文档</a>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="m-portlet__body p-0">
+  <div class="m-portlet__body">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
@@ -29,11 +40,6 @@
         <div class="col-lg-4 col-md-4 col-sm-4">{{brand}}</div>
         <div class="col-lg-4 col-md-4 col-sm-4">{{series}}</div>
         <div class="col-lg-4 col-md-4 col-sm-4">{{model}}</div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <a [routerLink]="['using-documents']">使用方法</a>
-        </div>
       </div>
     </div>
   </div>

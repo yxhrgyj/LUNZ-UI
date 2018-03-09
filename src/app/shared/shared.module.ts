@@ -29,7 +29,7 @@ import { BsDateValueDirective } from './directives/bs-date-value.directive';
 import { LaddaDirective } from './directives/ladda.directive';
 import { NgxQueryToolbarComponent } from './components/ngx-query-toolbar/ngx-query-toolbar.component';
 import { VehicleSelectionComponent } from './components/vehicle-selection/vehicle-selection.component';
-import { VehicleService } from './components/vehicle-selection/vehicle-selection-sevice/vehicle.service';
+import { VehicleService } from './services/vehicle.service';
 
 export function createDecimalPipe() {
   return new DecimalPipe(environment.localeId);

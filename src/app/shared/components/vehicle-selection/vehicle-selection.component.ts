@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { LoggerFactory } from '../../../core/logger-factory.service';
 import { Logger } from '../../../core/logger.service';
-import { VehicleService } from './vehicle-selection-sevice/vehicle.service';
+import { VehicleService } from '../../services/vehicle.service';
 
 declare const $: any;
 
@@ -240,7 +240,8 @@ export class VehicleSelectionComponent implements OnInit {
     // 过滤车系数据
     filterCarSeriesData(array: Array<any>) {
         this.filterTemporaryList = array.filter((item: any) => {
-            return item.name.indexOf(`${this.filterString}`) >= 0;
+            const patt = new RegExp(`${this.filterString}`, `i`);
+            return patt.test(item.name);
         });
 
         this.carSeriesList = this.filterTemporaryList;
@@ -249,7 +250,8 @@ export class VehicleSelectionComponent implements OnInit {
     // 过滤车型数据
     filterCarModelsData(array: Array<any>) {
         this.filterTemporaryList = array.filter((item: any) => {
-            return item.mosaicName.indexOf(`${this.filterString}`) >= 0;
+            const patt = new RegExp(`${this.filterString}`, `i`);
+            return patt.test(item.mosaicName);
         });
 
         this.carModelList = this.filterTemporaryList;

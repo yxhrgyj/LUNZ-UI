@@ -8,13 +8,40 @@
         <h3 class="m-portlet__head-text">文件上传</h3>
       </div>
     </div>
+    <div class="m-portlet__head-tools">
+      <ul class="m-portlet__nav">
+        <li class="m-portlet__nav-item">
+          <a routerLink="./new" class="btn btn-sm btn-secondary m-btn m-btn--hover-brand m-btn--icon m-btn--pill">
+            <span>
+              <a [routerLink]="['using-documents']">使用文档</a>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="m-portlet__body p-0">
+  <div class="m-portlet__body">
     <div class="container-fluid ">
       <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 ">
+        <div class="col-lg-6 col-md-6 col-sm-6">
           <p>
-            <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" [drag]="true" [multiple]="true">
+            <el-upload class="upload-demo" action="{{url}}" list-type="text" [drag]="true" [multiple]="true" [show-file-list]="true"
+              [headers]="headers" (success)="successHandle($event)" (error)="errorHandle($event)" (remove)="removeHandle($event)"
+              (preview)="previewHandle($event)" (progress)="progressHandle($event)">
+              <ng-template #trigger>
+                <i class="el-icon-upload"></i>
+                <div class="el-upload__text">将文件拖到此处，或
+                  <em>点击上传</em>
+                </div>
+              </ng-template>
+            </el-upload>
+          </p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <p>
+            <el-upload class="upload-demo" action="{{url}}" list-type="picture" [drag]="true" [multiple]="true" [show-file-list]="true"
+              [headers]="headers" (success)="successHandle($event)" (error)="errorHandle($event)" (remove)="removeHandle($event)"
+              (preview)="previewHandle($event)" (progress)="progressHandle($event)">
               <ng-template #trigger>
                 <i class="el-icon-upload"></i>
                 <div class="el-upload__text">将文件拖到此处，或

@@ -39,7 +39,7 @@
                     trim />
                 </div>
                 <div class="container lz-vehicle-selection-container">
-                  <ul class="list-style list-unstyled text-center">
+                  <ul class="list-style list-unstyled text-left">
                     <li *ngFor="let carSeries of carSeriesList" class="lz-vehicle-selection-item" [ngClass]="{'lz-vehicle-selection-cartitle':carSeries.title}"
                       (click)="getCarModels(carSeries)">{{carSeries.name}}</li>
                   </ul>
@@ -53,7 +53,7 @@
                     trim />
                 </div>
                 <div class="container lz-vehicle-selection-container">
-                  <ul class="list-style list-unstyled text-center">
+                  <ul class="list-style list-unstyled text-left">
                     <li *ngFor="let carModels of carModelList" class="lz-vehicle-selection-item" [ngClass]="{'lz-vehicle-selection-cartitle':carModels.title}"
                       (click)="selectCarModels(carModels)">
                       {{carModels.mosaicName}}

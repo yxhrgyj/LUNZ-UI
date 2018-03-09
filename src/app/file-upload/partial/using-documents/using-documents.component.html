@@ -5,17 +5,13 @@
         <span class="m-portlet__head-icon">
           <i class="flaticon-interface-2"></i>
         </span>
-        <h3 class="m-portlet__head-text">表单验证器使用文档</h3>
+        <h3 class="m-portlet__head-text">文件上传使用文档</h3>
       </div>
     </div>
   </div>
   <div class="m-portlet__body">
     <p>
-      官方使用文档见：
-      <a href="https://www.npmjs.com/package/ng2-validation">“ng2-validation”.</a>
-      <span>此表单验证器，包括常见的必填验证、数字验证、最小/大值验证、字符长度验证、日期验证、最小/大日期验证、 email验证、url验证、字段相同验证等，电话号码验证不能针对国内常见电话号码格式验证， 因此在demo中利用正则表达式来验证。各种验证方法雷同，这里拿required举例，更多不常见信息验证请查看
-        <a href="https://www.npmjs.com/package/ng2-validation">官网</a>。
-      </span>
+        
     </p>
     <ul>
       <li>
@@ -45,10 +41,10 @@
       </li>
       <li>
         <code>
-          &lt;form [formGroup]="form"&gt;<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control" name="email" formControlName="email" /&gt;<br/>
-             &nbsp;&nbsp;&nbsp;&nbsp;&lt;app-validation-message [control]="form.controls['email']"&gt;&lt;/app-validation-message&gt;
-             <br/>&lt;/form&gt;
+          &lt;form [formGroup]="form"&gt;
+          <br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control" name="email" formControlName="email" /&gt;
+          <br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;app-validation-message [control]="form.controls['email']"&gt;&lt;/app-validation-message&gt;
+          <br/>&lt;/form&gt;
         </code>
       </li>
       <li>

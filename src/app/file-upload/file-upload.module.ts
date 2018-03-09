@@ -7,6 +7,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { FileUploadRoutingModule } from './file-upload-routing.module';
 
 import { FileUploadDemoComponent } from './partial/file-upload-demo/file-upload-demo.component';
+import { UsingDocumentsComponent } from './partial/using-documents/using-documents.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { FileUploadDemoComponent } from './partial/file-upload-demo/file-upload-
         ElModule.forRoot(),
     ],
     declarations: [
-        FileUploadDemoComponent
+        FileUploadDemoComponent,
+        UsingDocumentsComponent
     ]
 })
 export class FileUploadModule { }

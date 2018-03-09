@@ -4,6 +4,8 @@ import { LoggerFactory } from '../../../core/logger-factory.service';
 import { Logger } from '../../../core/logger.service';
 import { VehicleService } from './vehicle-selection-sevice/vehicle.service';
 
+declare const $: any;
+
 @Component({
     selector: 'app-vehicle-selection',
     templateUrl: './vehicle-selection.component.html',
@@ -16,12 +18,12 @@ export class VehicleSelectionComponent implements OnInit {
 
     log: Logger;
 
-    operationShow: Boolean = true;
     carSeriesNav: Boolean = true;
     carModelNav: Boolean = true;
     carBrand: Boolean = false;
     carSeries: Boolean = true;
     carModels: Boolean = true;
+    isclose: Boolean = false;
 
     letterList: Array<any>;
     carBrandList: Array<any>;
@@ -132,6 +134,12 @@ export class VehicleSelectionComponent implements OnInit {
         });
     };
 
+    removeClass(element: any, className: any) {
+        element.className = element.className.replace(new RegExp(className), '');
+    }
+
+
+
     // 获取车系列
     getCarSeries(item: any) {
         if (this.outputType === `brand`) {
@@ -143,9 +151,15 @@ export class VehicleSelectionComponent implements OnInit {
 
             this.selected.emit(this.outGoingList);
 
-            this.operationShow = true;
+            // let dropdown = document.getElementById('dropdown');
+            // let className = dropdown.className;
+
+            // if (className.indexOf('m-dropdown--open') > 0) {
+            //     this.removeClass(dropdown, 'm-dropdown--open');
+            // }
 
             return;
+
         } else if (this.outputType === `series`) {
             this.outPutBrand = `${item.tree.name}`;
             this.outPutResult = `${item.tree.name}/车系/车型`;
@@ -185,10 +199,8 @@ export class VehicleSelectionComponent implements OnInit {
             this.outGoingList['carSeriesId'] = item.id;
 
             this.selected.emit(this.outGoingList);
-
-            this.operationShow = true;
-
             return;
+
         } else if (this.outputType === `model`) {
             this.outPutSeries = `${item.name}`;
             this.outPutResult = `${this.outPutBrand}/${item.name}/车型`;
@@ -223,7 +235,6 @@ export class VehicleSelectionComponent implements OnInit {
 
         this.selected.emit(this.outGoingList);
 
-        this.operationShow = true;
     };
 
     // 过滤车系数据
